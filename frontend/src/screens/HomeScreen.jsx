@@ -4,6 +4,7 @@ import { Image, ListGroup, Col, Row, Button } from "react-bootstrap";
 
 function HomeScreen() {
   return (
+
     <>
       <Row>
         <Col md={5}>
@@ -27,6 +28,7 @@ function HomeScreen() {
         </Col>
       </Row>
     </>
+
   );
 }
 

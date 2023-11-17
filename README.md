@@ -2,7 +2,6 @@
 
 Official Full Stack E-commerce Website for thetropicalcollection.com
 
-
 See it in action at https://www.placeholder.com
 
 Built by Wendy Wang, Amina Olu and Rivka Weingarten
@@ -23,3 +22,6 @@ Built by Wendy Wang, Amina Olu and Rivka Weingarten
 - PayPal / credit card integration
 - Database seeder (products & users)
 
+## References
+
+-https://react-bootstrap.netlify.app/docs/components/cards/
