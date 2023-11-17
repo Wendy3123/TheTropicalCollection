@@ -11,7 +11,7 @@ import "./styles/cards.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="backgroundimage">
       <BrowserRouter>
         <Header />
         <Routes>

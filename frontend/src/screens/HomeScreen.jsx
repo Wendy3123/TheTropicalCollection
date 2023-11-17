@@ -1,35 +1,38 @@
 import React from "react";
-import logo from "../styles/logo-small.png";
-import { Image, ListGroup, Col, Row, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function HomeScreen() {
   return (
-    <div className="hero">
-      <Row>
-        <Col md={5}>
-          <Image
-            src="https://thetropicalcollection.com/fruit-dish.jpeg"
-            alt="Jar of Dried Fruits"
-            fluid
-          ></Image>
-        </Col>
-        <Col md={4}>
-          <ListGroup.Item>
-            <h3 className="title">Fresh Fruit is the ONLY ingredient!</h3>
-            <Image src={logo} alt="logo" fluid></Image>
+    <div className="homepagecontainer">
+      <div className="homepageleft">
+        <img
+          className="homepageimg"
+          src="https://thetropicalcollection.com/fruit-dish.jpeg"
+          alt="homescreen pic"
+        ></img>
+      </div>
 
-            </ListGroup.Item>
-            <ListGroup.Item>
-            <Link  to ="/products">
-          <Button variant="outline-primary">
-             See Our Products
+      <div className="homepageright">
+        <h2 className="homepageh2tag">Fresh Fruit is the ONLY ingredient!</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
+          hic fuga similique dicta commodi laborum placeat, at voluptate autem
+          id quis magnam distinctio, cumque officia veritatis sunt nostrum quae
+          architecto quia? Illum vero in at nobis, dignissimos quod, rem,
+          voluptate numquam quaerat autem libero obcaecati eaque modi odio!
+          Molestiae dolorem itaque modi consectetur, qui vitae nostrum
+          perferendis illum odio ea laudantium exercitationem iusto incidunt
+          soluta quasi eos accusamus praesentium nisi hic omnis possimus
+          inventore molestias sequi voluptas? Minus, quisquam minima modi
+          dolores ullam magnam debitis reprehenderit cupiditate! Odit, incidunt?
+          Molestias explicabo voluptates qui doloribus dicta, alias possimus
+          voluptatem illum rerum!
+        </p>
 
-            </Button>
-            </Link> 
-          </ListGroup.Item>
-        </Col>
-      </Row>
+        <Link to="products">
+          <button className="homepagebutton">See Our Products</button>
+        </Link>
+      </div>
     </div>
   );
 }
