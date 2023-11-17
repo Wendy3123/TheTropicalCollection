@@ -7,8 +7,7 @@ import ErrorScreen from "./screens/ErrorScreen";
 import ProductScreen from "./screens/ProductScreen";
 import "./styles/bootstrap.custom.css";
 import "./styles/index.css";
-
-
+import "./styles/cards.css";
 
 function App() {
   return (

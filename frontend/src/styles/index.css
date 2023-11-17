@@ -1,9 +1,14 @@
-body {
-  background-image: url("background.png");
+/* body {
+  background-image: url("wooden-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: inset 0 0 0 5000px rgba(237, 237, 196, 0.3);
   background-clip: content-box;
+} */
+.hero {
+  height: 100%;
+  background-image: url("wooden-background.jpg");
+  background-size: cover;
 }
 
 frontend/src/assets/background.png main {

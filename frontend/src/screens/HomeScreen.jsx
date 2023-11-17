@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function HomeScreen() {
   return (
-    <div>
+    <div className="hero">
       <Row>
         <Col md={5}>
           <Image
