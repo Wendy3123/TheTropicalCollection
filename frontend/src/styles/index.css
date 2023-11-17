@@ -1,8 +1,10 @@
+
 .backgroundimage {
   height: 100%;
   background-image: url("wooden-background.jpg");
   background-size: cover;
 }
+
 .homepagecontainer {
   width: 100%;
   height: 100vh;
