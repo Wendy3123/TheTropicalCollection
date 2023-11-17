@@ -1,19 +1,28 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import HomeScreen from "./screens/HomeScreen";
+import ErrorScreen from "./screens/ErrorScreen";
+import ProductScreen from "./screens/ProductScreen"
+import "./styles/bootstrap.custom.css";
+import "./styles/index.css";
 
 function App() {
   return (
-    <>
-      <main className="py-3">
-        <Container>
-          <h1>Welcome to The Tropical Collection</h1>
-        </Container>
-      </main>
-    </>
+    <div className="App">
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomeScreen />}></Route>
+          <Route path="*" element={<ErrorScreen />}></Route>
+           <Route path="/product/:id" element={<ProductScreen />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
 }
-
 
 export default App;
