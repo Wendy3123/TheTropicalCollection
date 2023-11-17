@@ -1,20 +1,20 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import products from "../products";
 import Product from "../components/Product";
 
 function ProductScreen() {
   return (
     <div>
-      <h1>Kosher Dried Fruits</h1>
-      <Row>
+      <h1 className="header1centered">Kosher Dried Fruits</h1>
+      <div className="cardboxflex">
         {products.map((product) => (
-          <Col sm={12} md={6} lg={4} xl={3}>
-            {product.img}
+          <div className="eachcard">
+            <Image src={product.img}></Image>
             <Product product={product} />
-          </Col>
+          </div>
         ))}
-      </Row>
+      </div>
     </div>
   );
 }
