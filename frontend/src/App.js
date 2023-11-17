@@ -11,6 +11,7 @@ function App() {
           <h1>Welcome to The Tropical Collection</h1>
         </Container>
       </main>
+      <Footer />
     </>
   );
 }

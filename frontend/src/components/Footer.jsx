@@ -7,7 +7,9 @@ function Footer() {
     <footer>
       <Container>
         <Row>
-          <Col className="text-center py-3"></Col>
+          <Col className="text-center py-3">
+            <p>The Tropical Collection &copy; {currentYear} </p>
+          </Col>
         </Row>
       </Container>
     </footer>
