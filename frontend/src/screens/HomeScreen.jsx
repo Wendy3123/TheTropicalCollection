@@ -22,7 +22,7 @@ function HomeScreen() {
             </ListGroup.Item>
             <ListGroup.Item>
             <Link  to ="/products">
-          <Button variant="outline-primary">
+          <Button variant="outline-primary float-end ">
              See Our Products
             </Button>
             </Link> 

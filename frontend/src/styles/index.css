@@ -2,8 +2,9 @@ body{
 background-image: url("wooden-background.jpg");
 background-repeat: no-repeat;
 background-size: cover;
-box-shadow: inset 0 0 0 2000px rgba(237, 237, 196, 0.3);
-
+box-shadow: inset 0 0 0 5000px rgba(237, 237, 196, 0.3);
+background-clip: content-box;
+/* background-attachment: fixed; */
 
 }
 frontend/src/assets/wooden-background.jpg
