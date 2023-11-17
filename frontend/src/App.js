@@ -3,7 +3,11 @@ import { Container } from "react-bootstrap";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { Outlet } from "react-router-dom";
+import HomeScreen from "./screens/HomeScreen";
+import ErrorScreen from "./screens/ErrorScreen";
+import ProductScreen from "./screens/ProductScreen";
+import "./styles/bootstrap.custom.css";
+import "./styles/index.css";
 
 import HomeScreen from "./screens/HomeScreen";
 import ErrorScreen from "./screens/ErrorScreen";
@@ -18,8 +22,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomeScreen />}></Route>
+          <Route path="/products" element={<ProductScreen />}></Route>
           <Route path="*" element={<ErrorScreen />}></Route>
-           <Route path="/product/:id" element={<ProductScreen />} />
         </Routes>
         <Footer />
       </BrowserRouter>
