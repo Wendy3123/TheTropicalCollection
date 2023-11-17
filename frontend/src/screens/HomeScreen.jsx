@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../styles/logo-small.png";
 import { Image, ListGroup, Col, Row, Button } from "react-bootstrap";
+import {Link} from "react-router-dom"
 
 function HomeScreen() {
   return (

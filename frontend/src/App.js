@@ -8,11 +8,7 @@ import ProductScreen from "./screens/ProductScreen";
 import "./styles/bootstrap.custom.css";
 import "./styles/index.css";
 
-import HomeScreen from "./screens/HomeScreen";
-import ErrorScreen from "./screens/ErrorScreen";
-import ProductScreen from "./screens/ProductScreen"
-import "./styles/bootstrap.custom.css";
-import "./styles/index.css";
+
 
 function App() {
   return (
