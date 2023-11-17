@@ -5,7 +5,7 @@ import Product from "../components/Product";
 
 function ProductScreen() {
   return (
-    <>
+    <div>
       <h1>Kosher Dried Fruits</h1>
       <Row>
         {products.map((product) => (
@@ -15,7 +15,7 @@ function ProductScreen() {
           </Col>
         ))}
       </Row>
-    </>
+    </div>
   );
 }
 

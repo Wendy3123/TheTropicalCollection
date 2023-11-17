@@ -1,12 +1,11 @@
 import React from "react";
 import logo from "../styles/logo-small.png";
 import { Image, ListGroup, Col, Row, Button } from "react-bootstrap";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function HomeScreen() {
   return (
-
-    <>
+    <div>
       <Row>
         <Col md={5}>
           <Image
@@ -19,17 +18,15 @@ function HomeScreen() {
           <ListGroup.Item>
             <h3 className="title">Fresh Fruit is the ONLY ingredient!</h3>
             <Image src={logo} alt="logo" fluid></Image>
-          
           </ListGroup.Item>
           <ListGroup.Item>
-          <Button ClassName="outline-primary float-end">
-             <Link to ="/products">See Our Products</Link> 
+            <Button ClassName="outline-primary float-end">
+              <Link to="/products">See Our Products</Link>
             </Button>
           </ListGroup.Item>
         </Col>
       </Row>
-    </>
-
+    </div>
   );
 }
 
