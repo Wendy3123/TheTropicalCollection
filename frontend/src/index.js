@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -8,6 +9,7 @@ import {
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"; //default bootstrap styles
 import "./index.css";
+
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import HomeScreen from "./screens/HomeScreen";
