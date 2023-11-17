@@ -1,3 +1,4 @@
+
 body{
 background-image: url("wooden-background.jpg");
 background-repeat: no-repeat;
@@ -6,9 +7,9 @@ box-shadow: inset 0 0 0 5000px rgba(237, 237, 196, 0.3);
 background-clip: content-box;
 
 }
-frontend/src/assets/wooden-background.jpg
-main {
-  min-height: 80vh;
+
+frontend/src/assets/background.png main {
+  height: 100%;
 }
 
 .rating span {
@@ -60,4 +61,3 @@ table th {
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
 }
-
