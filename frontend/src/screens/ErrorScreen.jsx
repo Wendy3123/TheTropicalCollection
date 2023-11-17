@@ -10,6 +10,7 @@ export default function error404() {
           width="200"
           length="200"
           src="https://th.bing.com/th/id/R.0ef4893738237a51cccc335e1984be2f?rik=m49oZyvuk2ykUw&pid=ImgRaw&r=0"
+          alt="error img"
         />
       </div>
       <p>Oops, sorry, we can't find this page!</p>
