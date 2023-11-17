@@ -18,11 +18,15 @@ function HomeScreen() {
           <ListGroup.Item>
             <h3 className="title">Fresh Fruit is the ONLY ingredient!</h3>
             <Image src={logo} alt="logo" fluid></Image>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <Button ClassName="outline-primary float-end">
-              <Link to="/products">See Our Products</Link>
+
+            </ListGroup.Item>
+            <ListGroup.Item>
+            <Link  to ="/products">
+          <Button variant="outline-primary">
+             See Our Products
+
             </Button>
+            </Link> 
           </ListGroup.Item>
         </Col>
       </Row>
