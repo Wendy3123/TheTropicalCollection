@@ -8,9 +8,10 @@
 }
 
 .productimg {
-  margin: 4.3% 0 0 15%;
-  width: 70%;
+  margin: 4.3% 0 0 13%;
+  width: 75%;
   height: 200px;
+  border-radius: 5px;
 }
 
 .productoutterbox {
@@ -41,4 +42,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 22px;
+}
+
+.outterardbutton {
+  display: flex;
+  justify-content: center;
+}
+.cardbutton {
+  width: 115px;
+  height: 30px;
+  color: #1a1818;
+  border-radius: 40px;
+  border: 1px yellow solid;
+  background-color: rgb(242, 227, 56);
+}
+
+.carddropdown {
+  padding-right: 4%;
+}
+
+.select {
+  width: 35px;
+  overflow-y: scroll;
+  height: 30px;
 }
