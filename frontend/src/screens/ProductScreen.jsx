@@ -11,6 +11,7 @@ function ProductScreen() {
         {products.map((product) => (
           <div className="eachcard">
             {/* <Image src={product.img}></Image> */}
+
             <Product product={product} />
           </div>
         ))}
