@@ -1,4 +1,6 @@
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+
 /* body{
 background-image: url("wooden-background.jpg");
 background-repeat: no-repeat;
@@ -18,6 +20,7 @@ main {
   height: 100%;
   background-image: url("wooden-background.jpg");
   background-size: cover;
+  box-shadow: inset 0 0 0 5000px rgba(237, 237, 196, 0.5);
 }
 
 .homepagecontainer {
@@ -87,4 +90,5 @@ main {
 
 .homepageh2tag {
   display: inline;
+  font-family: 'Poppins';
 }

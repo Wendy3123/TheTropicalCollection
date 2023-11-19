@@ -14,7 +14,7 @@ function Products({ product }) {
         <Link to={`/products/${product._id}`}>
           <h4 className="aligntext">{product.name}</h4>
         </Link>
-        <h4 className="aligntext">{product.price}</h4>
+        <h4 className="aligntext">${product.price}</h4>
         <div className="outterardbutton">
           <div className="carddropdown">
             <select className="select ">
