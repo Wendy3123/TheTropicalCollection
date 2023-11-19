@@ -1,5 +1,4 @@
 import React from "react";
-import { Image } from "react-bootstrap";
 import products from "../products";
 import Product from "../components/Product";
 
