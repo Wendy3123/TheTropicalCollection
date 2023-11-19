@@ -1,4 +1,4 @@
-# TheTropicalCollection
+# The Tropical Collection
 
 Official Full Stack E-commerce Website for thetropicalcollection.com
 
