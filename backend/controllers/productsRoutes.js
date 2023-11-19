@@ -2,11 +2,9 @@ import  express from 'express'
 const router =express.Router()
 
 
-// show all products
-router.get("/", async (req, res) => {
+  router.get("/", async (req, res) => {
     const products = await Product.find({})
-  
-        res.json(products);
+          res.json(products);
       })
       .patch((err) => {
         console.log(err);
@@ -23,3 +21,7 @@ router.get("/:id", async (req, res) => {
         console.log("err", err);
         res.status(500).json({ error: "An error occurred" });
       });
+
+
+// show all products
+export default router
