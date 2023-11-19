@@ -17,12 +17,12 @@
 
 .productoutterbox {
   border: 4px solid rgb(176, 169, 169);
-
   background-color:  rgba(225,225,225, 0.4);
-
   border-radius: 20px;
   width: 290px;
   height: 360px;
+  margin-bottom: 20px;
+  
 }
 
 .productoutterbox:hover {
