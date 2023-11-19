@@ -1,21 +1,15 @@
 import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
-import router from "./controllers/productsRoutes.js";
 import connectDB from "./config/db.js";
 connectDB();
+import router from "./controllers/productsRoutes.js";
 
-// Initialize the app object.
 const app = express();
-
 app.use("/api/products", router);
 
 // Create a homepage route.
-
 app.get("/", function (req, res) {
-  // This gets sent to the client
-
-  // (your web browser most likely!)
   res.send("Hello world");
 });
 
