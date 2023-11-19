@@ -4,17 +4,21 @@ function Products({ product }) {
   return (
     <main className="productoutterbox">
       <div classname="productbox">
-        <Link to={`/products/${product.name}`} className="innerproductbox">
+        <Link to={`/products/${product._id}`} className="innerproductbox">
+
+
           <img
             className="productimg"
             src={product.image}
             alt={product.name}
           ></img>
+
         </Link>
-        <Link to={`/products/${product.name}`}>
+        <Link to={`/products/${product._id}`}>
           <h4 className="aligntext">{product.name}</h4>
         </Link>
-        <h4 className="aligntext">{product.price}</h4>
+        <h4 className="aligntext">${product.price}</h4>
+
         <div className="outterardbutton">
           <div className="carddropdown">
             <select className="select ">

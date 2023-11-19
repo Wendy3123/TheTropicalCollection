@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import HomeScreen from "./screens/HomeScreen";
 import ErrorScreen from "./screens/ErrorScreen";
 import ProductScreen from "./screens/ProductScreen";
+import EachProductScreen from "./screens/EachProductScreen";
+
 import "./styles/bootstrap.custom.css";
 import "./styles/index.css";
 import "./styles/cards.css";
@@ -17,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomeScreen />}></Route>
           <Route path="/products" element={<ProductScreen />}></Route>
+          <Route path="/products/:id" element={<EachProductScreen />}></Route>
           <Route path="*" element={<ErrorScreen />}></Route>
         </Routes>
         <Footer />

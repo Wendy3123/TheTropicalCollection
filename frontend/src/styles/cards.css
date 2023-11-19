@@ -11,16 +11,24 @@
   margin: 4.3% 0 0 13%;
   width: 75%;
   height: 200px;
-  border-radius: 5px;
+  border-radius: 15px;
+
 }
 
 .productoutterbox {
   border: 4px solid rgb(176, 169, 169);
-  background-color: white;
+
+  background-color:  rgba(225,225,225, 0.4);
+
   border-radius: 20px;
   width: 290px;
   height: 360px;
 }
+
+.productoutterbox:hover {
+  background-color: white;
+}
+
 
 .innerproductbox {
   display: flex;
@@ -52,10 +60,18 @@
 .cardbutton {
   width: 115px;
   height: 30px;
-  color: #1a1818;
+
+  color: #00004d;
   border-radius: 40px;
-  border: 1px yellow solid;
-  background-color: rgb(242, 227, 56);
+  border: 1px #00004d solid;
+  background-color:  transparent;
+}
+
+.cardbutton:hover{
+  color: white;
+  border: 1px white solid;
+  background-color:  #00004d ;
+
 }
 
 .carddropdown {
