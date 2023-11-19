@@ -1,8 +1,10 @@
 import express from "express";
 const router = express.Router();
+
 import Product from "../models/productModel.js";
 import User from "../models/userModel.js";
 import Order from "../models/orderModel.js";
+
 
 
 //FETCHES ALL PRODUCTS  ==> /api/products
