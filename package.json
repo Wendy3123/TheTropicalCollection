@@ -14,7 +14,7 @@
     "data:import": "node backend/seeder.js",
     "data:destroy": "node backend/seeder.js -d"
   },
-  "author": "Wendy Wang",
+  "author": "Wendy, Amina, Rivka",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
