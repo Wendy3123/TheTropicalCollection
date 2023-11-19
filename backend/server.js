@@ -5,6 +5,7 @@ import connectDB from "./config/db.js";
 connectDB();
 import router from "./controllers/productsRoutes.js";
 
+
 const app = express();
 app.use("/api/products", router);
 

@@ -1,25 +1,21 @@
 {
-  "name": "thetropicalcollection",
-  "type": "module",
+  "name": "the-tropical-collection",
   "version": "1.0.0",
-  "description": "Official Full Stack E-commerce Website for thetropicalcollection.com",
+  "description": "ecommerce for tropical fruits",
+  "type": "module",
   "main": "server.js",
-
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "data:import": "node backend/seeder.js",
-    "data:destroy": "node backend/seeder.js -d"
+    "dev": "concurrently  \"npm run server\" \"npm run client\""
   },
-  "author": "Wendy Wang",
+  "author": "Rivka",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "express": "^4.18.2",
-    "mongoose": "^8.0.0"
+    "mongoose": "^8.0.1"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
