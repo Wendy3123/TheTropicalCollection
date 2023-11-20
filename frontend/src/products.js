@@ -20,7 +20,7 @@ const products = [
     _id: "3",
     name: "Circle of Color",
     image: "./images/round_plate.jpg",
-    description: "Rainbow of healthy beautiful and delicious",
+    description: "Rainbow of healthy, beautiful and delicious",
     category: "Dried Fruits",
     price: 100,
   },
