@@ -9,7 +9,6 @@ Built by Wendy Wang, Amina Olu and Rivka Weingarten
 ## Features
 
 - Full featured shopping cart
-- Product reviews and ratings
 - Top products carousel
 - Product pagination
 - Product search feature
@@ -18,8 +17,6 @@ Built by Wendy Wang, Amina Olu and Rivka Weingarten
 - Admin user management
 - Admin Order details page
 - Mark orders as delivered option
-- Checkout process (shipping, payment method, etc)
-- PayPal / credit card integration
 - Database seeder (products & users)
 
 ## References
