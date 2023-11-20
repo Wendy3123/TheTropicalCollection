@@ -25,3 +25,5 @@ Built by Wendy Wang, Amina Olu and Rivka Weingarten
 ## References
 
 -https://react-bootstrap.netlify.app/docs/components/cards/
+https://redux-toolkit.js.org/rtk-query/overview
+
