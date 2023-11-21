@@ -139,6 +139,10 @@ background-clip: content-box;
   width: 80%;
 }
 
+.eachProductgoBackButton {
+  margin-left: 15vw;
+}
+
 @media (max-width: 760px) {
   .each-product-container {
     display: block;
@@ -159,12 +163,15 @@ background-clip: content-box;
   .each-product-button {
     margin-left: 7vw;
   }
+  .eachProductgoBackButton {
+    margin-left: 7vw;
+  }
 }
 
 @media (max-width: 1050px) and (min-width: 760px) {
   .each-product-image {
     width: 50vw;
-    height: 50vh;
+    height: 51vh;
     margin-left: 6.8vw;
   }
   .each-product-name {
@@ -179,5 +186,8 @@ background-clip: content-box;
   }
   .hr {
     width: 30vw;
+  }
+  .eachProductgoBackButton {
+    margin-left: 7vw;
   }
 }

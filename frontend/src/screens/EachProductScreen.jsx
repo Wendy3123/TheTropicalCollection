@@ -18,9 +18,12 @@ function EachProductScreen() {
 
   return (
     <>
-      <Link className="btn btn-light my-3" to="/products">
-        Go Back
-      </Link>
+      <div className="eachProductgoBackButton">
+        <Link className="btn btn-light my-3" to="/products">
+          Go Back
+        </Link>
+      </div>
+
       <div className="each-product-container">
         <div className="each-product-left">
           <Image
