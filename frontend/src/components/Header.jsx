@@ -7,7 +7,7 @@ function Header() {
          <li></li>
          <li>
            <a href="/" rel="Home Page">
-             Home
+             
            </a>
          </li>
          <li>
