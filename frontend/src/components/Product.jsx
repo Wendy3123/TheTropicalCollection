@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { ShopContext } from "../context/ShopContext";
+import { useContext } from "react";
 
 function Products({ product }) {
+  const { addToCart } = useContext(ShopContext);
   return (
     <main className="productoutterbox">
       <div classname="productbox">

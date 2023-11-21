@@ -16,11 +16,15 @@ import CartScreen from "./screens/CartScreen";
 import "./styles/bootstrap.custom.css";
 import "./styles/index.css";
 import "./styles/cards.css";
+import { ShopContextProvider } from "./context/ShopContext";
 
+//all components now have access to shopContextProvider
 function App() {
   return (
     <div className="backgroundimage">
+
      <CurrentUserProvider>
+       <ShopContextProvider>
       <BrowserRouter>
         <Header />
         <Routes>
@@ -34,6 +38,7 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
+      </ShopContextProvider>
       </CurrentUserProvider>
     </div>
   );
