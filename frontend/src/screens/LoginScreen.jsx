@@ -2,6 +2,7 @@
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router"
 import { CurrentUser } from "../contexts/CurrentUser.js"
+import {Link} from 'react-router-dom'
 import "../styles/login.css"
 
 function LoginScreen() {
@@ -59,7 +60,8 @@ function LoginScreen() {
           </div>
                <button className="login-button">Login</button>
 
-        <p className="login-text">Don't have an account? <a href="#">Register</a> </p>
+        <p className="login-text">Don't have an account? 
+       <Link to = "/signup/" >Register</Link> </p>
       </form>
     </div>
     </div>
