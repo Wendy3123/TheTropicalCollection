@@ -25,4 +25,30 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// 'ADD Product ROUTE'
+router.post("/", (req, res) => {
+  console.log(req.body);
+  db.Product.create(req.body)
+    .then((createdProduct) => {
+      res.json(createdProduct);
+    })
+    .catch((err) => {
+      console.log("err", err);
+      res.status(500).json({ error: "An error occurred" });
+    });
+});
+
+//Edit Product Route
+router.put("/:id", (req, res) => {
+  console.log(req.body);
+  db.Product.findByIdAndUpdate(req.params.id, req.body)
+    .then((products) => {
+      res.json(products);
+    })
+    .catch((err) => {
+      console.log("err", err);
+      res.status(500).json({ error: "An error occurred" });
+    });
+});
+
 export default router;
