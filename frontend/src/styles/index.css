@@ -92,11 +92,12 @@ background-clip: content-box;
 }
 
 .each-product-image {
-  width: 100%;
-  height: 55vh;
+  width: 40vw;
+  height: 60vh;
   display: block;
   object-position: center;
-  margin-left: 5vw;
+  margin-left: 15vw;
+  border-radius: 15px;
 }
 
 .each-product-left {
@@ -104,7 +105,7 @@ background-clip: content-box;
 }
 
 .each-product-right {
-  width: 50vw;
+  width: 5.5vw;
   text-align: center;
 }
 
@@ -114,6 +115,7 @@ background-clip: content-box;
   display: flex;
   justify-content: center;
   margin-top: 5vh;
+  margin-bottom: -80px;
 }
 
 .each-product-name,
@@ -121,7 +123,7 @@ background-clip: content-box;
 .each-product-price,
 .hr,
 .each-product-button {
-  margin-left: 7vw;
+  margin-left: 85px;
 }
 
 .each-product-button {
@@ -131,9 +133,51 @@ background-clip: content-box;
   border-radius: 40px;
   border: 1px yellow solid;
   background-color: rgb(242, 227, 56);
-  padding-bottom: 30px;
 }
 
 .hr {
-  width: 350px;
+  width: 80%;
+}
+
+@media (max-width: 760px) {
+  .each-product-container {
+    display: block;
+    margin-top: 8px;
+  }
+  .each-product-image {
+    width: 75vw;
+    height: 50vh;
+    margin-left: 7vw;
+  }
+  .each-product-name {
+    margin-top: 20px;
+  }
+  .each-product-name,
+  .each-product-description,
+  .each-product-price,
+  .hr,
+  .each-product-button {
+    margin-left: 7vw;
+  }
+}
+
+@media (max-width: 1050px) and (min-width: 760px) {
+  .each-product-image {
+    width: 50vw;
+    height: 50vh;
+    margin-left: 6.8vw;
+  }
+  .each-product-name {
+    margin-top: 20px;
+  }
+  .each-product-name,
+  .each-product-description,
+  .each-product-price,
+  .hr,
+  .each-product-button {
+    margin-left: 17vw;
+  }
+  .hr {
+    width: 30vw;
+  }
 }
