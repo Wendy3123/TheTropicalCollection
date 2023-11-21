@@ -1,7 +1,7 @@
-import { useState, useEffect, UseParams } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Image } from "react-bootstrap";
 
 function EachProductScreen() {
   const [product, setProduct] = useState({});
