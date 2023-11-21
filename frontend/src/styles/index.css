@@ -8,11 +8,9 @@ box-shadow: inset 0 0 0 5000px rgba(237, 237, 196, 0.3);
 background-clip: content-box;
 /* background-attachment: fixed; */
 
-/* } */ */
-
-main {
+/* } */
+*/ main {
   min-height: 80vh;
-
 }
 
 .backgroundimage {
@@ -90,14 +88,52 @@ main {
 
 .homepageh2tag {
   display: inline;
-  font-family: 'Poppins';
-
-
+  font-family: "Poppins";
 }
 
-.each-product-image{
-  height:60vh;
-  width: 50vh;
-  border-radius: 20px;
-  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3)
+.each-product-image {
+  width: 100%;
+  height: 55vh;
+  display: block;
+  object-position: center;
+  margin-left: 5vw;
+}
+
+.each-product-left {
+  width: 50vw;
+}
+
+.each-product-right {
+  width: 50vw;
+  text-align: center;
+}
+
+.each-product-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+}
+
+.each-product-name,
+.each-product-description,
+.each-product-price,
+.hr,
+.each-product-button {
+  margin-left: 7vw;
+}
+
+.each-product-button {
+  width: 110px;
+  height: 30px;
+  color: #1a1818;
+  border-radius: 40px;
+  border: 1px yellow solid;
+  background-color: rgb(242, 227, 56);
+  padding-bottom: 30px;
+}
+
+.hr {
+  width: 350px;
 }
