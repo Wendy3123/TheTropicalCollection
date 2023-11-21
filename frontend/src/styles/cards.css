@@ -12,23 +12,20 @@
   width: 75%;
   height: 200px;
   border-radius: 15px;
-
 }
 
 .productoutterbox {
   border: 4px solid rgb(176, 169, 169);
-  background-color:  rgba(225,225,225, 0.4);
+  background-color: rgba(225, 225, 225, 0.4);
   border-radius: 20px;
   width: 290px;
   height: 360px;
   margin-bottom: 20px;
-  
 }
 
 .productoutterbox:hover {
   background-color: white;
 }
-
 
 .innerproductbox {
   display: flex;
@@ -64,14 +61,13 @@
   color: #00004d;
   border-radius: 40px;
   border: 1px #00004d solid;
-  background-color:  transparent;
+  background-color: transparent;
 }
 
-.cardbutton:hover{
-  color: white;
-  border: 1px white solid;
-  background-color:  #00004d ;
-
+.cardbutton:hover {
+  color: black;
+  border: 1px rgb(242, 227, 56);
+  background-color: rgb(242, 227, 56);
 }
 
 .carddropdown {
