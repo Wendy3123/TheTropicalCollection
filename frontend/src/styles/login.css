@@ -1,59 +1,58 @@
-@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
 
 .login-top-container {
- 
   color: #fff;
-  font-family: 'Muli', sans-serif;
+  font-family: "Muli", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  margin: 0;
   height: 100vh;
   overflow: hidden;
-  margin: 0;
+  justify-content: center;
 }
 
 .login-container {
-    background-color: #925e0b;
-    padding: 20px 40px;
-    border-radius: 5px;
-      }
-  
-  .login-container h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color:white;
-  }
-  
-  .login-container a {
-    text-decoration: none;
-    color: rgb(226, 232, 219);
-  }
-  .login-button {
-    cursor: pointer;
-    display: inline-block;
-    width: 100%;
-    background: #e2af5c;
-    padding: 15px;
-    font-family: inherit;
-    font-size: 16px;
-    border: 0;
-    border-radius: 5px;
-  }
-  
-  .login-button:focus {
-    outline: 0;
-  }
-  
-  .login-button:active {
-    transform: scale(0.98);
-  }
-  
-  /* .login-text {
+  background-color: #925e0b;
+  padding: 20px 40px;
+  border-radius: 5px;
+  width: 30vw;
+}
+
+.login-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.login-container a {
+  text-decoration: none;
+  color: rgb(226, 232, 219);
+}
+.login-button {
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  background: #e2af5c;
+  padding: 15px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 0;
+  border-radius: 5px;
+}
+
+.login-button:focus {
+  outline: 0;
+}
+
+.login-button:active {
+  transform: scale(0.98);
+}
+
+/* .login-text {
     margin-top: 30px;
   } */
+
   
   .form-control {
     position: relative;
@@ -85,3 +84,33 @@
     /* pointer-events: none; */
   /* } */
 
+
+.form-control {
+  position: relative;
+  margin: 20px 0 40px;
+  /* width: 300px; */
+}
+
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  /* display: block; */
+  /* width:50%; */
+  /* padding: 15px 0; */
+  /* font-size: 18px; */
+  /* color: #080808; */
+}
+
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+  border-bottom-color: #925e0b;
+}
+
+/* .form-control label { */
+/* position: absolute; */
+/* top: 15px; */
+/* left: 0; */
+/* pointer-events: none; */
+/* } */

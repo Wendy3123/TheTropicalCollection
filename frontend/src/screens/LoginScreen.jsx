@@ -19,6 +19,7 @@ function LoginScreen() {
   async function handleSubmit(e) {
     e.preventDefault();
 
+
     try {
         const response = await fetch(`http://localhost:5001/api/authentication/`, {
             method: 'POST',
@@ -44,6 +45,7 @@ function LoginScreen() {
     }
 }
 
+
   return (
     <div className="login-top-container">
       <div className="login-container">
@@ -59,11 +61,12 @@ function LoginScreen() {
             <input
               type="email"
               required
+
               value={credentials.email}
               onChange={(e) =>
+
                 setCredentials({ ...credentials, email: e.target.value })
               }
-              // className="form-control"
               id="email"
               name="email"
             />
@@ -74,8 +77,10 @@ function LoginScreen() {
             <input
               type="password"
               required
+
               value={credentials.password}
               onChange={(e) =>
+
                 setCredentials({ ...credentials, password: e.target.value })
               }
               id="password"
@@ -85,8 +90,10 @@ function LoginScreen() {
           <button type ='submit' className="login-button">Login</button>
 
           <p className="login-text">
-            Don't have an account?  
-            <Link to="/signup/"> Register </Link>{" "}
+
+            Don't have an account?
+            <Link to="/signup/">&nbsp;Register</Link>{" "}
+
           </p>
         </form>
       </div>
