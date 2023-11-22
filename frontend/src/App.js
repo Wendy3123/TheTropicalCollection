@@ -14,6 +14,7 @@ import AddNew from "./components/AddNew"
 import "./styles/bootstrap.custom.css";
 import "./styles/index.css";
 import "./styles/cards.css";
+import "./styles/addnew.css"
 import { ShopContextProvider } from "./contexts/ShopContext.jsx";
 
 //all components now have access to shopContextProvider
