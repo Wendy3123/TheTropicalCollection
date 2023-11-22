@@ -28,7 +28,7 @@ function Header() {
                 </Nav.Link>
               </LinkContainer>
               <LinkContainer to="/login">
-                <Nav.Link>
+                <Nav.Link to>
                   <FaUser />
                   &nbsp;Login
                 </Nav.Link>

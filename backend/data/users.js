@@ -6,18 +6,21 @@ const users = [
     email: "admin@email.com",
     password: bcrypt.hashSync("123456", 12),
     isAdmin: true,
+    cartItems: [],
   },
   {
     name: "John Doe",
     email: "john@email.com",
     password: bcrypt.hashSync("123456", 12),
     isAdmin: false,
+    cartItems: [],
   },
   {
     name: "Jane Doe",
     email: "jane@email.com",
     password: bcrypt.hashSync("123456", 12),
     isAdmin: false,
+    cartItems: [],
   },
 ];
 
