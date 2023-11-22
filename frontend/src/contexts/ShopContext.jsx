@@ -1,24 +1,24 @@
 import React, { createContext, useState, useEffect } from "react";
 export const ShopContext = createContext(null);
 //define all our states and function logic here to use in other places in project
-const [products, setProducts] = useState([]);
+// const [products, setProducts] = useState([]);
 
-useEffect(() => {
-  const fetchData = async () => {
-    const res = await fetch(`/api/products/`);
-    const resData = await res.json();
-    setProducts(resData);
-  };
-  fetchData();
-}, []);
+// // useEffect(() => {
+// const fetchData = async () => {
+//   const res = await fetch(`/api/products/`);
+//   const resData = await res.json();
+//   setProducts(resData);
+// };
+// //   fetchData();
+// // }, []);
 
-const getDefaultCart = () => {
-  let cart = {};
-  for (let i = 1; i < products.length + 1; i++) {
-    cart[i] = 0;
-  }
-  return cart;
-};
+// const getDefaultCart = () => {
+//   let cart = {};
+//   for (let i = 1; i < products.length + 1; i++) {
+//     cart[i] = 0;
+//   }
+//   return cart;
+// };
 
 export const ShopContextProvider = (props) => {
   //provides the shopcontext state/logic to anything within the provider tag
