@@ -17,7 +17,7 @@ function SignUpScreen() {
 	async function handleSubmit(e) {
 		e.preventDefault()
 
-		await fetch(`/users/`, {
+		await fetch(`/api/users/`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -31,21 +31,21 @@ function SignUpScreen() {
         <div className="login-top-container">
          <div className="login-container">
            <h1>Please Register</h1>
-           {/* {errorMessage !== null
+            {/* {errorMessage !== null
                      ? (
                          <div className="alert alert-danger" role="alert">
                              {errorMessage}
                          </div>
                      )
                      : null
-                 } */}
+                 }  */}
            <form onSubmit={handleSubmit}>
 
            <label htmlFor="name">Name</label>
                  <div className="form-control">
                <input type="name" 
                  required
-                 value={user.name}
+                //  value={user.name}
                  onchange={e => setUser({...user, name: e.target.value})}
                  // className="form-control"
                  id="name"
@@ -56,7 +56,7 @@ function SignUpScreen() {
                  <div className="form-control">
                <input type="email" 
                  required
-                 value={user.email}
+                //  value={user.email}
                  onchange={e => setUser({...user, email: e.target.value})}
                  // className="form-control"
                  id="email"
@@ -68,7 +68,7 @@ function SignUpScreen() {
             <div className="form-control">
             <input type="password" 
                  required
-                 value={user.password}
+                //  value={user.password}
                  onchange={e => setUser({...user, password: e.target.value})}
                  // className="form-control"
                  id="password"

@@ -18,7 +18,21 @@ function LoginScreen() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    const response = await fetch(`/authentication/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credentials),
+    });
+
+    const data = await response.json();
+
+    console.log(data);
   }
+
+
   return (
     <div className="login-top-container">
       <div className="login-container">
@@ -32,18 +46,17 @@ function LoginScreen() {
           <label htmlFor="email">Email</label>
           <div className="form-control">
             <input
-              id="email"
-              name="email"
+
               type="email"
               required
-              value={credentials.email}
+              
               onchange={(e) =>
-                setCredentials({
-                  ...credentials,
-                  [e.target.name]: e.target.value,
-                })
+                setCredentials({ ...credentials, email: e.target.value })
               }
               // className="form-control"
+              id="email"
+              name="email"
+
             />
           </div>
 
@@ -52,7 +65,9 @@ function LoginScreen() {
             <input
               type="password"
               required
-              value={credentials.password}
+
+            
+
               onchange={(e) =>
                 setCredentials({ ...credentials, password: e.target.value })
               }

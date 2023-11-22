@@ -72,11 +72,11 @@
     /* color: #080808; */
   }
   
-   .form-control input:focus,
+  .form-control input:focus, 
   .form-control input:valid {
     outline: 0;
     border-bottom-color: #925e0b;
-  }
+  } 
    
   /* .form-control label { */
     /* position: absolute; */
