@@ -25,6 +25,7 @@ userRouter.get("/", async (req, res) => {
 
   res.json(user);
 });
+
 userRouter.get("/", async (req, res) => {
   try {
     // .find({}) ====> the {} inside the parentheses means to find ALL items
