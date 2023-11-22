@@ -43,9 +43,8 @@ function SignUpScreen() {
             <input
               type="name"
               required
-              //  value={user.name}
+              value={user.name}
               onChange={(e) => setUser({ ...user, name: e.target.value })}
-              // className="form-control"
               id="name"
               name="name"
             />
@@ -55,9 +54,8 @@ function SignUpScreen() {
             <input
               type="email"
               required
-              //  value={user.email}
+              value={user.email}
               onChange={(e) => setUser({ ...user, email: e.target.value })}
-              // className="form-control"
               id="email"
               name="email"
             />
@@ -68,9 +66,8 @@ function SignUpScreen() {
             <input
               type="password"
               required
-              //  value={user.password}
+              value={user.password}
               onChange={(e) => setUser({ ...user, password: e.target.value })}
-              // className="form-control"
               id="password"
               name="password"
             />
