@@ -20,6 +20,13 @@ const userSchema = new mongoose.Schema(
       required: true,
       default: false,
     },
+    cartItems: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: "Product",
+      },
+    ],
   },
   { timestamps: true }
 );
