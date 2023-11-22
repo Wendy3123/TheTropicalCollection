@@ -10,6 +10,9 @@ import "./styles/bootstrap.custom.css";
 import "./styles/index.css";
 import "./styles/cards.css";
 
+import AddNew from "./components/AddNew"
+
+
 function App() {
   return (
     <div className="backgroundimage">
@@ -19,6 +22,7 @@ function App() {
           <Route path="/" element={<HomeScreen />}></Route>
           <Route path="/products" element={<ProductScreen />}></Route>
           <Route path="/products/:id" element={<EachProductScreen />}></Route>
+          <Route path="/products/new" element={<AddNew />} />
           <Route path="*" element={<ErrorScreen />}></Route>
         </Routes>
         <Footer />

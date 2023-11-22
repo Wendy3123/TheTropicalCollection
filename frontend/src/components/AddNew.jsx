@@ -13,20 +13,19 @@ function AddNew() {
     price: "",
   });
 
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-async function handleSubmit(e) {
-  e.preventDefault();
-
-  await fetch(`http://localhost:5001/products`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(product),
-  });
-navigate("/products");
-}
-return (
+    await fetch(`http://localhost:5001/products`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(product),
+    });
+    navigate("/products");
+  }   
+  return (
     <main>
       <h1>Add New Product</h1>
       <form onSubmit={handleSubmit}>
@@ -36,11 +35,11 @@ return (
             required
             value={product.name}
             onChange={(e) => setProduct({ ...product, name: e.target.value })}
-            className="form-control"
+            className="form"
             id="name"
             name="name"
           />
-          <div className="category-group">
+          <div className="form">
             <label htmlFor="product-category">Choose Product Category</label>
             <select
               required
@@ -48,7 +47,7 @@ return (
               onChange={(e) =>
                 setProduct({ ...product, category: e.target.value })
               }
-              className="category-list"
+              className="form"
               id="prod-category"
               name="prod-category"
               defaultValue={product.name}
@@ -58,12 +57,32 @@ return (
               <option value="cat-3"> Category 3</option>
               <option value="cat-4"> Category 4</option>
             </select>
+            <input
+              required
+              value={product.description}
+              onChange={(e) =>
+                setProduct({ ...product, description: e.target.value })
+              }
+              className="form"
+              id="description"
+              name="description"
+            />
+            <input
+              required
+              value={product.price}
+              onChange={(e) =>
+                setProduct({ ...product, price: e.target.value })
+              }
+              className="form"
+              id="price"
+              name="price"
+            />
+            <button className="submit"> Done</button>
           </div>
         </div>
       </form>
     </main>
   );
-}          
-
+}
 
 export default AddNew;
