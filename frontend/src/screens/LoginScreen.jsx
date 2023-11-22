@@ -19,18 +19,32 @@ function LoginScreen() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const response = await fetch(`/authentication/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
-    });
 
-    const data = await response.json();
+    try {
+        const response = await fetch(`http://localhost:5001/api/authentication/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(credentials)
+        });
 
-    console.log(data);
-  }
+        const data = await response.json();
+
+    
+        if (response.ok) {  
+            setCurrentUser(data.user);
+            localStorage.setItem('token', data.token);
+            navigate(`/`);
+        } else {
+            setErrorMessage(data.message);
+        }
+    } catch (error) {
+        console.error('An error occurred:', error);
+        setErrorMessage('An error occurred, please try again');
+    }
+}
+
 
   return (
     <div className="login-top-container">
@@ -47,7 +61,10 @@ function LoginScreen() {
             <input
               type="email"
               required
-              onchange={(e) =>
+
+              value={credentials.email}
+              onChange={(e) =>
+
                 setCredentials({ ...credentials, email: e.target.value })
               }
               id="email"
@@ -60,18 +77,23 @@ function LoginScreen() {
             <input
               type="password"
               required
-              onchange={(e) =>
+
+              value={credentials.password}
+              onChange={(e) =>
+
                 setCredentials({ ...credentials, password: e.target.value })
               }
               id="password"
               name="password"
             />
           </div>
-          <button className="login-button">Login</button>
+          <button type ='submit' className="login-button">Login</button>
 
           <p className="login-text">
+
             Don't have an account?
             <Link to="/signup/">&nbsp;Register</Link>{" "}
+
           </p>
         </form>
       </div>
