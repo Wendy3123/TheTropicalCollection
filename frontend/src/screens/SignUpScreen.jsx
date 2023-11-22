@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import "../styles/login.css";
-
 function SignUpScreen() {
   const navigate = useNavigate();
 
@@ -13,9 +12,12 @@ function SignUpScreen() {
   });
 
   async function handleSubmit(e) {
+
+    console.log("user: ", user);
     e.preventDefault();
 
-    await fetch(`/api/users/`, {
+    await fetch(`http://localhost:5001/api/users/`, {
+
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,14 +31,7 @@ function SignUpScreen() {
     <div className="login-top-container">
       <div className="login-container">
         <h1>Please Register</h1>
-        {/* {errorMessage !== null
-                     ? (
-                         <div className="alert alert-danger" role="alert">
-                             {errorMessage}
-                         </div>
-                     )
-                     : null
-                 }  */}
+
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">Name</label>
           <div className="form-control">
@@ -72,7 +67,7 @@ function SignUpScreen() {
               name="password"
             />
           </div>
-          <button className="login-button" type="submit">
+          <button type="submit" className="login-button">
             Sign Up
           </button>
         </form>

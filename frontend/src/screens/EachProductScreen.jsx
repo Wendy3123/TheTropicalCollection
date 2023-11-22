@@ -9,7 +9,7 @@ function EachProductScreen() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`/api/products/${productId}`);
+      const res = await fetch(`http://localhost:5001/api/products/${productId}`);
       const resData = await res.json();
       setProduct(resData);
     };
