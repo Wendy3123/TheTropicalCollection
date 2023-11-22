@@ -10,7 +10,7 @@ import LoginScreen from "./screens/LoginScreen.jsx";
 import SignUpScreen from "./screens/SignUpScreen.jsx";
 import CurrentUserProvider from "./contexts/CurrentUser.js";
 import CartScreen from "./screens/CartScreen";
-
+import AddNew from "./components/AddNew"
 import "./styles/bootstrap.custom.css";
 import "./styles/index.css";
 import "./styles/cards.css";
@@ -34,12 +34,14 @@ function App() {
               ></Route>
               <Route path="/login" element={<LoginScreen />}></Route>
               <Route path="/signup" element={<SignUpScreen />}></Route>
+             <Route path="/products/new" element={<AddNew />} />
               <Route path="*" element={<ErrorScreen />}></Route>
             </Routes>
             <Footer />
           </BrowserRouter>
         </ShopContextProvider>
       </CurrentUserProvider>
+main
     </div>
   );
 }
