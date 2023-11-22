@@ -32,7 +32,6 @@ function LoginScreen() {
     console.log(data);
   }
 
-
   return (
     <div className="login-top-container">
       <div className="login-container">
@@ -46,17 +45,13 @@ function LoginScreen() {
           <label htmlFor="email">Email</label>
           <div className="form-control">
             <input
-
               type="email"
               required
-              
               onchange={(e) =>
                 setCredentials({ ...credentials, email: e.target.value })
               }
-              // className="form-control"
               id="email"
               name="email"
-
             />
           </div>
 
@@ -65,13 +60,9 @@ function LoginScreen() {
             <input
               type="password"
               required
-
-            
-
               onchange={(e) =>
                 setCredentials({ ...credentials, password: e.target.value })
               }
-              // className="form-control"
               id="password"
               name="password"
             />
@@ -80,7 +71,7 @@ function LoginScreen() {
 
           <p className="login-text">
             Don't have an account?
-            <Link to="/signup/">Register</Link>{" "}
+            <Link to="/signup/">&nbsp;Register</Link>{" "}
           </p>
         </form>
       </div>
