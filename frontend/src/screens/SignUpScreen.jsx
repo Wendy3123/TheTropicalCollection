@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import "../styles/login.css";
-
 function SignUpScreen() {
   const navigate = useNavigate();
 
@@ -13,10 +12,12 @@ function SignUpScreen() {
   });
 
   async function handleSubmit(e) {
+
     console.log("user: ", user);
     e.preventDefault();
 
     await fetch(`http://localhost:5001/api/users/`, {
+
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +40,6 @@ function SignUpScreen() {
               required
               value={user.name}
               onChange={(e) => setUser({ ...user, name: e.target.value })}
-              // className="form-control"
               id="name"
               name="name"
             />
@@ -51,7 +51,6 @@ function SignUpScreen() {
               required
               value={user.email}
               onChange={(e) => setUser({ ...user, email: e.target.value })}
-              // className="form-control"
               id="email"
               name="email"
             />
@@ -64,7 +63,6 @@ function SignUpScreen() {
               required
               value={user.password}
               onChange={(e) => setUser({ ...user, password: e.target.value })}
-              // className="form-control"
               id="password"
               name="password"
             />
