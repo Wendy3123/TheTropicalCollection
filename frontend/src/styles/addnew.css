@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+body {
+  color: #252525;
+  font-weight: 400;
+  background-color: #f7f2e9;
+  border-bottom: 1.6rem solid #edc84b;
+  min-height: 100vh;
+  padding: 3.2rem;
+  padding-bottom: 6rem;
+}
+

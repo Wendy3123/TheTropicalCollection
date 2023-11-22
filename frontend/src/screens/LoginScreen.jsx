@@ -18,6 +18,7 @@ function LoginScreen() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+
     const response = await fetch(`/authentication/`, {
       method: "POST",
       headers: {
@@ -30,6 +31,7 @@ function LoginScreen() {
 
     console.log(data);
   }
+
 
   return (
     <div className="login-top-container">
@@ -44,6 +46,7 @@ function LoginScreen() {
           <label htmlFor="email">Email</label>
           <div className="form-control">
             <input
+
               type="email"
               required
               
@@ -53,6 +56,7 @@ function LoginScreen() {
               // className="form-control"
               id="email"
               name="email"
+
             />
           </div>
 
@@ -61,7 +65,9 @@ function LoginScreen() {
             <input
               type="password"
               required
+
             
+
               onchange={(e) =>
                 setCredentials({ ...credentials, password: e.target.value })
               }

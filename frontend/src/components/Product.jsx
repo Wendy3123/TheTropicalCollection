@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
+import React from "react";
+import { ShopContext } from "../contexts/ShopContext";
+import { useContext } from "react";
+
+//make a post request to add the product to your cart property in the users collection
+//
+
 
 function Products({ product }) {
+  const { addToCart } = useContext(ShopContext);
   return (
     <main className="productoutterbox">
       <div classname="productbox">
