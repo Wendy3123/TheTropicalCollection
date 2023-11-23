@@ -28,6 +28,19 @@
   background-color: white;
 }
 
+.CardProductoutterbox {
+  border: 4px solid rgb(176, 169, 169);
+  background-color: rgba(225, 225, 225, 0.4);
+  border-radius: 20px;
+  width: 290px;
+  height: 390px;
+  margin-bottom: 20px;
+}
+
+.CardProductoutterbox:hover {
+  background-color: white;
+}
+
 .innerproductbox {
   display: flex;
   flex-wrap: wrap;
@@ -51,6 +64,13 @@
   font-size: 22px;
 }
 
+.CartProductQuantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+}
+
 .outterardbutton {
   display: flex;
   justify-content: center;
@@ -69,6 +89,28 @@
   color: black;
   border: 1px rgb(242, 227, 56);
   background-color: rgb(242, 227, 56);
+}
+
+.CartProductcardbutton {
+  width: 35px;
+  height: 24px;
+  color: #00004d;
+  border-radius: 40px;
+  border: 1px #00004d solid;
+  background-color: transparent;
+}
+
+.CartProductcardbutton:hover {
+  color: black;
+  border: 1px rgb(242, 227, 56);
+  background-color: rgb(242, 227, 56);
+}
+
+.CartProductinput {
+  width: 65px;
+  height: 24px;
+  color: #00004d;
+  margin: 0 5px;
 }
 
 .carddropdown {
