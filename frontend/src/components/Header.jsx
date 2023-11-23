@@ -1,4 +1,4 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Button, Container } from "react-bootstrap";
 import { useContext } from "react";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import logo from "../styles/logo-small.png";
@@ -6,7 +6,7 @@ import { LinkContainer } from "react-router-bootstrap";
 // to use LinkContainer to='/' is similar to the Link from react-router-dom but this is for BOOTSTRAP href=''
 import { CurrentUser } from '../contexts/CurrentUser';
 function Header() {
-  const { currentUser } = useContext(CurrentUser)
+  const { currentUser, logout } = useContext(CurrentUser)
   let loginActions=(
     <LinkContainer to="/login">
     <Nav.Link to>
@@ -17,10 +17,19 @@ function Header() {
   )
   if (currentUser) {
     loginActions = (
+      <>
       <Navbar.Text>
        &nbsp;Hello: {currentUser.name}
-    </Navbar.Text>
-    )
+       </Navbar.Text>
+       <Navbar.Text>
+       <Button variant="link "onClick={logout}>
+       &nbsp;Logout
+      
+   </Button>
+   </Navbar.Text>
+   </>
+    
+        )
 }
   return (
     <header>

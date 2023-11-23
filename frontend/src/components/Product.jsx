@@ -40,9 +40,11 @@ function Products({ product }) {
         <h4 className="aligntext">${product.price}</h4>
 
         <div className="outterardbutton">
+
           <button onClick={addToCart} className="cardbutton">
             Add To Cart
           </button>
+
         </div>
       </div>
     </main>

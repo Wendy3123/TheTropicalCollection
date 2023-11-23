@@ -18,10 +18,20 @@ function CurrentUserProvider({ children }){
         }
         getLoggedInUser()
     }, [])
+
+    const logout = () => {
+        localStorage.removeItem('token');
+   
+      setCurrentUser(null);
+    //   location.reload() //refresh he screen for cart, yo doesnt work
+   
+       };
     return (
-        <CurrentUser.Provider value={{ currentUser, setCurrentUser }}>
+        <CurrentUser.Provider value={{ currentUser, setCurrentUser, logout }}>
             {children}
         </CurrentUser.Provider>
     )
 }
+
+
 export default CurrentUserProvider
