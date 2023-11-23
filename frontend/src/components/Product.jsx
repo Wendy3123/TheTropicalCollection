@@ -1,14 +1,29 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import { ShopContext } from "../contexts/ShopContext";
-import { useContext } from "react";
 
 //make a post request to add the product to your cart property in the users collection
 //
 
-
 function Products({ product }) {
-  const { addToCart } = useContext(ShopContext);
+  const addToCart = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch("http://localhost:5001/api/cart", {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          productId: product._id,
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log("ADDTOCART error", error);
+    }
+  };
   return (
     <main className="productoutterbox">
       <div classname="productbox">
@@ -25,28 +40,11 @@ function Products({ product }) {
         <h4 className="aligntext">${product.price}</h4>
 
         <div className="outterardbutton">
-        <div className="carddropdown">
-            <select className="select ">
-              <option value="1" selected="selected">
-                1
-              </option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-            </select>
-          </div>
-          <button className="cardbutton">Add To Cart</button>
+
+          <button onClick={addToCart} className="cardbutton">
+            Add To Cart
+          </button>
+
         </div>
       </div>
     </main>
