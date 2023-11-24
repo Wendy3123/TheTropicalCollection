@@ -14,42 +14,32 @@ import AddNew from "./components/AddNew";
 import "./styles/bootstrap.custom.css";
 import "./styles/index.css";
 import "./styles/cards.css";
-import "./styles/addnew.css"
-import { ShopContextProvider } from "./contexts/ShopContext.jsx";
+import "./styles/addnew.css";
 import EditProduct from "./components/EditProduct.jsx";
-
-
+ 
 //all components now have access to shopContextProvider
 function App() {
   return (
     <div className="backgroundimage">
       <CurrentUserProvider>
-
-        <ShopContextProvider>
-          <BrowserRouter>
-            <Header />
-            <Routes>
-              <Route path="/" element={<HomeScreen />}></Route>
-              <Route path="/cart" element={<CartScreen />}></Route>
-              <Route path="/products" element={<ProductScreen />}></Route>
-              <Route
-                path="/products/:id"
-                element={<EachProductScreen />}
-              ></Route>
-              <Route path="/login" element={<LoginScreen />}></Route>
-              <Route path="/signup" element={<SignUpScreen />}></Route>
-              <Route path="/products/new" element={<AddNew />} />
-              <Route path="/product/:id/edit" element={<EditProduct />} />
-              <Route path="*" element={<ErrorScreen />}></Route>
-            </Routes>
-            <Footer />
-          </BrowserRouter>
-        </ShopContextProvider>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<HomeScreen />}></Route>
+            <Route path="/cart" element={<CartScreen />}></Route>
+            <Route path="/products" element={<ProductScreen />}></Route>
+            <Route path="/products/:id" element={<EachProductScreen />}></Route>
+            <Route path="/login" element={<LoginScreen />}></Route>
+            <Route path="/signup" element={<SignUpScreen />}></Route>
+            <Route path="/products/new" element={<AddNew />} />
+            <Route path="/edit" element={<EditProduct/>}></Route>
+            <Route path="*" element={<ErrorScreen />}></Route>
+          </Routes>
+          <Footer />
+        </BrowserRouter>
       </CurrentUserProvider>
-      main
-
     </div>
   );
 }
-
+ 
 export default App;

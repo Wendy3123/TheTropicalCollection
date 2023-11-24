@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import {Button, Image, Container} from "react-bootstrap"
 function AddNew() {
   const navigate = useNavigate();
 
@@ -80,7 +80,8 @@ function AddNew() {
                 id="price"
                 name="price"
               />
-              <button className="submit"> Done</button>
+              <Button ClassName= "submit"> Submit</Button>
+              {/* <button className="submit"> Done</button> */}
             </div>
           </div>
         </form>
