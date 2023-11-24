@@ -51,4 +51,15 @@ router.put("/:id", (req, res) => {
     });
 });
 
+// Delete Product
+router.delete("/:id", (req, res) => {
+  db.Product.findByIdAndDelete(req.params.id)
+    .then(() => {
+      res.json(" deleted");
+    })
+    .catch((err) => {
+      console.log("err", err);
+      res.status(500).json({ error: "An error occurred" });
+    });
+});
 export default router;

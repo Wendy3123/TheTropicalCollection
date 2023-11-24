@@ -69,6 +69,7 @@ function AddNew() {
                 id="description"
                 name="description"
               />
+              <label className="price">Price</label>
               <input
                 required
                 value={product.price}
