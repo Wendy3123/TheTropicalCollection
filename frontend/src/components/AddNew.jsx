@@ -24,7 +24,7 @@ function AddNew() {
       body: JSON.stringify(product),
     });
     navigate("/products");
-  }   
+  }
   return (
     <main className="form-main-container">
       <h1>Add New Product</h1>
