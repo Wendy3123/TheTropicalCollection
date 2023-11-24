@@ -40,8 +40,8 @@ background-clip: content-box;
 }
 .admin-buttons{
   display:flex;
-  flex-direction: column;
-  justify-content: center;
+  /* flex-direction: column; */
+  justify-content: left;
  gap: 15px;
 
 }
