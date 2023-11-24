@@ -34,7 +34,7 @@ function EditProduct() {
       body: JSON.stringify(product),
     });
 
-    navigate(`/products/${id}`);
+    navigate(`/edit/${id}`);
   }
   return (
     <main>
