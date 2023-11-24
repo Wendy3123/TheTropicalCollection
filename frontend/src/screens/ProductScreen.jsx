@@ -1,8 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Product from "../components/Product";
+import {Button} from 'react-bootstrap'
+import { CurrentUser } from '../contexts/CurrentUser.js';
 
 function ProductScreen() {
   const [products, setProducts] = useState([]);
+  const { currentUser } = useContext(CurrentUser)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,6 +17,11 @@ function ProductScreen() {
   }, []);
   return (
     <div>
+            {currentUser && currentUser.isAdmin && (
+  <h3>
+  Click on item you want to Edit or delete
+  </h3>
+)}
       <h1 className="header1centered">Kosher Dried Fruits</h1>
       <div className="cardboxflex">
         {products.map((product) => (

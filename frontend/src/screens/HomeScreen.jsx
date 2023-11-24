@@ -9,6 +9,7 @@ function HomeScreen() {
      
 
   return (
+   
     <div className="homepagecontainer">
       <div className="homepageleft">
         <img
@@ -21,16 +22,16 @@ function HomeScreen() {
       <div className="homepageright">
       {currentUser && currentUser.isAdmin && (
   <div className="admin-buttons">
-    <Link to="/products/new">
-      <Button>
-        Add Products
+    <Link to="/admin">
+      <Button variant="link">
+        Go To Admin Page
       </Button>
     </Link>
-        <Link to="/">
+        {/* <Link to="/">
       <Button>
         View Orders
       </Button>
-    </Link>
+    </Link> */}
   </div>
 )}
         <h2 className="homepageh2tag">Fresh Fruit is the ONLY ingredient!</h2>

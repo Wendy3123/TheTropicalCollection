@@ -11,6 +11,7 @@ import SignUpScreen from "./screens/SignUpScreen.jsx";
 import CurrentUserProvider from "./contexts/CurrentUser.js";
 import CartScreen from "./screens/CartScreen";
 import AddNew from "./components/AddNew";
+import AdminScreen from "./screens/AdminScreen";
 import "./styles/bootstrap.custom.css";
 import "./styles/index.css";
 import "./styles/cards.css";
@@ -25,12 +26,13 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<HomeScreen />}></Route>
+            <Route path="/" element={<AdminScreen />}></Route>
             <Route path="/cart" element={<CartScreen />}></Route>
             <Route path="/products" element={<ProductScreen />}></Route>
             <Route path="/products/:id" element={<EachProductScreen />}></Route>
             <Route path="/login" element={<LoginScreen />}></Route>
             <Route path="/signup" element={<SignUpScreen />}></Route>
-            <Route path="/products/new" element={<AddNew />} />
+            <Route path="/admin" element={<AdminScreen />} />
             <Route path="*" element={<ErrorScreen />}></Route>
           </Routes>
           <Footer />

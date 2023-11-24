@@ -1,18 +1,19 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { CurrentUser } from '../contexts/CurrentUser.js';
-import { Image, Button } from "react-bootstrap";
+import { CurrentUser } from "../contexts/CurrentUser.js";
+import { Image, Button, Container } from "react-bootstrap";
 
 function EachProductScreen() {
- 
   const [product, setProduct] = useState({});
-  const { currentUser } = useContext(CurrentUser)
+  const { currentUser } = useContext(CurrentUser);
   const { id: productId } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`http://localhost:5001/api/products/${productId}`);
+      const res = await fetch(
+        `http://localhost:5001/api/products/${productId}`
+      );
       const resData = await res.json();
       setProduct(resData);
     };
@@ -26,15 +27,7 @@ function EachProductScreen() {
           Go Back
         </Link>
       </div>
-      {currentUser && currentUser.isAdmin && (
-  <div className="admin-buttons">
-           <Link to="/">
-      <Button variant="link">
-        Edit Product
-      </Button>
-    </Link>
-    </div>
-)}
+
       <div className="each-product-container">
         <div className="each-product-left">
           <Image
@@ -42,6 +35,21 @@ function EachProductScreen() {
             src={product.image}
             alt={product.name}
           ></Image>
+          {currentUser && currentUser.isAdmin && (
+            
+            <div className="admin-buttons">
+              <Container>
+              <Link to="/">
+                <Button variant="link">Edit Product</Button>
+              </Link>
+
+              <Link to="/">
+                <Button variant="link">Delete Product</Button>
+              </Link>
+              </Container>
+            </div>
+           
+          )}
         </div>
 
         <div className="each-product-left">
