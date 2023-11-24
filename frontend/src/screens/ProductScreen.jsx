@@ -6,7 +6,7 @@ function ProductScreen() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`/api/products/`);
+      const res = await fetch(`http://localhost:5001/api/products/`);
       const resData = await res.json();
       setProducts(resData);
     };

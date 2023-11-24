@@ -28,6 +28,12 @@ const productSchema = new mongoose.Schema(
       required: true,
       default: 0,
     },
+    quantity: {
+      type: Number,
+      required: true,
+      default: 1,
+    },
+
   },
   { timestamps: true }
 );

@@ -18,7 +18,35 @@ function LoginScreen() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    try {
+      const response = await fetch(
+        `http://localhost:5001/api/authentication/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(credentials),
+        }
+      );
+
+      const data = await response.json();
+      console.log("Login", data);
+
+      if (response.ok) {
+        setCurrentUser(data.user);
+        localStorage.setItem("token", data.token);
+        navigate(`/`);
+      } else {
+        setErrorMessage(data.message);
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+      setErrorMessage("An error occurred, please try again");
+    }
   }
+
   return (
     <div className="login-top-container">
       <div className="login-container">
@@ -32,18 +60,14 @@ function LoginScreen() {
           <label htmlFor="email">Email</label>
           <div className="form-control">
             <input
-              id="email"
-              name="email"
               type="email"
               required
               value={credentials.email}
-              onchange={(e) =>
-                setCredentials({
-                  ...credentials,
-                  [e.target.name]: e.target.value,
-                })
+              onChange={(e) =>
+                setCredentials({ ...credentials, email: e.target.value })
               }
-              // className="form-control"
+              id="email"
+              name="email"
             />
           </div>
 
@@ -53,19 +77,20 @@ function LoginScreen() {
               type="password"
               required
               value={credentials.password}
-              onchange={(e) =>
+              onChange={(e) =>
                 setCredentials({ ...credentials, password: e.target.value })
               }
-              // className="form-control"
               id="password"
               name="password"
             />
           </div>
-          <button className="login-button">Login</button>
+          <button type="submit" className="login-button">
+            Login
+          </button>
 
           <p className="login-text">
             Don't have an account?
-            <Link to="/signup/">Register</Link>{" "}
+            <Link to="/signup/">&nbsp;Register</Link>{" "}
           </p>
         </form>
       </div>

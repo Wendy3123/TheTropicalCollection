@@ -10,7 +10,7 @@ import LoginScreen from "./screens/LoginScreen.jsx";
 import SignUpScreen from "./screens/SignUpScreen.jsx";
 import CurrentUserProvider from "./contexts/CurrentUser.js";
 import CartScreen from "./screens/CartScreen";
-import AddNew from "./components/AddNew"
+import AddNew from "./components/AddNew";
 import "./styles/bootstrap.custom.css";
 import "./styles/index.css";
 import "./styles/cards.css";
@@ -18,11 +18,13 @@ import "./styles/addnew.css"
 import { ShopContextProvider } from "./contexts/ShopContext.jsx";
 import EditProduct from "./components/EditProduct.jsx";
 
+
 //all components now have access to shopContextProvider
 function App() {
   return (
     <div className="backgroundimage">
       <CurrentUserProvider>
+
         <ShopContextProvider>
           <BrowserRouter>
             <Header />
@@ -45,6 +47,7 @@ function App() {
         </ShopContextProvider>
       </CurrentUserProvider>
       main
+
     </div>
   );
 }

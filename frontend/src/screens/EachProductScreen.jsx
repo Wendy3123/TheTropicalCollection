@@ -1,15 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Image } from "react-bootstrap";
+import { CurrentUser } from '../contexts/CurrentUser.js';
+import { Image, Button } from "react-bootstrap";
 
 function EachProductScreen() {
+ 
   const [product, setProduct] = useState({});
+  const { currentUser } = useContext(CurrentUser)
   const { id: productId } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`/api/products/${productId}`);
+      const res = await fetch(`http://localhost:5001/api/products/${productId}`);
       const resData = await res.json();
       setProduct(resData);
     };
@@ -23,7 +26,15 @@ function EachProductScreen() {
           Go Back
         </Link>
       </div>
-
+      {currentUser && currentUser.isAdmin && (
+  <div className="admin-buttons">
+           <Link to="/">
+      <Button variant="link">
+        Edit Product
+      </Button>
+    </Link>
+    </div>
+)}
       <div className="each-product-container">
         <div className="each-product-left">
           <Image
@@ -32,6 +43,7 @@ function EachProductScreen() {
             alt={product.name}
           ></Image>
         </div>
+
         <div className="each-product-left">
           <h1 className="each-product-name">{product.name}</h1>
           <hr className="hr"></hr>

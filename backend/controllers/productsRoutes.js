@@ -28,7 +28,7 @@ router.get("/:id", async (req, res) => {
 // 'ADD Product ROUTE'
 router.post("/", (req, res) => {
   console.log(req.body);
-  db.Product.create(req.body)
+  Product.create(req.body)
     .then((createdProduct) => {
       res.json(createdProduct);
     })
@@ -41,7 +41,7 @@ router.post("/", (req, res) => {
 //Edit Product Route
 router.put("/:id", (req, res) => {
   console.log(req.body);
-  db.Product.findByIdAndUpdate(req.params.id, req.body)
+  Product.findByIdAndUpdate(req.params.id, req.body)
     .then((products) => {
       res.json(products);
     })

@@ -66,22 +66,26 @@
     border: 0;
     border-bottom: 2px #fff solid;
     /* display: block; */
-    /* width:50%; */
+      width: 100%; 
     /* padding: 15px 0; */
     /* font-size: 18px; */
     /* color: #080808; */
   }
   
-   .form-control input:focus,
+  .form-control input:focus, 
   .form-control input:valid {
     outline: 0;
     border-bottom-color: #925e0b;
-  }
+  } 
    
   /* .form-control label { */
     /* position: absolute; */
     /* top: 15px; */
     /* left: 0; */
     /* pointer-events: none; */
+
   /* } */
+
+
+
 

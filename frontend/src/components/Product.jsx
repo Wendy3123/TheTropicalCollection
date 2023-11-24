@@ -1,14 +1,29 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import { ShopContext } from "../contexts/ShopContext";
-import { useContext } from "react";
 
 //make a post request to add the product to your cart property in the users collection
 //
 
-
 function Products({ product }) {
-  const { addToCart } = useContext(ShopContext);
+  const addToCart = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch("http://localhost:5001/api/cart", {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          productId: product._id,
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log("ADDTOCART error", error);
+    }
+  };
   return (
     <main className="productoutterbox">
       <div classname="productbox">
@@ -25,7 +40,11 @@ function Products({ product }) {
         <h4 className="aligntext">${product.price}</h4>
 
         <div className="outterardbutton">
-          <button className="cardbutton">Add To Cart</button>
+
+          <button onClick={addToCart} className="cardbutton">
+            Add To Cart
+          </button>
+
         </div>
       </div>
     </main>

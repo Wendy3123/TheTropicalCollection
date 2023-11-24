@@ -23,3 +23,5 @@ Built by Wendy Wang, Amina Olu and Rivka Weingarten
 
 - https://react-bootstrap.netlify.app/docs/components/cards/
 - https://redux-toolkit.js.org/rtk-query/overview
+
+-https://stackoverflow.com/questions/59174763/how-to-add-product-to-shopping-cart-with-nodejs-express-and-mongoose
