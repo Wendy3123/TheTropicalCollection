@@ -8,7 +8,7 @@ function CartScreen() {
   const [userInfo, setUserInfo] = useState([]);
   
   //make a fetch request to users collection and then grab products from cart property
-  const currentUserId = currentUser._id
+  const currentUserId = currentUser?._id
 
   
  useEffect(() => {
@@ -34,12 +34,12 @@ function CartScreen() {
 
   return (
     <div className="container">
-    {/* {/* <p>{userInfo.name}</p> */}
+     <p>{userInfo.name}</p>
     <p>{userInfo.email}</p>
    
   {userInfo.cartItems?.map((item)=> 
   
- <p>{item.name} {item.price} {item.quantity}</p>
+ <p>{item?.name} {item?.price} {item?.quantity}</p>
  )}
  <p>total items in cart: {sumCart}</p>
  <p>total items in cart: {sumQuantity}</p>  

@@ -38,7 +38,13 @@ background-clip: content-box;
 .homepageleft .homepageright {
   width: 50vw;
 }
+.admin-buttons{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+ gap: 15px;
 
+}
 .homepageright {
   text-align: center;
 }
