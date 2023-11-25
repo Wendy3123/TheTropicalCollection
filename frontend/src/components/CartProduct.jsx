@@ -1,10 +1,27 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import { React, useState } from "react";
 
 //make a post request to add the product to your cart property in the users collection
 //
 
 function CartProduct({ product }) {
+  const [quantity, setQuantity] = useState(() => {
+    return product.quantity;
+  });
+  const addQuantity = () => {
+    setQuantity((previousQuantity) => {
+      let newQuantity = previousQuantity + 1;
+      product.quantity = newQuantity;
+      return newQuantity;
+    });
+  };
+  const minusQuantity = () => {
+    setQuantity((previousQuantity) => {
+      let newQuantity = previousQuantity - 1;
+      product.quantity = newQuantity;
+      return newQuantity;
+    });
+  };
   return (
     <main className="CardProductoutterbox">
       <div classname="productbox">
@@ -21,10 +38,13 @@ function CartProduct({ product }) {
         <h4 className="aligntext">${product.price}</h4>
         <p className="CartProductQuantity">Quantity:&nbsp;{product.quantity}</p>
         <div className="outterardbutton">
-          {" "}
-          <button className="CartProductcardbutton">+</button>
+          <button className="CartProductcardbutton" onClick={addQuantity}>
+            +
+          </button>
           <input className="CartProductinput"></input>
-          <button className="CartProductcardbutton">-</button>
+          <button className="CartProductcardbutton" onClick={minusQuantity}>
+            -
+          </button>
         </div>
       </div>
     </main>

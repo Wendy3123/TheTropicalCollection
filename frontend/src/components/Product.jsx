@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import { React, useState } from "react";
 
 //make a post request to add the product to your cart property in the users collection
 //
 
 function Products({ product }) {
+  const [inCart, setInCart] = useState(() => {
+    return false;
+  });
   const addToCart = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -20,10 +23,12 @@ function Products({ product }) {
       });
       const data = await response.json();
       console.log(data);
+      setInCart(true);
     } catch (error) {
       console.log("ADDTOCART error", error);
     }
   };
+
   return (
     <main className="productoutterbox">
       <div classname="productbox">
@@ -39,13 +44,20 @@ function Products({ product }) {
         </Link>
         <h4 className="aligntext">${product.price}</h4>
 
-        <div className="outterardbutton">
-
-          <button onClick={addToCart} className="cardbutton">
-            Add To Cart
-          </button>
-
-        </div>
+        {!inCart && (
+          <div className="outterardbutton">
+            <button onClick={addToCart} className="cardbutton">
+              Add To Cart
+            </button>
+          </div>
+        )}
+        {inCart && (
+          <div className="outterardbutton">
+            <button onClick={addToCart} className="removecardbutton">
+              Remove From Cart
+            </button>
+          </div>
+        )}
       </div>
     </main>
   );
