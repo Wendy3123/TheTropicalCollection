@@ -33,12 +33,15 @@ function EachProductScreen() {
 
   async function handleAddToCart(e) {
     e.preventDefault();
-    setCartItem({...cartItem, name: product.name, 
+    setCartItem(prev => ({
+      ...prev, 
+      name: product.name, 
       _id: product._id,
       image:product.image, 
        description:product.description,
        price:product.price,
-      quantity:parseInt(cartItem.quantity)})
+      quantity:parseInt(prev.quantity)
+    }))
        console.log(cartItem)
     await fetch(
       `http://localhost:5001/api/users/${currentUserId}/cart/${productId}`,
