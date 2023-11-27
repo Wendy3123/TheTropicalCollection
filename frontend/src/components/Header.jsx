@@ -47,12 +47,19 @@ function Header() {
           <Navbar.Collapse id="basic-navbar-nav">
             {/* ms-auto shifts the items to the right rather than left*/}
             <Nav className="ms-auto">
+            <LinkContainer to="/products">
+                <Nav.Link>
+                 &nbsp;Products
+                </Nav.Link>
+              </LinkContainer>
               <LinkContainer to="/cart">
                 <Nav.Link>
                   <FaShoppingCart />
                   &nbsp;Cart
                 </Nav.Link>
               </LinkContainer>
+
+           
              {loginActions}
             </Nav>
           </Navbar.Collapse>

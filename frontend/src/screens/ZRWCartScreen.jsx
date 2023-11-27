@@ -14,10 +14,14 @@ function CartScreen() {
  useEffect(() => {
   
     const fetchData = async () => {
-      const res = await fetch(`http://localhost:5001/api/users/${currentUserId}`);
-      const resData = await res.json();
+      try {
+        const res = await fetch(`http://localhost:5001/api/users/${currentUserId}`);
+        const resData = await res.json();
       setUserInfo(resData);
-    };
+    
+    } catch (error) {
+      console.error('Error:', error);
+    }};
     fetchData();
   }, [currentUserId]);
 
@@ -25,7 +29,7 @@ function CartScreen() {
   
 //sum up the cart
   let sumCart = userInfo.cartItems?.reduce((tot, c) => {
-    return tot + c.price;
+    return tot + c.product.price * c.quantity;
   }, 0);
 // //sum up the quantity
   let sumQuantity= userInfo.cartItems?.reduce((tot, c) => {
@@ -34,19 +38,18 @@ function CartScreen() {
 
   return (
     <div className="container">
-     <p>{userInfo.name}</p>
-    <p>{userInfo.email}</p>
+     <p>{userInfo && userInfo.name}</p>
+    <p>{userInfo && userInfo.email}</p>
    
-  {userInfo.cartItems?.map((item)=> 
+  {userInfo && userInfo.cartItems?.map((item)=> 
   
- <p>{item?.name} {item?.price} {item?.quantity}</p>
+ <p key={item.product._id}>{item.product.name} {item.product.price} {item.quantity}</p>
  )}
  <p>total items in cart: {sumCart}</p>
- <p>total items in cart: {sumQuantity}</p>  
+ <p>total items in cart: {sumQuantity}</p>
      
     </div>
-   
-   );
+      );
      }
  
 export default CartScreen;
