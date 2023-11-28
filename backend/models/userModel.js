@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const cartItemSchema = new mongoose.Schema({
-  qty: {
+  quantity: {
     type: Number,
     default: 1,
   },
@@ -33,19 +33,8 @@ const userSchema = new mongoose.Schema(
       default: false,
     },
     cartItems: [
-      {
-        qty: {
-          type: Number,
-          default: 1,
-        },
-        product: {
-          type: mongoose.Schema.Types.ObjectId,
-          required: true,
-          ref: "Product",
-        },
-      },
+      cartItemSchema,
       // { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Product" },
-
     ],
   },
   { timestamps: true }

@@ -27,22 +27,22 @@ function EachProductScreen() {
     name: "",
     image: "",
     quantity: 1,
-    description:"",
-    price:0,
+    description: "",
+    price: 0,
   });
 
   async function handleAddToCart(e) {
     e.preventDefault();
-    setCartItem(prev => ({
-      ...prev, 
-      name: product.name, 
+    setCartItem((prev) => ({
+      ...prev,
+      name: product.name,
       _id: product._id,
-      image:product.image, 
-       description:product.description,
-       price:product.price,
-      quantity:parseInt(prev.quantity)
-    }))
-       console.log(cartItem)
+      image: product.image,
+      description: product.description,
+      price: product.price,
+      quantity: parseInt(prev.quantity),
+    }));
+    console.log(cartItem);
     await fetch(
       `http://localhost:5001/api/users/${currentUserId}/cart/${productId}`,
       {
@@ -54,9 +54,7 @@ function EachProductScreen() {
         body: JSON.stringify(cartItem),
       }
     );
-
-    
-   }
+  }
 
   return (
     <>
@@ -81,12 +79,13 @@ function EachProductScreen() {
           <hr className="hr"></hr>
           <h6 className="each-product-description">{product.description}</h6>
 
-          <button onClick={handleAddToCart} className="each-product-button">Add To Cart</button>
+          <button onClick={handleAddToCart} className="each-product-button">
+            Add To Cart
+          </button>
           <select
             className="select "
             onChange={(e) =>
-              setCartItem({...cartItem, quantity: parseInt(e.target.value)})
-                
+              setCartItem({ ...cartItem, quantity: parseInt(e.target.value) })
             }
           >
             <option value="1" selected="selected">
