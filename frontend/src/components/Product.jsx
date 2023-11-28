@@ -5,9 +5,9 @@ import { React, useState } from "react";
 //
 
 function Products({ product }) {
-  const [inCart, setInCart] = useState(() => {
-    return false;
-  });
+  // const [inCart, setInCart] = useState(() => {
+  //   return false;
+  // });
   const addToCart = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -23,7 +23,7 @@ function Products({ product }) {
       });
       const data = await response.json();
       console.log(data);
-      setInCart(true);
+      // setInCart(true);
     } catch (error) {
       console.log("ADDTOCART error", error);
     }
@@ -44,20 +44,20 @@ function Products({ product }) {
         </Link>
         <h4 className="aligntext">${product.price}</h4>
 
-        {!inCart && (
-          <div className="outterardbutton">
-            <button onClick={addToCart} className="cardbutton">
-              Add To Cart
-            </button>
-          </div>
-        )}
-        {inCart && (
+        {/* {!inCart && ( */}
+        <div className="outterardbutton">
+          <button onClick={addToCart} className="cardbutton">
+            Add To Cart
+          </button>
+        </div>
+        {/* )} */}
+        {/* {inCart && (
           <div className="outterardbutton">
             <button onClick={addToCart} className="removecardbutton">
               Remove From Cart
             </button>
           </div>
-        )}
+        )} */}
       </div>
     </main>
   );

@@ -1,10 +1,10 @@
 import express from "express";
-const router = express.Router();
+const cartRouter = express.Router();
 import User from "../models/userModel.js";
 import authorize from "../middleware/auth.js";
 
 //FETCHES USER CART  ==> /api/cart
-router.get("/", authorize, async (req, res) => {
+cartRouter.get("/", authorize, async (req, res) => {
   try {
     if (req.user === undefined || req.user === null) {
       res
@@ -19,7 +19,7 @@ router.get("/", authorize, async (req, res) => {
   }
 });
 
-router.put("/", authorize, async (req, res) => {
+cartRouter.put("/", authorize, async (req, res) => {
   try {
     if (req.user === undefined || req.user === null) {
       res
@@ -44,4 +44,4 @@ router.put("/", authorize, async (req, res) => {
   }
 });
 
-export default router;
+export default cartRouter;

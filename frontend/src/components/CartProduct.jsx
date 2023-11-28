@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import { React, useState } from "react";
 
-//make a post request to add the product to your cart property in the users collection
-//
-
 function CartProduct({ product }) {
   const [quantity, setQuantity] = useState(() => {
     return product.quantity;
