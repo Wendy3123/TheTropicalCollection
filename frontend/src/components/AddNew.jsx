@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {Button, Image, Container} from "react-bootstrap"
+import { Button, Image, Container } from "react-bootstrap";
 function AddNew() {
   const navigate = useNavigate();
 
@@ -27,8 +27,8 @@ function AddNew() {
   }
   return (
     <main className="form-main-container">
-      <h1>Add New Product</h1>
       <div className="form-container">
+        <h1>Add New Product</h1>
         <form onSubmit={handleSubmit}>
           <div className="add-product">
             <label htmlFor="name">Product Name</label>
@@ -80,8 +80,11 @@ function AddNew() {
                 id="price"
                 name="price"
               />
-              <Button ClassName= "submit"> Submit</Button>
-              {/* <button className="submit"> Done</button> */}
+              <div>
+                <Container>
+                  <Button ClassName="submit"> Submit</Button>
+                </Container>
+              </div>
             </div>
           </div>
         </form>

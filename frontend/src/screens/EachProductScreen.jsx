@@ -74,9 +74,11 @@ function EachProductScreen() {
           {currentUser && currentUser.isAdmin && (
             <div className="admin-buttons">
               <Container>
-                <Link to="/">
-                  <Button variant="link">Edit Product</Button>
-                </Link>
+
+              <Link to="/products/edit">
+                <Button variant="link">Edit Product</Button>
+              </Link>
+
 
                 <Link to="/">
                   <Button variant="link">Delete Product</Button>
