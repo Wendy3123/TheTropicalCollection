@@ -1,28 +1,7 @@
 import { Link } from "react-router-dom";
-import { React, useState, useContext, useEffect } from "react";
-import { CurrentUser } from "../contexts/CurrentUser";
+import { React } from "react";
 
 function CartProduct({ item }) {
-  const { currentUser } = useContext(CurrentUser);
-  const [userInfo, setUserInfo] = useState([]);
-  //make a fetch request to users collection and then grab products from cart property
-  const currentUserId = currentUser?._id;
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(
-          `http://localhost:5001/api/users/${currentUserId}`
-        );
-        const resData = await res.json();
-        setUserInfo(resData);
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
-    fetchData();
-  }, [currentUserId]);
-
   return (
     <div>
       <div className="CardProductoutterbox">
@@ -44,13 +23,9 @@ function CartProduct({ item }) {
           <p className="CartProductQuantity">Quantity:&nbsp;{item.quantity}</p>
 
           <div className="outterardbutton">
-            {/* <button className="CartProductcardbutton" onClick={addQuantity}>
-              +
-            </button>
+            {/* <button className="CartProductcardbutton">+</button>
             <input className="CartProductinput"></input>
-            <button className="CartProductcardbutton" onClick={minusQuantity}>
-              -
-            </button> */}
+            <button className="CartProductcardbutton">-</button> */}
           </div>
         </div>
       </div>
