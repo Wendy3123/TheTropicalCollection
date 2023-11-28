@@ -10,6 +10,7 @@ import userRouter from "./controllers/usersRoutes.js";
 import authRouter from "./controllers/authRoutes.js";
 import cartRouter from "./controllers/cartsRoutes.js";
 const app = express();
+// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use("/api/products", router);
