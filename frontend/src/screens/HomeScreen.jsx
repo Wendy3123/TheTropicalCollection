@@ -1,15 +1,13 @@
-import {useContext} from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { CurrentUser } from '../contexts/CurrentUser.js';
-import {Button} from 'react-bootstrap'
+import { CurrentUser } from "../contexts/CurrentUser.js";
+import { Button } from "react-bootstrap";
 function HomeScreen() {
-  const { currentUser } = useContext(CurrentUser)
+  const { currentUser } = useContext(CurrentUser);
 
   // console.log(`is admin ${currentUser.isAdmin}`)
-     
 
   return (
-   
     <div className="homepagecontainer">
       <div className="homepageleft">
         <img
@@ -20,20 +18,6 @@ function HomeScreen() {
       </div>
 
       <div className="homepageright">
-      {currentUser && currentUser.isAdmin && (
-  <div className="admin-buttons">
-    <Link to="/admin">
-      <Button variant="link">
-        Go To Admin Page
-      </Button>
-    </Link>
-        {/* <Link to="/">
-      <Button>
-        View Orders
-      </Button>
-    </Link> */}
-  </div>
-)}
         <h2 className="homepageh2tag">Fresh Fruit is the ONLY ingredient!</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
@@ -53,7 +37,6 @@ function HomeScreen() {
         <Link to="products">
           <button className="homepagebutton">See Our Products</button>
         </Link>
-
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { React, useState } from "react";
+import { React } from "react";
 
 //make a post request to add the product to your cart property in the users collection
 //
