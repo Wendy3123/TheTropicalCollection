@@ -16,6 +16,7 @@ import "./styles/bootstrap.custom.css";
 import "./styles/index.css";
 import "./styles/cards.css";
 import "./styles/addnew.css";
+import "./styles/edit.css";
 import EditProduct from "./components/EditProduct.jsx";
 
 //all components now have access to shopContextProvider
@@ -34,7 +35,7 @@ function App() {
             <Route path="/signup" element={<SignUpScreen />}></Route>
             <Route path="/admin" element={<AdminScreen />} />
             <Route path="/products/new" element={<AddNew />} />
-            <Route path="/product/:id/edit" element={<EditProduct />}></Route>
+            <Route path="/products/edit" element={<EditProduct />}></Route>
             <Route path="*" element={<ErrorScreen />}></Route>
           </Routes>
           <Footer />

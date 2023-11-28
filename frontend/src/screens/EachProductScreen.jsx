@@ -39,7 +39,7 @@ function EachProductScreen() {
             
             <div className="admin-buttons">
               <Container>
-              <Link to="/">
+              <Link to="/products/edit">
                 <Button variant="link">Edit Product</Button>
               </Link>
 
