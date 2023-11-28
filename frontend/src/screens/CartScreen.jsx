@@ -18,16 +18,34 @@ function CartScreen() {
         setCart(data);
       });
   }, []);
+
+  //sum up the cart
+  let sumCart = cart.reduce((tot, c) => {
+    return tot + c.product.price * c.quantity;
+  }, 0);
+
+  // //sum up the quantity
+  let sumQuantity = cart.reduce((tot, c) => {
+    return tot + c.quantity;
+  }, 0);
+
+  // Format the price above to USD using the locale, style, and currency.
+  let USDollar = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
   return (
     <div>
       <h1 className="header1centered">Your Cart</h1>
       <div className="cardboxflex">
-        {cart.map((product) => (
+        {cart.map((item) => (
           <div className="eachcard">
-            <CartProduct product={product} />
+            <CartProduct item={item} />
           </div>
         ))}
       </div>
+      <p>{`Subtotal(${sumQuantity} items): ${USDollar.format(sumCart)}`}</p>
     </div>
   );
 }

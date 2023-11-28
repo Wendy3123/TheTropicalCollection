@@ -10,7 +10,10 @@ const authorize = async (req, res, next) => {
   try {
     if (token) {
       const decoded = await JWT.decode(process.env.JWT_SECRET, token);
-      const user = await User.findById(decoded.value.id).populate("cartItems");
+      const user = await User.findById(decoded.value.id).populate({
+        path: "cartItems.product",
+        model: "Product",
+      });
       req.user = user;
     }
     next();
