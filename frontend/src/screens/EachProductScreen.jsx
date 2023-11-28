@@ -63,6 +63,23 @@ function EachProductScreen() {
           Go Back
         </Link>
       </div>
+      {currentUser && currentUser.isAdmin && (
+        <div className="admin-buttons">
+          <Container>
+            <Link to="/">
+              <Button variant="link" className="adminButton">
+                Edit Product
+              </Button>
+            </Link>
+
+            <Link to="/">
+              <Button variant="link" className="adminButton">
+                Delete Product
+              </Button>
+            </Link>
+          </Container>
+        </div>
+      )}
 
       <div className="each-product-container">
         <div className="each-product-left">
@@ -71,19 +88,6 @@ function EachProductScreen() {
             src={product.image}
             alt={product.name}
           ></Image>
-          {currentUser && currentUser.isAdmin && (
-            <div className="admin-buttons">
-              <Container>
-                <Link to="/">
-                  <Button variant="link">Edit Product</Button>
-                </Link>
-
-                <Link to="/">
-                  <Button variant="link">Delete Product</Button>
-                </Link>
-              </Container>
-            </div>
-          )}
         </div>
 
         <div className="each-product-left">

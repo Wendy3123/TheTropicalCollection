@@ -33,7 +33,9 @@ function ProductScreen() {
   return (
     <div>
       {currentUser && currentUser.isAdmin && (
-        <h3>Click on item you want to Edit or delete</h3>
+        <h3 className="adminAccessRed">
+          Click on item you want to Edit or Delete
+        </h3>
       )}
       <h1 className="header1centered">Kosher Dried Fruits</h1>
       <div className="cardboxflex">

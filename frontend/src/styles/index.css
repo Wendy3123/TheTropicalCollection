@@ -38,12 +38,11 @@ background-clip: content-box;
 .homepageleft .homepageright {
   width: 50vw;
 }
-.admin-buttons{
-  display:flex;
+.admin-buttons {
+  display: flex;
   /* flex-direction: column; */
   justify-content: left;
- gap: 15px;
-
+  gap: 15px;
 }
 .homepageright {
   text-align: center;

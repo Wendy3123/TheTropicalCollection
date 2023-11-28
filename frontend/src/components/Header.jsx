@@ -1,6 +1,6 @@
-import { Navbar, Nav, Button, Container } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { useContext } from "react";
-import { FaShoppingCart, FaUser, FaListUl } from "react-icons/fa";
+import { FaShoppingCart, FaUser, FaListUl, FaUserEdit } from "react-icons/fa";
 
 import logo from "../styles/logo-small.png";
 import { LinkContainer } from "react-router-bootstrap";
@@ -19,10 +19,19 @@ function Header() {
   if (currentUser) {
     loginActions = (
       <>
-        <Navbar.Text>
-          <FaUser />
-          &nbsp;Hello: {currentUser.name}
-        </Navbar.Text>
+        {currentUser.isAdmin ? (
+          <LinkContainer to="/admin">
+            <Nav.Link>
+              <FaUserEdit />
+              &nbsp;Admin:{currentUser.name}
+            </Nav.Link>
+          </LinkContainer>
+        ) : (
+          <Navbar.Text>
+            <FaUser />
+            &nbsp;Hello:{currentUser.name}
+          </Navbar.Text>
+        )}
         <LinkContainer to="/" onClick={logout}>
           <Nav.Link>&nbsp;Logout</Nav.Link>
         </LinkContainer>
@@ -31,7 +40,7 @@ function Header() {
   }
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
+      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
             {/* navbar brand sets the brand to left side  */}
@@ -57,6 +66,12 @@ function Header() {
                   &nbsp;Cart
                 </Nav.Link>
               </LinkContainer>
+              {/* <LinkContainer to="/admin">
+                <Nav.Link>
+                  <FaUserEdit />
+                  &nbsp;Admin
+                </Nav.Link>
+              </LinkContainer> */}
 
               {loginActions}
             </Nav>
