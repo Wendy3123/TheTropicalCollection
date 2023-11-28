@@ -27,15 +27,40 @@ cartRouter.put("/", authorize, async (req, res) => {
         .json({ errorInfo: "You are not authorized, please login." });
       return;
     }
-    const updatedUser = await User.findByIdAndUpdate(
-      req.user._id,
+    let updatedUser = await User.findOneAndUpdate(
+      // compares cart item product to product id provided if it exist set will be used otherwise addtoset used
+      { _id: req.user._id, "cartItems.product": req.body.productId },
       {
-        $push: {
-          cartItems: req.body.productId,
+        // $set used if item is already in there
+        $set: {
+          "cartItems.$.quantity": req.body.quantity,
         },
       },
       { new: true }
-    ).populate("cartItems");
+    ).populate({
+      path: "cartItems.product",
+      model: "Product",
+    });
+    //if item not in cart yet
+    if (!updatedUser) {
+      updatedUser = await User.findOneAndUpdate(
+        { _id: req.user._id },
+        {
+          // allow you to add or update similar to $push
+          $addToSet: {
+            cartItems: {
+              product: req.body.productId,
+              quantity: req.body.quantity ? req.body.quantity : 1,
+            },
+          },
+        },
+        //new:true gives back updated version and not the old value
+        { new: true }
+      ).populate({
+        path: "cartItems.product",
+        model: "Product",
+      });
+    }
     res.status(201).json(updatedUser);
     return;
   } catch (error) {
