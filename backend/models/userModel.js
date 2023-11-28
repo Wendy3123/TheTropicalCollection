@@ -1,16 +1,16 @@
 import mongoose from "mongoose";
 
-// const cartItemSchema = new mongoose.Schema({
-// qty: {
-//   type: Number,
-//   default: 1,
-// },
-// product: {
-// type: mongoose.Schema.Types.ObjectId,
-// required: true,
-// ref: "Product",
-// },
-// });
+const cartItemSchema = new mongoose.Schema({
+  qty: {
+    type: Number,
+    default: 1,
+  },
+  product: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "Product",
+  },
+});
 
 const userSchema = new mongoose.Schema(
   {
@@ -34,18 +34,18 @@ const userSchema = new mongoose.Schema(
     },
     cartItems: [
       {
+        qty: {
+          type: Number,
+          default: 1,
+        },
         product: {
           type: mongoose.Schema.Types.ObjectId,
           required: true,
-          ref: 'Product',
+          ref: "Product",
         },
-        quantity: {
-          type: Number,
-          required: true,
-          default: 1,
-        },
-     
       },
+      // { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Product" },
+
     ],
   },
   { timestamps: true }
