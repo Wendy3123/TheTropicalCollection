@@ -4,10 +4,11 @@ import { React, useState } from "react";
 //make a post request to add the product to your cart property in the users collection
 //
 
-function Products({ product }) {
-  // const [inCart, setInCart] = useState(() => {
-  //   return false;
-  // });
+function Products({ product, cart }) {
+  const inCart = cart.find((item) => {
+    return item.product._id === product._id;
+  });
+  console.log("inCart", inCart);
   const addToCart = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -19,11 +20,11 @@ function Products({ product }) {
         },
         body: JSON.stringify({
           productId: product._id,
+          quantity: inCart ? inCart.quantity + 1 : 1,
         }),
       });
       const data = await response.json();
       console.log(data);
-      // setInCart(true);
     } catch (error) {
       console.log("ADDTOCART error", error);
     }
@@ -47,7 +48,7 @@ function Products({ product }) {
         {/* {!inCart && ( */}
         <div className="outterardbutton">
           <button onClick={addToCart} className="cardbutton">
-            Add To Cart
+            {inCart ? `Added(${inCart.quantity})` : `Add To Cart`}
           </button>
         </div>
         {/* )} */}
