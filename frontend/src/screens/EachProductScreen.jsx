@@ -63,23 +63,6 @@ function EachProductScreen() {
           Go Back
         </Link>
       </div>
-      {currentUser && currentUser.isAdmin && (
-        <div className="admin-buttons">
-          <Container>
-            <Link to="/">
-              <Button variant="link" className="adminButton">
-                Edit Product
-              </Button>
-            </Link>
-
-            <Link to="/">
-              <Button variant="link" className="adminButton">
-                Delete Product
-              </Button>
-            </Link>
-          </Container>
-        </div>
-      )}
 
       <div className="each-product-container">
         <div className="each-product-left">
@@ -125,6 +108,24 @@ function EachProductScreen() {
             <option value="14">14</option>
             <option value="15">15</option>
           </select>
+          <hr className="hr"></hr>
+          {currentUser && currentUser.isAdmin && (
+            <div className="admin-buttons">
+              <Container>
+                <Link to="/">
+                  <Button variant="link" className="adminButtonleft">
+                    Edit Product
+                  </Button>
+                </Link>
+
+                <Link to="/">
+                  <Button variant="link" className="adminButtonright">
+                    Delete
+                  </Button>
+                </Link>
+              </Container>
+            </div>
+          )}
         </div>
       </div>
     </>

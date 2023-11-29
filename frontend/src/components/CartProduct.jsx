@@ -3,30 +3,30 @@ import { React } from "react";
 
 function CartProduct({ item }) {
   return (
-    <div>
-      <div className="CardProductoutterbox">
-        <div classname="productbox">
-          <Link
-            to={`/products/${item.product._id}`}
-            className="innerproductbox"
-          >
-            <img
-              className="productimg"
-              src={item.product.image}
-              alt={item.product.name}
-            />
-          </Link>
+    <div className="cartbody">
+      <div className="cartoutterbox">
+        <Link to={`/products/${item.product._id}`}>
+          <img
+            className="cartproductimg"
+            src={item.product.image}
+            alt={item.product.name}
+          />
+        </Link>
+        <div className="cartdetails">
           <Link to={`/products/${item.product._id}`}>
-            <h4 className="aligntext">{item.product.name}</h4>
+            <span className="cartdetailsname">{item.product.name}</span>
           </Link>
-          <h4 className="aligntext">${item.product.price}</h4>
-          <p className="CartProductQuantity">Quantity:&nbsp;{item.quantity}</p>
+          <span className="cartdetailsprice">${item.product.price}</span>
+          <span className="cartdetailsquantity">
+            Quantity:&nbsp;{item.quantity}
+          </span>
+        </div>
+        <hr className="carthr"></hr>
 
-          <div className="outterardbutton">
-            {/* <button className="CartProductcardbutton">+</button>
+        <div className="outterardbutton">
+          {/* <button className="CartProductcardbutton">+</button>
             <input className="CartProductinput"></input>
             <button className="CartProductcardbutton">-</button> */}
-          </div>
         </div>
       </div>
     </div>

@@ -38,7 +38,7 @@ function CartScreen() {
   return (
     <div>
       <h1 className="header1centered">Your Cart</h1>
-      <div className="cardboxflex">
+      <div>
         {cart.map((item) => (
           <div className="eachcard">
             <CartProduct item={item} />
