@@ -4,7 +4,6 @@ import User from "../models/userModel.js";
 //checks for token to authorize user
 //auth will show ('Bearer 2h23h44j4') , we split the string where the space is at and gets the item at index [1]
 const authorize = async (req, res, next) => {
-  console.log(req.headers);
   const auth = req.headers?.authorization;
   const token = auth?.split(" ")[1];
   try {

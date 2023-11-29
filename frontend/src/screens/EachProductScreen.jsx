@@ -1,17 +1,20 @@
 import { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Image, Container, Button } from "react-bootstrap";
 import { CurrentUser } from "../contexts/CurrentUser.js";
 
 function EachProductScreen() {
+  const navigate = useNavigate();
   const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
   const { id: productId } = useParams();
   const { currentUser } = useContext(CurrentUser);
+  //CURRENTUSER? makes it so each product page still shows even if you aernt logged in
+  //if there is a user set currentuserid to the id else set id to undefined
   const currentUserId = currentUser?._id;
 
   //make a fetch request to users collection and then grab products from cart property
-
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
@@ -23,38 +26,26 @@ function EachProductScreen() {
     fetchData();
   }, [productId]);
 
-  const [cartItem, setCartItem] = useState({
-    name: "",
-    image: "",
-    quantity: 1,
-    description: "",
-    price: 0,
-  });
-
   async function handleAddToCart(e) {
     e.preventDefault();
-    setCartItem((prev) => ({
-      ...prev,
-      name: product.name,
-      _id: product._id,
-      image: product.image,
-      description: product.description,
-      price: product.price,
-      quantity: parseInt(prev.quantity),
-    }));
-    console.log(cartItem);
-    await fetch(
-      `http://localhost:5001/api/users/${currentUserId}/cart/${productId}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+    const token = localStorage.getItem("token");
+    await fetch(`http://localhost:5001/api/cart`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
 
-        body: JSON.stringify(cartItem),
-      }
-    );
+      body: JSON.stringify({ productId, quantity }),
+    });
+    navigate("/products");
   }
+
+  const minusQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
 
   return (
     <>
@@ -71,21 +62,6 @@ function EachProductScreen() {
             src={product?.image}
             alt={product?.name}
           ></Image>
-          {currentUser && currentUser.isAdmin && (
-            <div className="admin-buttons">
-              <Container>
-
-              <Link to="/products/edit">
-                <Button variant="link">Edit Product</Button>
-              </Link>
-
-
-                <Link to="/">
-                  <Button variant="link">Delete Product</Button>
-                </Link>
-              </Container>
-            </div>
-          )}
         </div>
 
         <div className="each-product-left">
@@ -98,30 +74,40 @@ function EachProductScreen() {
           <button onClick={handleAddToCart} className="each-product-button">
             Add To Cart
           </button>
-          <select
-            className="select"
-            onChange={(e) =>
-              setCartItem({ ...cartItem, quantity: parseInt(e.target.value) })
-            }
-          >
-            <option value="1" selected="selected">
-              1
-            </option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-          </select>
+          <div className="outterardbutton">
+            <button
+              className="CartProductcardbutton"
+              onClick={() => setQuantity(Number(quantity) + 1)}
+            >
+              +
+            </button>
+            <input
+              className="CartProductinput"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+            <button className="CartProductcardbutton" onClick={minusQuantity}>
+              -
+            </button>
+          </div>
+          <hr className="hr"></hr>
+          {currentUser && currentUser.isAdmin && (
+            <div className="admin-buttons">
+              <Container>
+                <Link to="/">
+                  <Button variant="link" className="adminButtonleft">
+                    Edit Product
+                  </Button>
+                </Link>
+
+                <Link to="/">
+                  <Button variant="link" className="adminButtonright">
+                    Delete
+                  </Button>
+                </Link>
+              </Container>
+            </div>
+          )}
         </div>
       </div>
     </>

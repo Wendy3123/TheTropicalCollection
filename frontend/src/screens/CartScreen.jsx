@@ -6,41 +6,23 @@ import { Button } from "react-bootstrap";
 
 function CartScreen() {
   //make a fetch request to users collection and then grab products from cart property
-  const { currentUser } = useContext(CurrentUser);
-
-  const currentUserId = currentUser?._id;
-  const [userInfo, setUserInfo] = useState([]);
-
-  // const [cart, setCart] = useState([]);
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-  //   fetch("http://localhost:5001/api/cart", {
-  //     method: "get",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       authorization: `Bearer ${token}`,
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setCart(data);
-  //     });
-  // }, []);
+  const [cart, setCart] = useState([]);
+  const [cartChanges, setCartChanges] = useState(0);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(
-          `http://localhost:5001/api/users/${currentUserId}`
-        );
-        const resData = await res.json();
-        setUserInfo(resData);
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
-    fetchData();
-  }, [currentUserId]);
+    const token = localStorage.getItem("token");
+    fetch("http://localhost:5001/api/cart", {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setCart(data);
+      });
+  }, [cartChanges]);
 
   //sum up the cart
   let sumCart = userInfo.cartItems?.reduce((tot, c) => {
@@ -60,28 +42,25 @@ function CartScreen() {
 
   return (
     <div>
-      {currentUser ? (
+      <div>
+        <h1 className="header1centered">Your Cart</h1>
         <div>
-          <h1 className="header1centered">Your Cart</h1>
-          <div className="cardboxflex">
-            {userInfo &&
-              userInfo.cartItems?.map((item) => (
-                <div className="eachcard">
-                  <CartProduct key={item.product._id} item={item} />
-                </div>
-              ))}
-          </div>
-
-          <p>{`Subtotal(${sumQuantity} items): ${USDollar.format(sumCart)}`}</p>
-          <Link to={`/checkout/${currentUserId}`}> Checkout </Link>
+          {cart.map((item) => (
+            <div className="eachcard" key={item._id}>
+              <CartProduct
+                item={item}
+                setCartChanges={setCartChanges}
+                cartChanges={cartChanges}
+              />
+            </div>
+          ))}
         </div>
-      ) : (
-        <Link to="/login">
-          <div className="row">
-            <Button style={{ backgroundColor: '#925e0b'}}>Please Login. Thank you!</Button>
-          </div>
-        </Link>
-      )}
+        <p className="cartsubtotal">
+          <strong>{`Subtotal(${sumQuantity} items): ${USDollar.format(
+            sumCart
+          )}`}</strong>
+        </p>
+      </div>
     </div>
   );
 }
