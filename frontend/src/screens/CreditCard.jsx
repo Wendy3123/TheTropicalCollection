@@ -38,39 +38,130 @@ function CreditCard() {
     setPaymentAmount("");
   };
   return (
-    <div className="">
+    <div className="card-container">
       {!isSubmitted ? (
         <form onSubmit={handleSubmit}>
-          <div class="payment-form">
-            <input className="type" type="radio" id="radio1" value="option1" />
-            <label className="pay-type" for="radio1">
-              Personal
-            </label>
+            <h1>Payment Information</h1>
+          <div className="row">
+            <div className="first-last">
+              <div className="input-group">
+                <label htmlFor="firstName" className="form-label">
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value=""
+                  id=""
+                  placeholder=""
+                  //   onChange={(e) => setpayment(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="input-group">
+                <label htmlFor="lastName" className="form-label">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value=""
+                  id="lastName"
+                  placeholder=""
+                  //   onChange={(e) => setpayment(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="">
+                <label htmlFor="card-number" className="">
+                  Card Number
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="card-number"
+                  placeholder="1234 5678 9012 4563"
+                />
+              </div>
+            </div>
           </div>
-          <div className="payment-form">
-            <input
-              className="form-check-input"
-              type="radio"
-              id="radio2"
-              value="option2"
-            />
-            <label className="pay-type" for="radio2">
-              Business
-            </label>
+          <div className="">
+            <div className="col-sm-6">
+              <div className="">
+                <label htmlFor="exp-date" className="">
+                  Expiration Date
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="exp-Date"
+                  placeholder="MM/YY"
+                />
+              </div>
+            </div>
+
+            <div className="">
+              <div className="">
+                <label htmlFor="cvv" className="">
+                  CVV
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="cvv"
+                  placeholder="456"
+                />
+              </div>
+            </div>
           </div>
-          <div>
-            <label>First name</label>
+
+          {/* Billing  */}
+          <div className="">
+            <label htmlFor="billing" className="">
+              Billing Address
+            </label>
             <input
               type="text"
               className="form-control"
-              value=""
-              id="payer"
-              placeholder="Name"
+              id="billing"
+              placeholder="123 Name St"
             />
+          </div>
+          <div className="">
+            <div className="">
+              <div className="">
+                <label htmlFor="city" className="">
+                  City
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="city"
+                  placeholder="City "
+                />
+              </div>
+            </div>
+            <div className="">
+              <div className="">
+                <label htmlFor="zip" className="">
+                  Zip Code
+                </label>
+                <input type="text" className="" id="zip" placeholder="11111" />
+              </div>
+            </div>
+          </div>
+          <div className="submit-container">
+            <Container>
+              <Button type="submit" className="submit-button" to="/">
+                Submit Payment
+              </Button>
+            </Container>
           </div>
         </form>
       ) : (
-        <div className="confirmation-message">Order confirmed.</div>
+        <div className="confirmation-message">Payment Confirmed</div>
       )}
     </div>
   );

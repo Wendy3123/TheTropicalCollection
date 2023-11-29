@@ -19,7 +19,8 @@ h1 {
 
 .form-container {
   background-color: #925e0b;
-  padding: 20px 40px;
+  padding: 50px 40px;
+  margin: 5px;
   border-radius: 15px;
   height: 50vh;
 }
@@ -36,7 +37,9 @@ h1 {
   cursor: pointer;
   transition: all 0.2s;
 }
-
+div .container {
+  padding: 25px;
+}
 .submit:hover {
   background-color: rgb(80, 76, 76);
   color: yellow;
