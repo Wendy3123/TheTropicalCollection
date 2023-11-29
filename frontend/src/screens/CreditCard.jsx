@@ -41,8 +41,9 @@ function CreditCard() {
     <div className="card-container">
       {!isSubmitted ? (
         <form onSubmit={handleSubmit}>
+            <h1>Payment Information</h1>
           <div className="row">
-            <div className="col-md-6">
+            <div className="first-last">
               <div className="input-group">
                 <label htmlFor="firstName" className="form-label">
                   First Name
@@ -151,7 +152,7 @@ function CreditCard() {
               </div>
             </div>
           </div>
-          <div className="card-container">
+          <div className="submit-container">
             <Container>
               <Button type="submit" className="submit-button" to="/">
                 Submit Payment

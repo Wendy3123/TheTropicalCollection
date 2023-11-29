@@ -21,7 +21,7 @@ import "./styles/addnew.css";
 import "./styles/admin.css";
 import "./styles/cart.css";
 import "./styles/edit.css";
-
+import "./styles/creditcard.css";
 
 //all components now have access to shopContextProvider
 function App() {
