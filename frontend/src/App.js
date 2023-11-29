@@ -17,6 +17,7 @@ import "./styles/index.css";
 import "./styles/cards.css";
 import "./styles/addnew.css";
 import "./styles/admin.css";
+import "./styles/cart.css";
 import EditProduct from "./components/EditProduct.jsx";
 
 //all components now have access to shopContextProvider
