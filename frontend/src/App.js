@@ -18,6 +18,8 @@ import "./styles/bootstrap.custom.css";
 import "./styles/index.css";
 import "./styles/cards.css";
 import "./styles/addnew.css";
+import "./styles/admin.css";
+import "./styles/cart.css";
 import "./styles/edit.css";
 
 

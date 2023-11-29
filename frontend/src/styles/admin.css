@@ -1,0 +1,42 @@
+.adminAccessRed {
+  text-align: center;
+  color: red;
+}
+
+.adminButtonleft,
+.adminButtonright {
+  color: red;
+  font-size: 19px;
+  margin-top: -10px;
+}
+
+.adminButtonleft {
+  margin-left: 4.5vw;
+}
+
+@media (max-width: 1350px) and (min-width: 1000px) {
+  .adminButtonleft {
+    margin-left: 5vw;
+  }
+}
+
+@media (max-width: 1050px) and (min-width: 700px) {
+  .adminButtonleft {
+    margin-left: 15vw;
+  }
+  .adminButtonleft,
+  .adminButtonright {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 750px) and (min-width: 400px) {
+  .adminButtonleft {
+    margin-left: 4.5vw;
+  }
+  .adminButtonleft,
+  .adminButtonright {
+    font-size: 17px;
+    margin-top: -15px;
+  }
+}
