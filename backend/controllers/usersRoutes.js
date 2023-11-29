@@ -71,6 +71,19 @@ userRouter.post("/:id/cart/:productId", async (req, res) => {
     res.status(500).json({ error: "An error occurred" });
   }
 });
+// edit user add address
+
+userRouter.put("/:id", (req, res) => {
+  // console.log(req.body);
+ User.findByIdAndUpdate(req.params.id, req.body)
+    .then((user) => {
+      res.json(user);
+    })
+    .catch((err) => {
+      console.log("err", err);
+      res.status(500).json({ error: "An error occurred" });
+    });
+});
 
 //delete one
 // userRouter.delete("/:id/cart/single/:productId", async (req, res) => {

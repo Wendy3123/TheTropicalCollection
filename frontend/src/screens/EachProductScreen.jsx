@@ -8,7 +8,7 @@ function EachProductScreen() {
   const [product, setProduct] = useState({});
   const { id: productId } = useParams();
   const { currentUser } = useContext(CurrentUser);
-  const currentUserId = currentUser._id;
+  const currentUserId = currentUser?._id;
 
   //make a fetch request to users collection and then grab products from cart property
 
@@ -68,8 +68,8 @@ function EachProductScreen() {
         <div className="each-product-left">
           <Image
             className="each-product-image"
-            src={product.image}
-            alt={product.name}
+            src={product?.image}
+            alt={product?.name}
           ></Image>
           {currentUser && currentUser.isAdmin && (
             <div className="admin-buttons">

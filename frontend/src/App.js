@@ -8,6 +8,7 @@ import ProductScreen from "./screens/ProductScreen";
 import EachProductScreen from "./screens/EachProductScreen.jsx";
 import LoginScreen from "./screens/LoginScreen.jsx";
 import SignUpScreen from "./screens/SignUpScreen.jsx";
+import CheckoutAddress from "./screens/CheckoutAddress.jsx";
 import CurrentUserProvider from "./contexts/CurrentUser.js";
 import CartScreen from "./screens/CartScreen.jsx";
 import AddNew from "./components/AddNew";
@@ -35,6 +36,7 @@ function App() {
             <Route path="/signup" element={<SignUpScreen />}></Route>
             <Route path="/admin" element={<AdminScreen />} />
             <Route path="/products/new" element={<AddNew />} />
+            <Route path="/checkout/:id" element={<CheckoutAddress />}></Route>
             <Route path="/products/edit" element={<EditProduct />}></Route>
             <Route path="*" element={<ErrorScreen />}></Route>
           </Routes>
