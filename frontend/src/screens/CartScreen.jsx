@@ -4,6 +4,8 @@ import CartProduct from "../components/CartProduct";
 function CartScreen() {
   //make a fetch request to users collection and then grab products from cart property
   const [cart, setCart] = useState([]);
+  const [cartChanges, setCartChanges] = useState(0);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     fetch("http://localhost:5001/api/cart", {
@@ -17,7 +19,7 @@ function CartScreen() {
       .then((data) => {
         setCart(data);
       });
-  }, []);
+  }, [cartChanges]);
 
   //sum up the cart
   let sumCart = cart.reduce((tot, c) => {
@@ -37,15 +39,25 @@ function CartScreen() {
 
   return (
     <div>
-      <h1 className="header1centered">Your Cart</h1>
       <div>
-        {cart.map((item) => (
-          <div className="eachcard">
-            <CartProduct item={item} />
-          </div>
-        ))}
+        <h1 className="header1centered">Your Cart</h1>
+        <div>
+          {cart.map((item) => (
+            <div className="eachcard" key={item._id}>
+              <CartProduct
+                item={item}
+                setCartChanges={setCartChanges}
+                cartChanges={cartChanges}
+              />
+            </div>
+          ))}
+        </div>
+        <p className="cartsubtotal">
+          <strong>{`Subtotal(${sumQuantity} items): ${USDollar.format(
+            sumCart
+          )}`}</strong>
+        </p>
       </div>
-      <p>{`Subtotal(${sumQuantity} items): ${USDollar.format(sumCart)}`}</p>
     </div>
   );
 }

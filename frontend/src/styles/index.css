@@ -12,6 +12,10 @@ background-clip: content-box;
 */ main {
   min-height: 80vh;
 }
+.footerContactinfo {
+  text-align: center;
+  font-size: 16.5px;
+}
 
 .backgroundimage {
   height: 100%;
