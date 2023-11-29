@@ -34,7 +34,7 @@ function HomeScreen() {
           voluptatem illum rerum!
         </p>
 
-        <Link to="products">
+        <Link to="/products">
           <button className="homepagebutton">See Our Products</button>
         </Link>
       </div>

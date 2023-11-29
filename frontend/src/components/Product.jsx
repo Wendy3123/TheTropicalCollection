@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { React } from "react";
 
 //make a post request to add the product to your cart property in the users collection
-//
 
-function Products({ product, cart }) {
+function Products({ product, cart, setCartChanges, cartChanges }) {
+  const navigate = useNavigate();
   const inCart = cart.find((item) => {
     return item.product._id === product._id;
   });
@@ -12,6 +12,10 @@ function Products({ product, cart }) {
   const addToCart = async () => {
     try {
       const token = localStorage.getItem("token");
+      if (!token) {
+        navigate("/login");
+        return;
+      }
       const response = await fetch("http://localhost:5001/api/cart", {
         method: "put",
         headers: {
@@ -20,10 +24,11 @@ function Products({ product, cart }) {
         },
         body: JSON.stringify({
           productId: product._id,
-          quantity: inCart ? inCart.quantity + 1 : 1,
+          quantity: 1,
         }),
       });
       const data = await response.json();
+      setCartChanges(cartChanges + 1);
       console.log(data);
     } catch (error) {
       console.log("ADDTOCART error", error);
@@ -51,14 +56,6 @@ function Products({ product, cart }) {
             {inCart ? `Added(${inCart.quantity})` : `Add To Cart`}
           </button>
         </div>
-        {/* )} */}
-        {/* {inCart && (
-          <div className="outterardbutton">
-            <button onClick={addToCart} className="removecardbutton">
-              Remove From Cart
-            </button>
-          </div>
-        )} */}
       </div>
     </main>
   );

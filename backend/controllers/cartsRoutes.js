@@ -31,8 +31,9 @@ cartRouter.put("/", authorize, async (req, res) => {
       // compares cart item product to product id provided if it exist set will be used otherwise addtoset used
       { _id: req.user._id, "cartItems.product": req.body.productId },
       {
-        // $set used if item is already in there
-        $set: {
+        // $inc (increment) adds the provided quantity to current quantity
+
+        $inc: {
           "cartItems.$.quantity": req.body.quantity,
         },
       },
@@ -63,6 +64,35 @@ cartRouter.put("/", authorize, async (req, res) => {
     }
     res.status(201).json(updatedUser);
     return;
+  } catch (error) {
+    console.log(error.messsage);
+    res.status(404).json({ errorInfo: error.message });
+  }
+});
+
+cartRouter.put("/edit", authorize, async (req, res) => {
+  try {
+    if (req.user === undefined || req.user === null) {
+      res
+        .status(403)
+        .json({ errorInfo: "You are not authorized, please login." });
+      return;
+    }
+    let updatedUser = await User.findOneAndUpdate(
+      // compares cart item product to product id provided if it exist set will be used otherwise addtoset used
+      { _id: req.user._id, "cartItems.product": req.body.productId },
+      {
+        // $set used if item is already in there
+        $set: {
+          "cartItems.$.quantity": req.body.quantity,
+        },
+      },
+      { new: true }
+    ).populate({
+      path: "cartItems.product",
+      model: "Product",
+    });
+    res.status(201).json(updatedUser);
   } catch (error) {
     console.log(error.messsage);
     res.status(404).json({ errorInfo: error.message });
