@@ -11,6 +11,29 @@ const cartItemSchema = new mongoose.Schema({
     ref: "Product",
   },
 });
+const orderItemSchema = new mongoose.Schema({
+  quantity: {
+    type: Number,
+    default: 1,
+  },
+  product: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "Product",
+  },
+});
+
+const oldOrderSchema = new mongoose.Schema({
+  quantity: {
+    type: Number,
+    default: 1,
+  },
+  product: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "Product",
+  },
+});
 
 const userSchema = new mongoose.Schema(
   {
@@ -60,6 +83,14 @@ const userSchema = new mongoose.Schema(
     },
     cartItems: [
       cartItemSchema,
+      // { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Product" },
+    ],
+    orderItems: [
+      orderItemSchema,
+      // { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Product" },
+    ],
+    oldOrders: [
+      oldOrderSchema,
       // { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Product" },
     ],
   },

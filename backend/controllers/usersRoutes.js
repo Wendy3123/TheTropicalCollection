@@ -71,33 +71,54 @@ userRouter.post("/:id/cart/:productId", async (req, res) => {
     res.status(500).json({ error: "An error occurred" });
   }
 });
-// edit user add address
 
-userRouter.put("/:id", (req, res) => {
-  // console.log(req.body);
- User.findByIdAndUpdate(req.params.id, req.body)
-    .then((user) => {
-      res.json(user);
-    })
-    .catch((err) => {
-      console.log("err", err);
-      res.status(500).json({ error: "An error occurred" });
-    });
+userRouter.put("/:id", async (req, res) => {
+  try {
+   //address
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+    let updateObject = {};
+
+    // move order to old orders
+    if (updatedUser.orderItems.length > 0) {
+      updateObject = {
+        $push: { oldOrders: { $each: updatedUser.orderItems } },
+        $set: { orderItems: [] }, // Empty the current orderItems array
+      };
+
+      const updatedUserWithOldOrders = await User.findByIdAndUpdate(
+        req.params.id,
+        updateObject,
+        { new: true }
+      );
+
+      return res.json(updatedUserWithOldOrders);
+    }
+
+   // empty  cart to orders
+    const cartItems = updatedUser.cartItems.map(item => ({
+      product: item.product,
+      quantity: item.quantity,
+    }));
+
+    updateObject = {
+      $push: { orderItems: { $each: cartItems } },
+      $set: { cartItems: [] }, // Empty the cart array
+    };
+
+    const updatedUserWithOrders = await User.findByIdAndUpdate(
+      req.params.id,
+      updateObject,
+      { new: true }
+    );
+
+    res.json(updatedUserWithOrders);
+  } catch (err) {
+    console.error("Error:", err);
+    res.status(500).json({ error: "An error occurred" });
+  }
 });
 
-//delete one
-// userRouter.delete("/:id/cart/single/:productId", async (req, res) => {
-//   try {
-//     const user = await User.findById(req.params.id);
-//     const product = await Product.findById(req.params.productId);
-//     user.cartItems.pop(product._id);
-//     await user.save();
-//     res.json(user.cartItems);
-//   } catch (err) {
-//     console.log("err", err);
-//     res.status(500).json({ error: "An error occurred" });
-//   }
-// });
 // create an endpoint that updates the user cart propertry(add/delete/update )
 
 // create an ednpoint that grabs the users cart using the userID (you will getback the product ID and

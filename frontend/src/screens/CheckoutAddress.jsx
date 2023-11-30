@@ -14,7 +14,8 @@ function CheckoutAddress() {
     city: "",
     state: "",
     zip:"",
-    phone:""
+    phone:"",
+    cartItems:""
   });
 
   useEffect(() => {
@@ -33,7 +34,7 @@ function CheckoutAddress() {
 
       async function handleSubmit(e) {
         e.preventDefault();
-    
+        setAddress({ ...address, cartItems: currentUser.cartItems })
         await fetch(`http://localhost:5001/api/users/${currentUser?._id}`, {
           method: "PUT",
           headers: {
@@ -41,6 +42,8 @@ function CheckoutAddress() {
           },
           body: JSON.stringify(address),
         });
+
+
     // create confirmation page
         navigate(`/`);
       }
