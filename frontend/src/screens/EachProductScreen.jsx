@@ -59,8 +59,8 @@ function EachProductScreen() {
         <div className="each-product-left">
           <Image
             className="each-product-image"
-            src={product.image}
-            alt={product.name}
+            src={product?.image}
+            alt={product?.name}
           ></Image>
         </div>
 

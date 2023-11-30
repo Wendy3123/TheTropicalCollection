@@ -32,6 +32,32 @@ const userSchema = new mongoose.Schema(
       required: true,
       default: false,
     },
+    address:{
+      type: String,
+      // default:"123 Main Street",
+      // required: true,
+    },
+    city:{
+      type: String,
+      // default:"Yahoopitzville",
+      // required: true,
+    },
+    state:{
+      type: String,
+      // default:"PP",
+      // required: true,
+
+    },
+    zip:{ 
+      type: String,
+      // default:"12345",
+    //  required: true,
+    },
+    phone:{
+      type: String
+      // default:"123-456-7891",
+      // required: true,
+    },
     cartItems: [
       cartItemSchema,
       // { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Product" },

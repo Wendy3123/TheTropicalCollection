@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import CartProduct from "../components/CartProduct";
+import { CurrentUser } from "../contexts/CurrentUser";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 function CartScreen() {
   //make a fetch request to users collection and then grab products from cart property
@@ -22,12 +25,12 @@ function CartScreen() {
   }, [cartChanges]);
 
   //sum up the cart
-  let sumCart = cart.reduce((tot, c) => {
+  let sumCart = userInfo.cartItems?.reduce((tot, c) => {
     return tot + c.product.price * c.quantity;
   }, 0);
 
   // //sum up the quantity
-  let sumQuantity = cart.reduce((tot, c) => {
+  let sumQuantity = userInfo.cartItems?.reduce((tot, c) => {
     return tot + c.quantity;
   }, 0);
 
