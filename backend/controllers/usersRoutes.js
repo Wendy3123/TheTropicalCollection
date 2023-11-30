@@ -31,6 +31,10 @@ userRouter.get("/:id", (req, res) => {
     path: 'cartItems.product',
     model: 'Product',
   })
+  .populate({
+    path: 'orderItems.product',
+    model: 'Product',
+  })
     .then((user) => {
     ;
       res.json(user);
@@ -71,7 +75,7 @@ userRouter.post("/:id/cart/:productId", async (req, res) => {
     res.status(500).json({ error: "An error occurred" });
   }
 });
-
+//checkout
 userRouter.put("/:id", async (req, res) => {
   try {
    //address
@@ -92,7 +96,6 @@ userRouter.put("/:id", async (req, res) => {
         { new: true }
       );
 
-      return res.json(updatedUserWithOldOrders);
     }
 
    // empty  cart to orders

@@ -45,7 +45,7 @@ function CheckoutAddress() {
 
 
     // create confirmation page
-        navigate(`/`);
+        navigate(`/invoice`);
       }
   return (
     <div className="login-top-container">
