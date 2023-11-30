@@ -20,7 +20,7 @@ function CartProduct({ item, setCartChanges, cartChanges }) {
   }
 
   const minusQuantity = () => {
-    if (quantity > 1) {
+    if (quantity > 0) {
       setQuantity(quantity - 1);
     }
   };
@@ -42,10 +42,8 @@ function CartProduct({ item, setCartChanges, cartChanges }) {
           <span className="cartdetailsquantity">
             Quantity:&nbsp;{item.quantity}
           </span>
-          <button onClick={handleAddToCart} className="each-product-button">
-            Update Cart
-          </button>
-          <div className="outterardbutton">
+
+          <div className=" cartdetailsaddminusbutton">
             <button
               className="CartProductcardbutton"
               onClick={() => setQuantity(Number(quantity) + 1)}
@@ -61,6 +59,12 @@ function CartProduct({ item, setCartChanges, cartChanges }) {
               -
             </button>
           </div>
+          <button
+            onClick={handleAddToCart}
+            className="each-product-button cartdetailsupdatebutton "
+          >
+            &nbsp;Update Cart
+          </button>
         </div>
         <hr className="carthr"></hr>
       </div>

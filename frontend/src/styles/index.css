@@ -135,13 +135,14 @@ background-clip: content-box;
 .each-product-description,
 .each-product-price,
 .hr,
-.each-product-button {
+.each-product-button,
+.cartDiv {
   margin-left: 85px;
 }
 
 .each-product-button {
   width: 110px;
-  height: 30px;
+  height: 26px;
   color: #1a1818;
   border-radius: 40px;
   border: 1px yellow solid;
@@ -201,7 +202,8 @@ background-clip: content-box;
   .each-product-description,
   .each-product-price,
   .hr,
-  .each-product-button {
+  .each-product-button,
+  .cartDiv {
     margin-left: 17vw;
   }
   .hr {
@@ -209,5 +211,9 @@ background-clip: content-box;
   }
   .eachProductgoBackButton {
     margin-left: 7vw;
+  }
+
+  .cartDiv {
+    margin-bottom: 15px;
   }
 }
