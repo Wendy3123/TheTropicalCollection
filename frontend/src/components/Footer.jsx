@@ -9,6 +9,7 @@ function Footer() {
       <Container>
         <Row>
           <div className="footerContactinfo">
+            <strong>Contact Us</strong>
             <div>
               <FaInstagram />
               &nbsp; the_tropical_collection
@@ -19,9 +20,9 @@ function Footer() {
             </div>
           </div>
 
-          <Col className="text-center py-3">
+          <div className="footer">
             <p>The Tropical Collection &copy; {currentYear} </p>
-          </Col>
+          </div>
         </Row>
       </Container>
     </footer>
