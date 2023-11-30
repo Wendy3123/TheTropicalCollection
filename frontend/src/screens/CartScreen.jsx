@@ -6,26 +6,26 @@ import { Button } from "react-bootstrap";
 
 function CartScreen() {
   //make a fetch request to users collection and then grab products from cart property
-  // const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([]);
   const [cartChanges, setCartChanges] = useState(0);
   const { currentUser } = useContext(CurrentUser);
   const currentUserId = currentUser?._id;
   const [userInfo, setUserInfo] = useState([]);
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-  //   fetch("http://localhost:5001/api/cart", {
-  //     method: "get",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       authorization: `Bearer ${token}`,
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setCart(data);
-  //     });
-  // }, [cartChanges]);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    fetch("http://localhost:5001/api/cart", {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setCart(data);
+      });
+  }, [cartChanges]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,7 +63,7 @@ function CartScreen() {
       <div>
         <h1 className="header1centered">Your Cart</h1>
         <div>
-          {userInfo.cartItems?.map((item) => (
+          {cart?.map((item) => (
             <div className="eachcard" key={item._id}>
               <CartProduct
                 item={item}

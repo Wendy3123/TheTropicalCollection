@@ -87,7 +87,7 @@ userRouter.put("/:id", async (req, res) => {
     if (updatedUser.orderItems.length > 0) {
       updateObject = {
         $push: { oldOrders: { $each: updatedUser.orderItems } },
-        $set: { orderItems: [] }, // Empty the current orderItems array
+        $set: { orderItems: [] }, 
       };
 
       const updatedUserWithOldOrders = await User.findByIdAndUpdate(
@@ -106,7 +106,7 @@ userRouter.put("/:id", async (req, res) => {
 
     updateObject = {
       $push: { orderItems: { $each: cartItems } },
-      $set: { cartItems: [] }, // Empty the cart array
+      $set: { cartItems: [] }, 
     };
 
     const updatedUserWithOrders = await User.findByIdAndUpdate(
