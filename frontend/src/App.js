@@ -25,7 +25,6 @@ import "./styles/cart.css";
 import "./styles/edit.css";
 import "./styles/creditcard.css";
 
-
 //all components now have access to shopContextProvider
 function App() {
   return (
@@ -46,9 +45,9 @@ function App() {
             <Route path="/products/edit" element={<EditProduct />}></Route>
             <Route path="*" element={<ErrorScreen />}></Route>
             <Route path="/payment" element={<CreditCard />}></Route>
-            <Route path="/invoice" element={<InvoiceScreen />}> </Route>
+            <Route path="/invoice" element={<InvoiceScreen />}>
               {" "}
-            
+            </Route>
           </Routes>
           <Footer />
         </BrowserRouter>
