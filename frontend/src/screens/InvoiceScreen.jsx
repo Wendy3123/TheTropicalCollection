@@ -11,7 +11,7 @@ import {
   MDBTable,
   MDBTableHead,
   MDBTableBody,
-  MDBImage,
+
 } from "mdb-react-ui-kit";
 import { CurrentUser } from "../contexts/CurrentUser";
 import logo from "../styles/logo-small.png";
