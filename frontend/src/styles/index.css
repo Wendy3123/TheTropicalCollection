@@ -13,8 +13,16 @@ background-clip: content-box;
   min-height: 80vh;
 }
 .footerContactinfo {
+  display: flex;
+  gap: 20px;
   text-align: center;
   font-size: 16.5px;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.footer {
+  text-align: center;
 }
 
 .backgroundimage {

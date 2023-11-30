@@ -66,14 +66,6 @@ function Header() {
                   &nbsp;Products
                 </Nav.Link>
               </LinkContainer>
-
-              {/* <LinkContainer to="/admin">
-                <Nav.Link>
-                  <FaUserEdit />
-                  &nbsp;Admin
-                </Nav.Link>
-              </LinkContainer> */}
-
               {loginActions}
             </Nav>
           </Navbar.Collapse>
