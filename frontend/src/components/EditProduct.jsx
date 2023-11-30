@@ -40,6 +40,7 @@ function EditProduct() {
   }
   return (
     <main>
+      
       <h1>Edit Product</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -104,7 +105,7 @@ function EditProduct() {
         </div>
         <div>
           <Container>
-            <Link to="/products">
+            <Link to="/products_id" method= "POST">
               <Button variant="link">Submit</Button>
             </Link>
           </Container>
