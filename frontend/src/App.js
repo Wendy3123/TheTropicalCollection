@@ -15,6 +15,7 @@ import CartScreen from "./screens/CartScreen.jsx";
 import AddNew from "./components/AddNew";
 import AdminScreen from "./screens/AdminScreen";
 import CreditCard from "./screens/CreditCard";
+import InvoiceScreen from "./screens/InvoiceScreen.jsx";
 import "./styles/bootstrap.custom.css";
 import "./styles/index.css";
 import "./styles/cards.css";
@@ -23,6 +24,7 @@ import "./styles/admin.css";
 import "./styles/cart.css";
 import "./styles/edit.css";
 import "./styles/creditcard.css";
+
 
 //all components now have access to shopContextProvider
 function App() {
@@ -43,9 +45,10 @@ function App() {
             <Route path="/checkout/:id" element={<CheckoutAddress />}></Route>
             <Route path="/products/edit" element={<EditProduct />}></Route>
             <Route path="*" element={<ErrorScreen />}></Route>
-            <Route path="/payment" element={<CreditCard />}>
+            <Route path="/payment" element={<CreditCard />}></Route>
+            <Route path="/invoice" element={<InvoiceScreen />}> </Route>
               {" "}
-            </Route>
+            
           </Routes>
           <Footer />
         </BrowserRouter>
