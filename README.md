@@ -41,6 +41,8 @@ Built by Wendy Wang, Amina Olu and Rivka Weingarten
 | /login         | `LoginScreen`           | Log-In page                                 |
 | /signup        | `SignUpScreen.js`       | Sign-Up page                                |
 | /admin         | `AdminScreen.js`        | Administrator page                          |
+| /payment       | `CreditCard.js`         | Payment page                                |
+| /invoice       | `InvoiceScreen.js`      | Invoice page                                |
 
 ## References
 
