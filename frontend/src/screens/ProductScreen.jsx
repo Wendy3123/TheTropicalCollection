@@ -23,6 +23,7 @@ function ProductScreen() {
     if (!token) {
       return;
     }
+
     fetch("http://localhost:5001/api/cart", {
       method: "get",
       headers: {

@@ -12,6 +12,7 @@ function Products({ product, cart, setCartChanges, cartChanges }) {
   const addToCart = async () => {
     try {
       const token = localStorage.getItem("token");
+      //if not logged in (no token) return back to /login
       if (!token) {
         navigate("/login");
         return;
@@ -50,7 +51,6 @@ function Products({ product, cart, setCartChanges, cartChanges }) {
         </Link>
         <h4 className="aligntext">${product.price}</h4>
 
-        {/* {!inCart && ( */}
         <div className="outterardbutton">
           <button onClick={addToCart} className="cardbutton">
             {inCart ? `Added(${inCart.quantity})` : `Add To Cart`}

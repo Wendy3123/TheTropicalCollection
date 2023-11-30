@@ -71,25 +71,26 @@ function EachProductScreen() {
           <hr className="hr"></hr>
           <h6 className="each-product-description">{product.description}</h6>
 
-          <button onClick={handleAddToCart} className="each-product-button">
-            Add To Cart
-          </button>
-          <div className="outterardbutton">
+          <div className="cartDiv">
             <button
-              className="CartProductcardbutton"
+              className="CartProductcardbutton2"
               onClick={() => setQuantity(Number(quantity) + 1)}
             >
               +
             </button>
             <input
-              className="CartProductinput"
+              className="CartProductinput2"
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
             />
-            <button className="CartProductcardbutton" onClick={minusQuantity}>
+            <button className="CartProductcardbutton2" onClick={minusQuantity}>
               -
             </button>
           </div>
+          <button onClick={handleAddToCart} className="each-product-button">
+            Add To Cart
+          </button>
+
           <hr className="hr"></hr>
           {currentUser && currentUser.isAdmin && (
             <div className="admin-buttons">
