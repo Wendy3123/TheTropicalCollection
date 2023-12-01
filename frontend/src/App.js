@@ -25,6 +25,9 @@ import "./styles/cart.css";
 import "./styles/edit.css";
 import "./styles/creditcard.css";
 
+export const BASE_URL = "https://the-tropical-collection-be.onrender.com";
+// export const BASE_URL = "http://localhost:5001";
+
 //all components now have access to shopContextProvider
 function App() {
   return (

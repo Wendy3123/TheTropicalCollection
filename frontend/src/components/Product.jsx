@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { React } from "react";
+import { BASE_URL } from "../App";
 
 //make a post request to add the product to your cart property in the users collection
 
@@ -16,7 +17,7 @@ function Products({ product, cart, setCartChanges, cartChanges }) {
         navigate("/login");
         return;
       }
-      const response = await fetch("http://localhost:5001/api/cart", {
+      const response = await fetch(`${BASE_URL}/api/cart`, {
         method: "put",
         headers: {
           "Content-Type": "application/json",
