@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CurrentUser } from "../contexts/CurrentUser.js";
-import { Button } from "react-bootstrap";
-import Footer from "../components/Footer.jsx";
 function HomeScreen() {
   const { currentUser } = useContext(CurrentUser);
 

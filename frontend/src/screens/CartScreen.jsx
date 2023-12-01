@@ -61,7 +61,20 @@ function CartScreen() {
   return (
     <div>
       <div>
-        <h1 className="header1centered">Your Cart</h1>
+        <h1 className="header1centered">
+          {sumQuantity === 0 ? (
+            <>
+              <h1>Your Cart Is Empty</h1>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/102/102661.png"
+                alt="emptycartpic"
+              ></img>
+            </>
+          ) : (
+            <h1>Your Cart</h1>
+          )}
+        </h1>
+
         <div>
           {cart?.map((item) => (
             <div className="eachcard" key={item._id}>
@@ -79,8 +92,13 @@ function CartScreen() {
           )}`}</strong>
           <div>
             {sumQuantity > 0 && (
-              <Button style={{ backgroundColor: "yellow" }}>
-                <Link to={`/checkout/${currentUserId}`}> Checkout</Link>
+              <Button style={{ backgroundColor: "yellow", marginTop: "20px"}} className="checkoutbutton">
+                <Link
+                  to={`/checkout/${currentUserId}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  Checkout
+                </Link>
               </Button>
             )}
           </div>

@@ -33,21 +33,19 @@ function App() {
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route path="/" element={<HomeScreen />}></Route>
-            <Route path="/cart" element={<CartScreen />}></Route>
-            <Route path="/products" element={<ProductScreen />}></Route>
-            <Route path="/products/:id" element={<EachProductScreen />}></Route>
+            <Route path="/" element={<HomeScreen />} />
+            <Route path="/cart" element={<CartScreen />} />
+            <Route path="/products" element={<ProductScreen />} />
+            <Route path="/products/:id" element={<EachProductScreen />} />
             <Route path="/login" element={<LoginScreen />}></Route>
             <Route path="/signup" element={<SignUpScreen />}></Route>
             <Route path="/admin" element={<AdminScreen />} />
             <Route path="/products/new" element={<AddNew />} />
-            <Route path="/checkout/:id" element={<CheckoutAddress />}></Route>
-            <Route path="/products/edit" element={<EditProduct />}></Route>
+            <Route path="/checkout/:id" element={<CheckoutAddress />} />
+            <Route path="/products/edit" element={<EditProduct />} />
             <Route path="*" element={<ErrorScreen />}></Route>
-            <Route path="/payment" element={<CreditCard />}></Route>
-            <Route path="/invoice" element={<InvoiceScreen />}>
-              {" "}
-            </Route>
+            <Route path="/payment" element={<CreditCard />} />
+            <Route path="/invoice" element={<InvoiceScreen />} />
           </Routes>
           <Footer />
         </BrowserRouter>

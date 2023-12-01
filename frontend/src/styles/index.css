@@ -17,8 +17,8 @@ background-clip: content-box;
   gap: 20px;
   text-align: center;
   font-size: 16.5px;
-  width: 80%;
-  margin-left: 10%;
+  width: 100%;
+  margin-left: 32%;
 }
 
 .footer {
@@ -194,6 +194,9 @@ background-clip: content-box;
   }
   .eachProductgoBackButton {
     margin-left: 7.2vw;
+  }
+  .footerContactinfo {
+    margin-left: 10%;
   }
 }
 
