@@ -43,7 +43,9 @@
 .cartoutterbox {
   width: 50%;
   height: 85%;
+
   border-radius: 20px;
+
   display: flex;
   flex-wrap: wrap;
 }
