@@ -86,6 +86,10 @@
   margin-bottom: 15px;
 }
 
+.checkoutbutton :hover {
+  background-color: aqua;
+}
+
 @media (max-width: 760px) {
   .cartoutterbox {
     width: 72%;
