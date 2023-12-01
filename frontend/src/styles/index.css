@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+main {
 
-
- main {
   min-height: 80vh;
 }
 .footerContactinfo {
@@ -11,6 +10,7 @@
   font-size: 16.5px;
   width: 100%;
   margin-left: 32%;
+  margin-bottom: 25px;
 }
 
 .footer {
@@ -148,8 +148,13 @@
   border: 1px yellow solid;
   background-color: rgb(242, 227, 56);
 }
+
+.each-product-button:hover {
+  transform: scale(1.09);
+}
+
 .each-product-button:active {
-  transform: scale(0.98);
+  transform: scale(1);
 }
 
 .hr {

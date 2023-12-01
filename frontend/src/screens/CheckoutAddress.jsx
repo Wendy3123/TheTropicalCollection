@@ -1,59 +1,54 @@
-import {  useState, useEffect, useContext} from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import "../styles/login.css";
 import { CurrentUser } from "../contexts/CurrentUser.js";
+import { BASE_URL } from "../App.js";
 function CheckoutAddress() {
   const navigate = useNavigate();
 
   // const { id } = useParams();
   const { currentUser } = useContext(CurrentUser);
   const [address, setAddress] = useState({
-    name:"",
+    name: "",
     address: "",
     city: "",
     state: "",
-    zip:"",
-    phone:"",
-    cartItems:""
+    zip: "",
+    phone: "",
+    cartItems: "",
   });
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        `http://localhost:5001/api/users/${currentUser?._id}`
-      );
+      const response = await fetch(`${BASE_URL}/api/users/${currentUser?._id}`);
       const resData = await response.json();
       setAddress(resData);
     };
     fetchData();
   }, [currentUser?._id]);
 
-   
-   
-
-      async function handleSubmit(e) {
-        e.preventDefault();
-        setAddress({ ...address, cartItems: currentUser.cartItems })
-        await fetch(`http://localhost:5001/api/users/${currentUser?._id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(address),
-        });
-
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setAddress({ ...address, cartItems: currentUser.cartItems });
+    await fetch(`${BASE_URL}/api/users/${currentUser?._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(address),
+    });
 
     // create confirmation page
-        navigate(`/invoice`);
-      }
+    navigate(`/invoice`);
+  }
   return (
     <div className="login-top-container">
       <div className="login-container">
         <h1>Please complete</h1>
 
         <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
+          <label htmlFor="name">Name</label>
           <div className="form-control">
             <input
               type="name"
@@ -70,7 +65,9 @@ function CheckoutAddress() {
               type="address"
               required
               value={address.address}
-              onChange={(e) => setAddress({ ...address, address: e.target.value })}
+              onChange={(e) =>
+                setAddress({ ...address, address: e.target.value })
+              }
               id="address"
               name="address"
             />
@@ -92,7 +89,9 @@ function CheckoutAddress() {
               type="state"
               required
               value={address.state}
-              onChange={(e) => setAddress({ ...address, state: e.target.value })}
+              onChange={(e) =>
+                setAddress({ ...address, state: e.target.value })
+              }
               id="state"
               name="state"
             />
@@ -115,7 +114,9 @@ function CheckoutAddress() {
               type="phone"
               required
               value={address.phone}
-              onChange={(e) => setAddress({ ...address, phone: e.target.value })}
+              onChange={(e) =>
+                setAddress({ ...address, phone: e.target.value })
+              }
               id="phone"
               name="phone"
             />
@@ -129,6 +130,4 @@ function CheckoutAddress() {
   );
 }
 
-
-
-export default CheckoutAddress
+export default CheckoutAddress;
