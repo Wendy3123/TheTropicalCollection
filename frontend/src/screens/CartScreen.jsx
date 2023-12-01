@@ -27,20 +27,20 @@ function CartScreen() {
       });
   }, [cartChanges]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(
-          `http://localhost:5001/api/users/${currentUserId}`
-        );
-        const resData = await res.json();
-        setUserInfo(resData);
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
-    fetchData();
-  }, [currentUserId]);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const res = await fetch(
+  //         `http://localhost:5001/api/users/${currentUserId}`
+  //       );
+  //       const resData = await res.json();
+  //       setUserInfo(resData);
+  //     } catch (error) {
+  //       console.error("Error:", error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, [currentUserId]);
 
   //sum up the cart
   let sumCart = cart?.reduce((tot, c) => {
@@ -58,10 +58,24 @@ function CartScreen() {
     currency: "USD",
   });
 
+  const emptyCart = async () => {
+    const token = localStorage.getItem("token");
+    const response = await fetch(`http://localhost:5001/api/cart`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    });
+    const data = await response.json();
+    setCartChanges(cartChanges + 1);
+    console.log(data);
+  };
+
   return (
     <div>
       <div>
-        <h1 className="header1centered">
+        <div className="CartScreenheader1centered">
           {sumQuantity === 0 ? (
             <>
               <h1>Your Cart Is Empty</h1>
@@ -73,7 +87,13 @@ function CartScreen() {
           ) : (
             <h1>Your Cart</h1>
           )}
-        </h1>
+        </div>
+        <button
+          onClick={emptyCart}
+          className="each-product-button cartdetailsupdatebutton "
+        >
+          &nbsp;Empty Cart
+        </button>
 
         <div>
           {cart?.map((item) => (
@@ -86,13 +106,16 @@ function CartScreen() {
             </div>
           ))}
         </div>
-        <p className="cartsubtotal">
+        <div className="cartsubtotal">
           <strong>{`Subtotal(${sumQuantity} items): ${USDollar.format(
             sumCart
           )}`}</strong>
           <div>
             {sumQuantity > 0 && (
-              <Button style={{ backgroundColor: "yellow", marginTop: "20px"}} className="checkoutbutton">
+              <Button
+                style={{ backgroundColor: "yellow", marginTop: "20px" }}
+                className="checkoutbutton"
+              >
                 <Link
                   to={`/checkout/${currentUserId}`}
                   style={{ textDecoration: "none" }}
@@ -102,7 +125,7 @@ function CartScreen() {
               </Button>
             )}
           </div>
-        </p>
+        </div>
       </div>
     </div>
   );
