@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../App";
 import "../styles/login.css";
 function SignUpScreen() {
   const navigate = useNavigate();
@@ -12,12 +13,10 @@ function SignUpScreen() {
   });
 
   async function handleSubmit(e) {
-
     console.log("user: ", user);
     e.preventDefault();
 
-    await fetch(`http://localhost:5001/api/users/`, {
-
+    await fetch(`${BASE_URL}/api/users/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import "../styles/login.css";
 import { CurrentUser } from "../contexts/CurrentUser.js";
+import { BASE_URL } from "../App.js";
 function CheckoutAddress() {
   const navigate = useNavigate();
 
@@ -20,9 +21,7 @@ function CheckoutAddress() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        `http://localhost:5001/api/users/${currentUser?._id}`
-      );
+      const response = await fetch(`${BASE_URL}/api/users/${currentUser?._id}`);
       const resData = await response.json();
       setAddress(resData);
     };
@@ -32,7 +31,7 @@ function CheckoutAddress() {
   async function handleSubmit(e) {
     e.preventDefault();
     setAddress({ ...address, cartItems: currentUser.cartItems });
-    await fetch(`http://localhost:5001/api/users/${currentUser?._id}`, {
+    await fetch(`${BASE_URL}/api/users/${currentUser?._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

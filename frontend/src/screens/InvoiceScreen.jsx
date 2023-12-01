@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from "react";
+import { BASE_URL } from "../App";
 import {
   MDBCard,
   MDBCardBody,
@@ -24,9 +25,7 @@ export default function InvoiceScreen() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(
-          `http://localhost:5001/api/users/${currentUserId}`
-        );
+        const res = await fetch(`${BASE_URL}/api/users/${currentUserId}`);
         const resData = await res.json();
         setUserInfo(resData);
       } catch (error) {

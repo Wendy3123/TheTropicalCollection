@@ -3,6 +3,7 @@ import CartProduct from "../components/CartProduct";
 import { CurrentUser } from "../contexts/CurrentUser";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { BASE_URL } from "../App";
 
 function CartScreen() {
   //make a fetch request to users collection and then grab products from cart property
@@ -30,9 +31,7 @@ function CartScreen() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(
-          `http://localhost:5001/api/users/${currentUserId}`
-        );
+        const res = await fetch(`${BASE_URL}/api/users/${currentUserId}`);
         const resData = await res.json();
         setUserInfo(resData);
       } catch (error) {
@@ -78,7 +77,9 @@ function CartScreen() {
       ) : (
         <Link to="/login">
           <div className="row">
-            <Button style={{ backgroundColor: '#925e0b'}}>Please Login. Thank you!</Button>
+            <Button style={{ backgroundColor: "#925e0b" }}>
+              Please Login. Thank you!
+            </Button>
           </div>
         </Link>
       )}

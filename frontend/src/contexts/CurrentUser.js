@@ -1,37 +1,33 @@
 import { createContext, useState, useEffect } from "react";
-export const CurrentUser = createContext()
+import { BASE_URL } from "../App";
+export const CurrentUser = createContext();
 
-function CurrentUserProvider({ children }){
+function CurrentUserProvider({ children }) {
+  const [currentUser, setCurrentUser] = useState(null);
+  useEffect(() => {
+    const getLoggedInUser = async () => {
+      let response = await fetch(`${BASE_URL}/api/authentication/profile`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      let user = await response.json();
+      setCurrentUser(user);
+    };
+    getLoggedInUser();
+  }, []);
 
-    const [currentUser, setCurrentUser] = useState(null)
-    useEffect(() => {
+  const logout = () => {
+    localStorage.removeItem("token");
 
-        const getLoggedInUser = async () => {
-            let response = await fetch('http://localhost:5001/api/authentication/profile', 
-            {
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                }
-            })
-            let user = await response.json()
-            setCurrentUser(user)
-        }
-        getLoggedInUser()
-    }, [])
-
-    const logout = () => {
-        localStorage.removeItem('token');
-   
-      setCurrentUser(null);
+    setCurrentUser(null);
     //   location.reload() //refresh he screen for cart, yo doesnt work
-   
-       };
-    return (
-        <CurrentUser.Provider value={{ currentUser, setCurrentUser, logout }}>
-            {children}
-        </CurrentUser.Provider>
-    )
+  };
+  return (
+    <CurrentUser.Provider value={{ currentUser, setCurrentUser, logout }}>
+      {children}
+    </CurrentUser.Provider>
+  );
 }
 
-
-export default CurrentUserProvider
+export default CurrentUserProvider;

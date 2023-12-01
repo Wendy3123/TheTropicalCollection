@@ -3,6 +3,7 @@ import CartProduct from "../components/CartProduct";
 import { CurrentUser } from "../contexts/CurrentUser";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { BASE_URL } from "../App";
 
 function CartScreen() {
   //make a fetch request to users collection and then grab products from cart property
@@ -14,7 +15,7 @@ function CartScreen() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("http://localhost:5001/api/cart", {
+    fetch(`${BASE_URL}/api/cart`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -60,7 +61,7 @@ function CartScreen() {
 
   const emptyCart = async () => {
     const token = localStorage.getItem("token");
-    const response = await fetch(`http://localhost:5001/api/cart`, {
+    const response = await fetch(`${BASE_URL}/api/cart`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

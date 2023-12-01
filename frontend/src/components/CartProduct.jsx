@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { React, useState } from "react";
+import { BASE_URL } from "../App";
 
 function CartProduct({ item, setCartChanges, cartChanges }) {
   const [quantity, setQuantity] = useState(item.quantity);
@@ -10,7 +11,7 @@ function CartProduct({ item, setCartChanges, cartChanges }) {
       alert("You must enter a quantity!");
       return;
     }
-    await fetch(`http://localhost:5001/api/cart/edit`, {
+    await fetch(`${BASE_URL}/api/cart/edit`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +26,7 @@ function CartProduct({ item, setCartChanges, cartChanges }) {
 
   async function removeFromCart() {
     const token = localStorage.getItem("token");
-    const response = await fetch(`http://localhost:5001/api/cart/${item._id}`, {
+    const response = await fetch(`${BASE_URL}/api/cart/${item._id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
