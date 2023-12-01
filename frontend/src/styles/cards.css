@@ -9,11 +9,6 @@
   margin-bottom: 20px;
 }
 
-.productbox {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .productimg {
   margin: 4.3% 0 0 13%;
   width: 75%;

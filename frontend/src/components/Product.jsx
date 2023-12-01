@@ -38,7 +38,7 @@ function Products({ product, cart, setCartChanges, cartChanges }) {
 
   return (
     <main className="productoutterbox">
-      <div>
+      <div className="productbox">
         <Link to={`/products/${product._id}`} className="innerproductbox">
           <img
             className="productimg"

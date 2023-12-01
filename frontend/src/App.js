@@ -25,8 +25,9 @@ import "./styles/cart.css";
 import "./styles/edit.css";
 import "./styles/creditcard.css";
 
-export const BASE_URL = "https://the-tropical-collection-be.onrender.com";
-// export const BASE_URL = "http://localhost:5001";
+//PLEASE DONT DELETE THE BASE_URL LINE 29 ITS FOR DEPLOYMENT USE ON RENDER.COM SO LEAVE IT UNCOMMENTED IF NOT USING
+// export const BASE_URL = "https://the-tropical-collection-be.onrender.com";
+export const BASE_URL = "http://localhost:5001";
 
 //all components now have access to shopContextProvider
 function App() {
