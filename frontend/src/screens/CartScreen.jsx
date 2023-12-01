@@ -43,12 +43,12 @@ function CartScreen() {
   }, [currentUserId]);
 
   //sum up the cart
-  let sumCart = userInfo.cartItems?.reduce((tot, c) => {
+  let sumCart = cart?.reduce((tot, c) => {
     return tot + c.product.price * c.quantity;
   }, 0);
 
   // //sum up the quantity
-  let sumQuantity = userInfo.cartItems?.reduce((tot, c) => {
+  let sumQuantity = cart?.reduce((tot, c) => {
     return tot + c.quantity;
   }, 0);
 
@@ -78,10 +78,12 @@ function CartScreen() {
             sumCart
           )}`}</strong>
           <div>
-        {sumQuantity > 0 &&(
-         <Button style={{ backgroundColor: "yellow" }}> <Link to={`/checkout/${currentUserId}`}> Checkout 
-         </Link></Button>)}
-         </div>
+            {sumQuantity > 0 && (
+              <Button style={{ backgroundColor: "yellow" }}>
+                <Link to={`/checkout/${currentUserId}`}> Checkout</Link>
+              </Button>
+            )}
+          </div>
         </p>
       </div>
     </div>
