@@ -19,6 +19,7 @@ background-clip: content-box;
   font-size: 16.5px;
   width: 100%;
   margin-left: 32%;
+  margin-bottom: 25px;
 }
 
 .footer {
@@ -156,8 +157,13 @@ background-clip: content-box;
   border: 1px yellow solid;
   background-color: rgb(242, 227, 56);
 }
+
+.each-product-button:hover {
+  transform: scale(1.09);
+}
+
 .each-product-button:active {
-  transform: scale(0.98);
+  transform: scale(1);
 }
 
 .hr {

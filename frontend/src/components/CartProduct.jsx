@@ -6,6 +6,10 @@ function CartProduct({ item, setCartChanges, cartChanges }) {
   async function handleAddToCart(e) {
     e.preventDefault();
     const token = localStorage.getItem("token");
+    if (!token || !quantity) {
+      alert("You must enter a quantity!");
+      return;
+    }
     await fetch(`http://localhost:5001/api/cart/edit`, {
       method: "PUT",
       headers: {
@@ -19,11 +23,34 @@ function CartProduct({ item, setCartChanges, cartChanges }) {
     setCartChanges(cartChanges + 1);
   }
 
+  async function removeFromCart() {
+    const token = localStorage.getItem("token");
+    const response = await fetch(`http://localhost:5001/api/cart/${item._id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    });
+    const data = await response.json();
+    setCartChanges(cartChanges + 1);
+    console.log(data);
+  }
+
   const minusQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
+
+  const handleChange = (e) => {
+    if (Number(e.target.value) < 1 && e.target.value !== "") {
+      setQuantity(1);
+    } else {
+      setQuantity(e.target.value);
+    }
+  };
+
   return (
     <div className="cartbody">
       <div className="cartoutterbox">
@@ -53,7 +80,7 @@ function CartProduct({ item, setCartChanges, cartChanges }) {
             <input
               className="CartProductinput"
               value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
+              onChange={handleChange}
             />
             <button className="CartProductcardbutton" onClick={minusQuantity}>
               -
@@ -64,6 +91,12 @@ function CartProduct({ item, setCartChanges, cartChanges }) {
             className="each-product-button cartdetailsupdatebutton "
           >
             &nbsp;Update Cart
+          </button>
+          <button
+            onClick={removeFromCart}
+            className="each-product-button cartdetailsupdatebutton "
+          >
+            &nbsp;Delete Item
           </button>
         </div>
         <hr className="carthr"></hr>

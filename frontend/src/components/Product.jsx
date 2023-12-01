@@ -8,7 +8,6 @@ function Products({ product, cart, setCartChanges, cartChanges }) {
   const inCart = cart.find((item) => {
     return item.product._id === product._id;
   });
-  console.log("inCart", inCart);
   const addToCart = async () => {
     try {
       const token = localStorage.getItem("token");
