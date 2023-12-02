@@ -45,7 +45,7 @@ function EditProduct() {
         <div>
           <Container>
             <Image
-              className="each-product-image"
+              className="product-image"
               src={product.image}
               alt={product.name}
             ></Image>
