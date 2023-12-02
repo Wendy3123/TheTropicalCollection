@@ -1,19 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
 
-main{
-    max-height: fit-content;
-}
-form {
-  margin: auto;
-  padding: 150px;
-  color: white;
+main {
+  max-height: fit-content;
+  max-width:fit-content;
 }
 
+
 form {
-  background-color: #925e0b;
+  color: #6b6a6a;
+  box-shadow: 5px 10px 5px #6b6a6a;
   padding: 20px 40px;
   margin: 100px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .first-last {
