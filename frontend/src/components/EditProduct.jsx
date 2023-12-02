@@ -51,7 +51,7 @@ function EditProduct() {
             ></Image>
           </Container>
         </div>
-        <div className="form-container">
+        <div className="main-form-container">
           <div className="form">
             <label htmlFor="name">Product Name</label>
             <input
@@ -104,8 +104,10 @@ function EditProduct() {
         </div>
         <div>
           <Container>
-            <Link to="/products_id" method="POST">
-              <Button variant="link">Submit</Button>
+            <Link to="/products" method="POST">
+              <Button variant="link" className="submit">
+                Submit
+              </Button>
             </Link>
           </Container>
         </div>
