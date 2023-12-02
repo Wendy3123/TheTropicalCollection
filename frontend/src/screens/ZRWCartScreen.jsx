@@ -1,21 +1,37 @@
-import { useEffect, useContext, useState } from "react";
-
-import { CurrentUser } from "../contexts/CurrentUser.js";
+import React, { useState, useEffect, useContext } from "react";
+import CartProduct from "../components/CartProduct";
+import { CurrentUser } from "../contexts/CurrentUser";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { BASE_URL } from "../App";
 
 function CartScreen() {
+  //make a fetch request to users collection and then grab products from cart property
   const { currentUser } = useContext(CurrentUser);
 
+  const currentUserId = currentUser?._id;
   const [userInfo, setUserInfo] = useState([]);
 
-  //make a fetch request to users collection and then grab products from cart property
-  const currentUserId = currentUser?._id;
+  // const [cart, setCart] = useState([]);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   fetch("http://localhost:5001/api/cart", {
+  //     method: "get",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       authorization: `Bearer ${token}`,
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setCart(data);
+  //     });
+  // }, []);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(
-          `http://localhost:5001/api/users/${currentUserId}`
-        );
+        const res = await fetch(`${BASE_URL}/api/users/${currentUserId}`);
         const resData = await res.json();
         setUserInfo(resData);
       } catch (error) {
@@ -29,27 +45,45 @@ function CartScreen() {
   let sumCart = userInfo.cartItems?.reduce((tot, c) => {
     return tot + c.product.price * c.quantity;
   }, 0);
+
   // //sum up the quantity
   let sumQuantity = userInfo.cartItems?.reduce((tot, c) => {
     return tot + c.quantity;
   }, 0);
 
-  return (
-    <div className="container">
-      <p>{userInfo && userInfo.name}</p>
-      <p>{userInfo && userInfo.email}</p>
+  // Format the price above to USD using the locale, style, and currency.
+  let USDollar = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
 
-      {userInfo &&
-        userInfo.cartItems?.map((item) => (
-          <p key={item.product._id}>
-            {item.product}
-            {item.product.name} {item.product.price} {item.quantity}
-          </p>
-        ))}
-      <p>total items in cart: {sumCart}</p>
-      <p>total items in cart: {sumQuantity}</p>
+  return (
+    <div>
+      {currentUser ? (
+        <div>
+          <h1 className="header1centered">Your Cart</h1>
+          <div className="cardboxflex">
+            {userInfo &&
+              userInfo.cartItems?.map((item) => (
+                <div className="eachcard">
+                  <CartProduct key={item.product._id} item={item} />
+                </div>
+              ))}
+          </div>
+
+          <p>{`Subtotal(${sumQuantity} items): ${USDollar.format(sumCart)}`}</p>
+          <Link to={`/checkout/${currentUserId}`}> Checkout </Link>
+        </div>
+      ) : (
+        <Link to="/login">
+          <div className="row">
+            <Button style={{ backgroundColor: "#925e0b" }}>
+              Please Login. Thank you!
+            </Button>
+          </div>
+        </Link>
+      )}
     </div>
   );
 }
-
 export default CartScreen;

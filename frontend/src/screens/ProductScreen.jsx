@@ -1,15 +1,17 @@
 import { useState, useEffect, useContext } from "react";
 import Product from "../components/Product";
 import { CurrentUser } from "../contexts/CurrentUser.js";
+import { BASE_URL } from "../App.js";
 
 function ProductScreen() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const { currentUser } = useContext(CurrentUser);
+  const [cartChanges, setCartChanges] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`http://localhost:5001/api/products/`);
+      const res = await fetch(`${BASE_URL}/api/products/`);
       const resData = await res.json();
       setProducts(resData);
     };
@@ -18,7 +20,12 @@ function ProductScreen() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch("http://localhost:5001/api/cart", {
+    //gave us error when logged out and going to /product so we need to return nothign if not logged in
+    if (!token) {
+      return;
+    }
+
+    fetch(`${BASE_URL}/api/cart`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -29,7 +36,7 @@ function ProductScreen() {
       .then((data) => {
         setCart(data);
       });
-  }, []);
+  }, [cartChanges]);
   return (
     <div>
       {currentUser && currentUser.isAdmin && (
@@ -40,8 +47,13 @@ function ProductScreen() {
       <h1 className="header1centered">Kosher Dried Fruits</h1>
       <div className="cardboxflex">
         {products.map((product) => (
-          <div className="eachcard">
-            <Product product={product} cart={cart} />
+          <div className="eachcard" key={product._id}>
+            <Product
+              product={product}
+              cart={cart}
+              setCartChanges={setCartChanges}
+              cartChanges={cartChanges}
+            />
           </div>
         ))}
       </div>

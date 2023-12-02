@@ -10,7 +10,7 @@ function Header() {
   const { currentUser, logout } = useContext(CurrentUser);
   let loginActions = (
     <LinkContainer to="/login">
-      <Nav.Link to>
+      <Nav.Link>
         <FaUser />
         &nbsp;Login
       </Nav.Link>
@@ -19,6 +19,12 @@ function Header() {
   if (currentUser) {
     loginActions = (
       <>
+        <LinkContainer to="/cart">
+          <Nav.Link>
+            <FaShoppingCart />
+            &nbsp;Cart
+          </Nav.Link>
+        </LinkContainer>
         {currentUser.isAdmin ? (
           <LinkContainer to="/admin">
             <Nav.Link>
@@ -60,19 +66,6 @@ function Header() {
                   &nbsp;Products
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/cart">
-                <Nav.Link>
-                  <FaShoppingCart />
-                  &nbsp;Cart
-                </Nav.Link>
-              </LinkContainer>
-              {/* <LinkContainer to="/admin">
-                <Nav.Link>
-                  <FaUserEdit />
-                  &nbsp;Admin
-                </Nav.Link>
-              </LinkContainer> */}
-
               {loginActions}
             </Nav>
           </Navbar.Collapse>

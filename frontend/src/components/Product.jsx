@@ -1,18 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { React } from "react";
+import { BASE_URL } from "../App";
 
 //make a post request to add the product to your cart property in the users collection
-//
 
-function Products({ product, cart }) {
+function Products({ product, cart, setCartChanges, cartChanges }) {
+  const navigate = useNavigate();
   const inCart = cart.find((item) => {
     return item.product._id === product._id;
   });
-  console.log("inCart", inCart);
   const addToCart = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5001/api/cart", {
+      //if not logged in (no token) return back to /login
+      if (!token) {
+        navigate("/login");
+        return;
+      }
+      const response = await fetch(`${BASE_URL}/api/cart`, {
         method: "put",
         headers: {
           "Content-Type": "application/json",
@@ -20,10 +25,11 @@ function Products({ product, cart }) {
         },
         body: JSON.stringify({
           productId: product._id,
-          quantity: inCart ? inCart.quantity + 1 : 1,
+          quantity: 1,
         }),
       });
       const data = await response.json();
+      setCartChanges(cartChanges + 1);
       console.log(data);
     } catch (error) {
       console.log("ADDTOCART error", error);
@@ -32,7 +38,7 @@ function Products({ product, cart }) {
 
   return (
     <main className="productoutterbox">
-      <div classname="productbox">
+      <div className="productbox">
         <Link to={`/products/${product._id}`} className="innerproductbox">
           <img
             className="productimg"
@@ -45,20 +51,11 @@ function Products({ product, cart }) {
         </Link>
         <h4 className="aligntext">${product.price}</h4>
 
-        {/* {!inCart && ( */}
         <div className="outterardbutton">
           <button onClick={addToCart} className="cardbutton">
             {inCart ? `Added(${inCart.quantity})` : `Add To Cart`}
           </button>
         </div>
-        {/* )} */}
-        {/* {inCart && (
-          <div className="outterardbutton">
-            <button onClick={addToCart} className="removecardbutton">
-              Remove From Cart
-            </button>
-          </div>
-        )} */}
       </div>
     </main>
   );

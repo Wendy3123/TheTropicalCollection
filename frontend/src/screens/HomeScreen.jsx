@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CurrentUser } from "../contexts/CurrentUser.js";
-import { Button } from "react-bootstrap";
 function HomeScreen() {
   const { currentUser } = useContext(CurrentUser);
 
@@ -33,8 +32,7 @@ function HomeScreen() {
           Molestias explicabo voluptates qui doloribus dicta, alias possimus
           voluptatem illum rerum!
         </p>
-
-        <Link to="products">
+        <Link to="/products">
           <button className="homepagebutton">See Our Products</button>
         </Link>
       </div>

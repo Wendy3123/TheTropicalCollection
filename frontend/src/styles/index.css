@@ -1,16 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+main {
 
-/* body{
-background-image: url("wooden-background.jpg");
-background-repeat: no-repeat;
-background-size: cover;
-box-shadow: inset 0 0 0 5000px rgba(237, 237, 196, 0.3);
-background-clip: content-box;
-/* background-attachment: fixed; */
-
-/* } */
-*/ main {
   min-height: 80vh;
+}
+.footerContactinfo {
+  display: flex;
+  gap: 20px;
+  text-align: center;
+  font-size: 16.5px;
+  width: 100%;
+  margin-left: 32%;
+  margin-bottom: 25px;
+}
+
+.footer {
+  text-align: center;
 }
 
 .backgroundimage {
@@ -131,20 +135,26 @@ background-clip: content-box;
 .each-product-description,
 .each-product-price,
 .hr,
-.each-product-button {
+.each-product-button,
+.cartDiv {
   margin-left: 85px;
 }
 
 .each-product-button {
   width: 110px;
-  height: 30px;
+  height: 26px;
   color: #1a1818;
   border-radius: 40px;
   border: 1px yellow solid;
   background-color: rgb(242, 227, 56);
 }
+
+.each-product-button:hover {
+  transform: scale(1.09);
+}
+
 .each-product-button:active {
-  transform: scale(0.98);
+  transform: scale(1);
 }
 
 .hr {
@@ -182,6 +192,9 @@ background-clip: content-box;
   .eachProductgoBackButton {
     margin-left: 7.2vw;
   }
+  .footerContactinfo {
+    margin-left: 10%;
+  }
 }
 
 @media (max-width: 1050px) and (min-width: 760px) {
@@ -197,7 +210,8 @@ background-clip: content-box;
   .each-product-description,
   .each-product-price,
   .hr,
-  .each-product-button {
+  .each-product-button,
+  .cartDiv {
     margin-left: 17vw;
   }
   .hr {
@@ -205,5 +219,9 @@ background-clip: content-box;
   }
   .eachProductgoBackButton {
     margin-left: 7vw;
+  }
+
+  .cartDiv {
+    margin-bottom: 15px;
   }
 }

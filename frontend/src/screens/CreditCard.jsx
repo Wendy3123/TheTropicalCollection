@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Container } from "react-bootstrap";
+import { BASE_URL } from "../App";
 
 function CreditCard() {
   const [payment, setPayment] = useState("");
@@ -16,7 +17,7 @@ function CreditCard() {
     };
 
     try {
-      const response = await fetch(`http://localhost:5001/payment/{id}`, {
+      const response = await fetch(`${BASE_URL}/payment/{id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,7 +42,7 @@ function CreditCard() {
     <div className="card-container">
       {!isSubmitted ? (
         <form onSubmit={handleSubmit}>
-            <h1>Payment Information</h1>
+          <h1>Payment Information</h1>
           <div className="row">
             <div className="first-last">
               <div className="input-group">

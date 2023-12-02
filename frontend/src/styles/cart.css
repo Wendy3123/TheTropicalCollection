@@ -9,9 +9,18 @@
 
 .cartdetailsname,
 .cartdetailsprice,
-.cartdetailsquantity {
+.cartdetailsquantity,
+.cartdetailsupdatebutton,
+.cartdetailsaddminusbutton {
   margin-left: 4vw;
   display: flex;
+}
+
+.cartdetailsaddminusbutton {
+  margin-top: 5px;
+}
+.cartdetailsupdatebutton {
+  margin-top: 9px;
 }
 
 .cartdetailsname {
@@ -21,7 +30,6 @@
 .cartdetailsprice,
 .cartdetailsquantity {
   font-size: 17px;
-  margin-top: 7px;
 }
 
 .cartbody {
@@ -35,9 +43,9 @@
 .cartoutterbox {
   width: 50%;
   height: 85%;
-  /* background-color: #ffffff; */
+
   border-radius: 20px;
-  /* box-shadow: 0px 25px 40px #1687d933; */
+
   display: flex;
   flex-wrap: wrap;
 }
@@ -46,9 +54,47 @@
   width: 100%;
   margin-top: 20px;
 }
+.cartsubtotal {
+  text-align: center;
+  font-size: 20px;
+  color: black;
+}
+
+.CartProductcardbutton2 {
+  width: 37px;
+  height: 25px;
+  color: #00004d;
+  border-radius: 40px;
+  border: 1px #00004d solid;
+  background-color: transparent;
+}
+
+.CartProductcardbutton2:hover {
+  color: black;
+  border: 1px rgb(242, 227, 56);
+  background-color: rgb(242, 227, 56);
+}
+
+.CartProductinput2 {
+  width: 53px;
+  height: 25px;
+  color: #00004d;
+  margin: 0 5px;
+}
+
+.cartDiv {
+  margin-bottom: 15px;
+}
+
+.checkoutbutton :hover {
+  background-color: aqua;
+}
 
 @media (max-width: 760px) {
   .cartoutterbox {
     width: 72%;
+  }
+  .cartDiv {
+    margin-left: 8vw;
   }
 }

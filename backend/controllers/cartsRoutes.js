@@ -31,8 +31,9 @@ cartRouter.put("/", authorize, async (req, res) => {
       // compares cart item product to product id provided if it exist set will be used otherwise addtoset used
       { _id: req.user._id, "cartItems.product": req.body.productId },
       {
-        // $set used if item is already in there
-        $set: {
+        // $inc (increment) adds the provided quantity to current quantity
+
+        $inc: {
           "cartItems.$.quantity": req.body.quantity,
         },
       },
@@ -66,6 +67,77 @@ cartRouter.put("/", authorize, async (req, res) => {
   } catch (error) {
     console.log(error.messsage);
     res.status(404).json({ errorInfo: error.message });
+  }
+});
+
+cartRouter.put("/edit", authorize, async (req, res) => {
+  try {
+    if (req.user === undefined || req.user === null) {
+      res
+        .status(403)
+        .json({ errorInfo: "You are not authorized, please login." });
+      return;
+    }
+    let updatedUser = await User.findOneAndUpdate(
+      // compares cart item product to product id provided if it exist set will be used otherwise addtoset used
+      { _id: req.user._id, "cartItems.product": req.body.productId },
+      {
+        // $set used if item is already in there
+        $set: {
+          "cartItems.$.quantity": req.body.quantity,
+        },
+      },
+      { new: true }
+    ).populate({
+      path: "cartItems.product",
+      model: "Product",
+    });
+    res.status(201).json(updatedUser);
+  } catch (error) {
+    console.log(error.messsage);
+    res.status(404).json({ errorInfo: error.message });
+  }
+});
+
+cartRouter.delete("/:id", authorize, async (req, res) => {
+  try {
+    if (req.user === undefined || req.user === null) {
+      res
+        .status(403)
+        .json({ errorInfo: "You are not authorized, please login." });
+      return;
+    }
+    await User.findByIdAndUpdate(req.user._id, {
+      //pull removes the item from cartItems that matches the id from params
+      $pull: {
+        cartItems: { _id: req.params.id },
+      },
+    });
+    res.json({ message: "Item successfully deleted" });
+  } catch (error) {
+    console.log(error.messsage);
+    res.send(404).json({ errorInfo: error.message });
+  }
+});
+
+cartRouter.delete("/", authorize, async (req, res) => {
+  try {
+    if (req.user === undefined || req.user === null) {
+      res
+        .status(403)
+        .json({ errorInfo: "You are not authorized, please login." });
+      return;
+    }
+    await User.findByIdAndUpdate(req.user._id, {
+      // set cartItems should be empty
+      $set: {
+        cartItems: [],
+      },
+    });
+    res.json({ message: "Cart is empty" });
+  } catch (error) {
+    console.log(error.messsage);
+    res.send(404).json({ errorInfo: error.message });
   }
 });
 
