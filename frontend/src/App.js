@@ -13,7 +13,7 @@ import CurrentUserProvider from "./contexts/CurrentUser.js";
 import CartScreen from "./screens/CartScreen.jsx";
 import AddNew from "./components/AddNew";
 import AdminScreen from "./screens/AdminScreen";
-import CreditCard from "./screens/CreditCard";
+import CreditCard from "../screens/CreditCard";
 import "./styles/bootstrap.custom.css";
 import "./styles/index.css";
 import "./styles/cards.css";
