@@ -1,8 +1,9 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
 
-.form-main-container {
+.add-main-container {
   color: #fff;
+  padding: 200px;
   font-family: "Muli", sans-serif;
   display: flex;
   flex-direction: column;
@@ -18,15 +19,16 @@ h1 {
   padding-top: 20px;
 }
 
-.form-container {
-  background-color: #925e0b;
+.add-prod-container {
+
   padding: 50px 40px;
   margin: 5px;
   border-radius: 15px;
-  height: 50vh;
+  height: 150vh;
+  
 }
 
-.submit {
+.submit-button {
   color: inherit;
   font-family: inherit;
 
@@ -41,12 +43,17 @@ h1 {
 div .container {
   padding: 25px;
 }
-.submit:hover {
+.submit-button:hover {
   background-color: rgb(80, 76, 76);
   color: yellow;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
+.add-form {
+  padding:20px;
+  color: white;
+  background-color: #925e0b;
+  padding: 10px 20px;
+  border-radius: 5px;
+  
+  
 } 
