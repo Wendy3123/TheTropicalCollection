@@ -79,6 +79,18 @@ function EditProduct() {
               name="category"
             />
           </div>
+          <div className="edit-form">
+            <label htmlFor="prod-category">Image</label>
+            <input
+              value={product?.image}
+              onChange={(e) =>
+                setProduct({ ...product, image: e.target.value })
+              }
+              className="form-control"
+              id="image"
+              name="image"
+            />
+          </div>
 
           <div className="edit-form">
             <label htmlFor="prod-decription"> Product Description</label>
@@ -109,7 +121,7 @@ function EditProduct() {
 
           <Container>
      
-              <Button variant="link" className="submit-button">
+              <Button variant="link" type="submit" className="submit-button">
 
                 Submit
               </Button>

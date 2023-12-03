@@ -51,7 +51,7 @@ function AddNew() {
                 }
                 className="form"
                 id="prod-category"
-                name="prod-category"
+                name="category"
                 defaultValue={product.name}
               >
                 <option value="cat-1"> Category 1</option>
@@ -84,7 +84,7 @@ function AddNew() {
 
               <div className="add-form">
                 <Container>
-                  <Button ClassName="submit-button"> Submit</Button>
+                  <Button ClassName="submit-button" type="submit"> Submit</Button>
 
    
                 </Container>
