@@ -4,7 +4,7 @@ Official Full Stack E-commerce Website for thetropicalcollection.com
 
 See it in action at https://www.placeholder.com
 
-Built by Wendy Wang, Amina Olu and Rivka Weingarten
+Built by Wendy Wang, Amina Oluwo and Rivka Weingarten
 
 ## Features
 
