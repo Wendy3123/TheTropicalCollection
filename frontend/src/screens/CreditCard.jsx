@@ -10,7 +10,7 @@ import {
   MDBInput,
   MDBCheckbox,
   MDBBtn,
-  MDBContainer
+  MDBContainer,
 } from "mdb-react-ui-kit";
 function CreditCard() {
   const [payment, setPayment] = useState("");
@@ -29,8 +29,6 @@ function CreditCard() {
   });
   useEffect(() => {
     const fetchData = async () => {
-
-
       const response = await fetch(`${BASE_URL}/api/users/${currentUser?._id}`);
 
       const resData = await response.json();
@@ -38,7 +36,7 @@ function CreditCard() {
     };
     fetchData();
   }, [currentUser?._id]);
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -70,7 +68,6 @@ function CreditCard() {
     setPaymentAmount("");
   };
   return (
-    
     <div className="card-container">
       {!isSubmitted ? (
         // <main className= 'main'>
@@ -186,24 +183,23 @@ function CreditCard() {
         //         >
         //             Submit Payment
         //         </Link>
-               
+
         //         </Button>
         //       </Container>
         //     </div>
         //   </form>
         // </main>
-        <MDBContainer fluid className='mt-5 d-flex justify-content-center' >
-        <div className='col-lg-6 mb-5 mb-lg-0'>
-        <div className='card'>
-          <div className='card-body py-5 px-md-5 checkout'>
-          <h1>Credit Card</h1>
+        <MDBContainer fluid className="mt-5 d-flex justify-content-center">
+          <div className="col-lg-6 mb-5 mb-lg-0">
+            <div className="card">
+              <div className="card-body py-5 px-md-5 checkout">
+                <h1>Credit Card</h1>
 
-          <form onSubmit={handleSubmit}>
-
-          <MDBRow className="mb-4">
-        <MDBCol>
-        <label htmlFor="name">Name</label>
-          <MDBInput
+                <form onSubmit={handleSubmit}>
+                  <MDBRow className="mb-4">
+                    <MDBCol>
+                      <label htmlFor="name">{address.name}</label>
+                      {/* <MDBInput
             id="form6Example1"
          
             name="name"
@@ -211,11 +207,18 @@ function CreditCard() {
             required
             type="name"
             onChange={(e) => setAddress({ ...address, name: e.target.value })}
-          />
-        </MDBCol>
-        </MDBRow>
-      <label htmlFor="address">Address</label>
-      <MDBInput
+          /> */}
+                    </MDBCol>
+                  </MDBRow>
+                  <MDBRow className="mb-4">
+                    <MDBCol>
+                      <label htmlFor="name">Address:</label>
+                     
+                    </MDBCol>
+                  </MDBRow>
+                 
+                  <label htmlFor="address">{address.address}</label>
+                  {/* <MDBInput
         wrapperClass="mb-4"
         id="form6Example3"
     
@@ -224,11 +227,11 @@ function CreditCard() {
         value={address.address}
         onChange={(e) => setAddress({ ...address, address: e.target.value })}
         name="address"
-      />
-      <MDBRow className="mb-4">
-        <MDBCol>
-        <label htmlFor="city">City</label>
-          <MDBInput
+      /> */}
+                  <MDBRow className="mb-4">
+                    <MDBCol>
+                      <label htmlFor="city">{address.city}</label>
+                      {/* <MDBInput
             wrapperClass="mb-4"
             id="form6Example4"
            
@@ -237,11 +240,11 @@ function CreditCard() {
             value={address.city}
             onChange={(e) => setAddress({ ...address, city: e.target.value })}
             name="city"
-          />
-        </MDBCol>
-        <MDBCol>
-        <label htmlFor="state">State</label>
-          <MDBInput
+          /> */}
+                    </MDBCol>
+                    <MDBCol>
+                      <label htmlFor="state">{address.state}</label>
+                      {/* <MDBInput
             wrapperClass="mb-4"
             id="form6Example4"
          
@@ -250,11 +253,11 @@ function CreditCard() {
             value={address.state}
             onChange={(e) => setAddress({ ...address, state: e.target.value })}
             name="state"
-          />
-        </MDBCol>
-        <MDBCol>
-        <label htmlFor="zip">Zip</label>
-          <MDBInput
+          /> */}
+                    </MDBCol>
+                    <MDBCol>
+                      <label htmlFor="zip">{address.zip}</label>
+                      {/* <MDBInput
             wrapperClass="mb-4"
             id="form6Example4"
           
@@ -263,13 +266,12 @@ function CreditCard() {
             value={address.zip}
             onChange={(e) => setAddress({ ...address, zip: e.target.value })}
             name="state"
-          />
-        </MDBCol>
-      </MDBRow>
+          /> */}
+                    </MDBCol>
+                  </MDBRow>
 
-
-        <label htmlFor="phone">Phone</label>
-      <MDBInput
+                  <label htmlFor="phone">Phone :{address.phone}</label>
+                  {/* <MDBInput
         wrapperClass="mb-4"
         type="tel"
         id="form6Example6"
@@ -278,31 +280,51 @@ function CreditCard() {
         value={address.phone}
         onChange={(e) => setAddress({ ...address, phone: e.target.value })}
         name="phone"
-      />
- <MDBCol>
-        <label htmlFor="credit">Credit Card Number</label>
-          <MDBInput
-            wrapperClass="mb-4"
-            id="form6Example4"
-                     type="CC"
-            required
-            default="123-456-789"
-            value="123-456-789"
-            onChange={(e) => setAddress({ ...address, state: e.target.value })}
-            name="cc"
-          />
-        </MDBCol>
-     <Link to ="/invoice">
-      <button type="submit" className="login-button">
-     Continue
-          </button>
-          </Link>
+      /> */}
 
-      </form>
+                  <MDBRow className="mb-4">
+                    <MDBCol>
+                      <label htmlFor="credit">Credit Card Number</label>
+                      <MDBInput
+                        wrapperClass="mb-4"
+                        id="form6Example4"
+                        type="CC"
+                        required
+                        default="123-456-789"
+                        value="123-456-789"
+                        onChange={(e) =>
+                          setAddress({ ...address, state: e.target.value })
+                        }
+                        name="cc"
+                      />
+                    </MDBCol>
+
+                    <MDBCol>
+                      <label htmlFor="credit">Expiration date</label>
+                      <MDBInput
+                        wrapperClass="mb-4"
+                        id="form6Example4"
+                        type="CC"
+                        required
+                        default="11/29"
+                        value="11/29"
+                        onChange={(e) =>
+                          setAddress({ ...address, state: e.target.value })
+                        }
+                        name="cc"
+                      />
+                    </MDBCol>
+                  </MDBRow>
+                  <Link to="/invoice">
+                    <button type="submit" className="login-button">
+                      Continue
+                    </button>
+                  </Link>
+                </form>
+              </div>
+            </div>
           </div>
-    </div>
-    </div>
-    </MDBContainer>
+        </MDBContainer>
       ) : (
         <div className="confirmation-message">Payment Confirmed</div>
       )}
