@@ -76,10 +76,10 @@
   display: flex;
   justify-content: center;
 }
+
 .cardbutton {
   width: 115px;
   height: 30px;
-
   color: #00004d;
   border-radius: 40px;
   border: 1px #00004d solid;
