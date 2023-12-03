@@ -2,11 +2,11 @@
 
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
-main {
+/* main {
 
 
   min-height: 80vh;
-}
+} */
 .footerContactinfo {
   display: flex;
   gap: 20px;

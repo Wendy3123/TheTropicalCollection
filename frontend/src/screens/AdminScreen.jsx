@@ -9,7 +9,7 @@ function AdminScreen() {
       <div>Administrator Access only!!</div>
       {currentUser && currentUser.isAdmin && (
         <div className="admin-buttons">
-          <Link to="/">
+          <Link to="/products/new">
             <Button variant="link">Add Product</Button>
           </Link>
           <Link to="/products">
