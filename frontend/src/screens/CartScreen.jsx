@@ -86,15 +86,14 @@ function CartScreen() {
               ></img>
             </>
           ) : (
-            <h1>Your Cart</h1>
+            <div>
+              <h1>Your Cart</h1>
+              <button onClick={emptyCart} className="cartScreenDeleteBtn">
+                &nbsp;Empty Cart
+              </button>
+            </div>
           )}
         </div>
-        <button
-          onClick={emptyCart}
-          className="each-product-button cartdetailsupdatebutton "
-        >
-          &nbsp;Empty Cart
-        </button>
 
         <div>
           {cart?.map((item) => (
@@ -118,7 +117,7 @@ function CartScreen() {
                 className="checkoutbutton"
               >
                 <Link
-                  to={`/payment/${currentUserId}`}
+                  to={`/checkout/${currentUserId}`}
                   style={{ textDecoration: "none" }}
                 >
                   Checkout
