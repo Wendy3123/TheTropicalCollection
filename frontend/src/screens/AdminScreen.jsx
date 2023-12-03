@@ -15,9 +15,9 @@ function AdminScreen() {
           <Link to="/products">
             <Button variant="link">Edit or Delete Product</Button>
           </Link>
-          <Link to="/">
+          {/* <Link to="/">
             <Button variant="link">View Orders</Button>
-          </Link>
+          </Link> */}
         </div>
       )}
     </div>
