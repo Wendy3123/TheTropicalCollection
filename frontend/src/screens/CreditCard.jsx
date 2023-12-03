@@ -1,13 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { Button, Container } from "react-bootstrap";
+import { CurrentUser } from "../contexts/CurrentUser.js";
 import { BASE_URL } from "../App";
-
+import {
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBCheckbox,
+  MDBBtn,
+  MDBContainer
+} from "mdb-react-ui-kit";
 function CreditCard() {
   const [payment, setPayment] = useState("");
   const [paymentAmount, setPaymentAmount] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { currentUser } = useContext(CurrentUser);
+  const currentUserId = currentUser?._id;
+  const [address, setAddress] = useState({
+    name: "",
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
+    phone: "",
+    cartItems: "",
+  });
+  useEffect(() => {
+    const fetchData = async () => {
 
+
+      const response = await fetch(`${BASE_URL}/api/users/${currentUser?._id}`);
+
+      const resData = await response.json();
+      setAddress(resData);
+    };
+    fetchData();
+  }, [currentUser?._id]);
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -39,6 +70,7 @@ function CreditCard() {
     setPaymentAmount("");
   };
   return (
+    
     <div className="card-container">
       {!isSubmitted ? (
         <main>
@@ -53,14 +85,14 @@ function CreditCard() {
                   <input
                     type="text"
                     className="form-control"
-                    value=""
+                    value={address.name}
                     id=""
                     placeholder="First Name"
                     //   onChange={(e) => setpayment(e.target.value)}
                     required
                   />
                 </div>
-                <div className="input-group">
+                {/* <div className="input-group">
                   <label htmlFor="lastName" className="form-label">
                     Last Name
                   </label>
@@ -74,7 +106,7 @@ function CreditCard() {
                     //   onChange={(e) => setpayment(e.target.value)}
                     required
                   />
-                </div>
+                </div> */}
               </div>
               <div className="row">
                 <div className="">
@@ -163,7 +195,13 @@ function CreditCard() {
             <div className="submit-container">
               <Container>
                 <Button type="submit" className="submit-button" to="/">
-                  Submit Payment
+                <Link
+                  to={`/invoice`}
+                  style={{ textDecoration: "none" }}
+                >
+                    Submit Payment
+                </Link>
+               
                 </Button>
               </Container>
             </div>

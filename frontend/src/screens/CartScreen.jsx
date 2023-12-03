@@ -118,7 +118,7 @@ function CartScreen() {
                 className="checkoutbutton"
               >
                 <Link
-                  to={`/checkout/${currentUserId}`}
+                  to={`/payment/${currentUserId}`}
                   style={{ textDecoration: "none" }}
                 >
                   Checkout

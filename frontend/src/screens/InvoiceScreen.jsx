@@ -13,6 +13,7 @@ import {
   MDBTableHead,
   MDBTableBody,
 } from "mdb-react-ui-kit";
+import {Link} from "react-router-dom"
 import { CurrentUser } from "../contexts/CurrentUser";
 import logo from "../styles/logo-small.png";
 
@@ -137,7 +138,7 @@ export default function InvoiceScreen() {
                   <MDBIcon fas icon="circle" style={{ color: "#84B0CA" }} />
                   <span className="fw-bold ms-1">Status:</span>
                   <span className="badge bg-warning text-black fw-bold ms-1">
-                    Paid
+                  Paid
                   </span>
                 </li>
               </MDBTypography>
@@ -204,12 +205,15 @@ export default function InvoiceScreen() {
               <p>Thank you for your purchase</p>
             </MDBCol>
             <MDBCol xl="2">
-              {/* <MDBBtn
+              {/* <Link to= "/payment"> */}
+              <Link to= {`/payment/${currentUserId}`}>
+              <MDBBtn
                 className="text-capitalize"
                 style={{ backgroundColor: "#60bdf3" }}
               >
                 Pay Now
-              </MDBBtn> */}
+              </MDBBtn> 
+              </Link>
             </MDBCol>
           </MDBRow>
         </MDBCardBody>
