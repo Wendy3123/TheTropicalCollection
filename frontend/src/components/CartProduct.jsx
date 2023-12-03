@@ -93,12 +93,12 @@ function CartProduct({ item, setCartChanges, cartChanges }) {
           >
             &nbsp;Update Cart
           </button>
-          <button
+          <h5
             onClick={removeFromCart}
-            className="each-product-button cartdetailsupdatebutton "
+            className="cartComponentDeleteItem cartComponentDeleteItemdiv"
           >
             &nbsp;Delete Item
-          </button>
+          </h5>
         </div>
         <hr className="carthr"></hr>
       </div>
