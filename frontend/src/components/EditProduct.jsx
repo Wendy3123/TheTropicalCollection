@@ -17,13 +17,12 @@ function EditProduct() {
   });
 
   useEffect(() => {
-  
     const fetchData = async () => {
       const response = await fetch(`${BASE_URL}/api/products/${productId}`);
       const resData = await response.json();
       setProduct(resData);
     };
-    fetchData()
+    fetchData();
     console.log(`product is ${product}`);
   }, [productId]);
 
@@ -46,10 +45,12 @@ function EditProduct() {
       <form onSubmit={handleSubmit}>
         <div>
           <Container>
-            <Image variant="img-thumbnail"
+            <Image
+              variant="img-thumbnail"
               className="product-image"
-              height='200px'
-              width="200px"             src={product?.image}
+              height="200px"
+              width="200px"
+              src={product?.image}
               alt={product?.name}
             ></Image>
           </Container>
@@ -109,7 +110,9 @@ function EditProduct() {
             <label htmlFor="total-cost">Price</label>
             <input
               value={product?.price}
-              onChange={(e) => setProduct({ ...product, price: e.target.value })}
+              onChange={(e) =>
+                setProduct({ ...product, price: e.target.value })
+              }
               className="form-control"
               id="price"
               name="price"
@@ -118,16 +121,15 @@ function EditProduct() {
           </div>
         </div>
         <div>
-
           <Container>
-     
+    
               <Button variant="link" type="submit" className="submit-button">
 
                 Submit
               </Button>
       
+
           </Container>
-         
         </div>
       </form>
     </main>
