@@ -53,7 +53,7 @@ router.put("/:id", (req, res) => {
 
 // Delete Product
 router.delete("/:id", (req, res) => {
-  db.Product.findByIdAndDelete(req.params.id)
+ Product.findByIdAndDelete(req.params.id)
     .then(() => {
       res.json(" deleted");
     })

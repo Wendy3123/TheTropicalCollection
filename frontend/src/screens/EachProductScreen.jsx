@@ -40,6 +40,22 @@ function EachProductScreen() {
     navigate("/products");
   }
 
+  async function handleDelete(e) {
+    e.preventDefault();
+    const confirmed = window.confirm(
+      `Are you sure you want ${product.name} to be deleted?`
+    );
+
+    if (confirmed) {
+      
+      await fetch(`${BASE_URL}/api/products/${productId}`,
+       {
+        method: "DELETE",
+      });
+      navigate("/products");
+    }
+  }
+
   const minusQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
@@ -102,7 +118,7 @@ function EachProductScreen() {
                 </Link>
 
                 <Link to="/">
-                  <Button variant="link" className="adminButtonright">
+                  <Button  onClick={handleDelete} variant="link" className="adminButtonright">
                     Delete
                   </Button>
                 </Link>
