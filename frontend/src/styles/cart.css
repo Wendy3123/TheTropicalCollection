@@ -43,9 +43,7 @@
 .cartoutterbox {
   width: 50%;
   height: 85%;
-
   border-radius: 20px;
-
   display: flex;
   flex-wrap: wrap;
 }
@@ -92,5 +90,24 @@
   }
   .cartDiv {
     margin-left: 8vw;
+  }
+  .cartoutterbox {
+    width: 60%;
+    height: 85%;
+    border-radius: 20px;
+    display: block;
+  }
+  .cartdetailsname,
+  .cartdetailsprice,
+  .cartdetailsquantity,
+  .cartdetailsupdatebutton,
+  .cartdetailsaddminusbutton {
+    margin-left: 0vw;
+  }
+  .cartComponentDeleteItemdiv {
+    margin-left: 0vw;
+  }
+  .cartbody {
+    margin: 0 22vw;
   }
 }
