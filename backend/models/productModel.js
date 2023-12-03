@@ -13,7 +13,8 @@ const productSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      required: true,
+      // required: true,
+      default:"https://www.healthyeating.org/images/default-source/home-0.0/nutrition-topics-2.0/general-nutrition-wellness/2-2-2-3foodgroups_fruits_detailfeature.jpg?sfvrsn=64942d53_4"
     },
     category: {
       type: String,

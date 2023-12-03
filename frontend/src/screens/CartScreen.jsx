@@ -28,20 +28,20 @@ function CartScreen() {
       });
   }, [cartChanges]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const res = await fetch(
-  //         `http://localhost:5001/api/users/${currentUserId}`
-  //       );
-  //       const resData = await res.json();
-  //       setUserInfo(resData);
-  //     } catch (error) {
-  //       console.error("Error:", error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, [currentUserId]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          `http://localhost:5001/api/users/${currentUserId}`
+        );
+        const resData = await res.json();
+        setUserInfo(resData);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+    fetchData();
+  }, [currentUserId]);
 
   //sum up the cart
   let sumCart = cart?.reduce((tot, c) => {
@@ -86,15 +86,14 @@ function CartScreen() {
               ></img>
             </>
           ) : (
-            <h1>Your Cart</h1>
+            <div>
+              <h1>Your Cart</h1>
+              <button onClick={emptyCart} className="cartScreenDeleteBtn">
+                &nbsp;Empty Cart
+              </button>
+            </div>
           )}
         </div>
-        <button
-          onClick={emptyCart}
-          className="each-product-button cartdetailsupdatebutton "
-        >
-          &nbsp;Empty Cart
-        </button>
 
         <div>
           {cart?.map((item) => (

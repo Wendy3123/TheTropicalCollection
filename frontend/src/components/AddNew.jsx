@@ -17,7 +17,7 @@ function AddNew() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    await fetch(`${BASE_URL}/products`, {
+    await fetch(`${BASE_URL}/api/products`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -81,9 +81,12 @@ function AddNew() {
                 id="price"
                 name="price"
               />
+
               <div className="add-form">
                 <Container>
                   <Button ClassName="submit-button"> Submit</Button>
+
+   
                 </Container>
               </div>
             </div>

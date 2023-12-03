@@ -19,7 +19,7 @@ import InvoiceScreen from "./screens/InvoiceScreen.jsx";
 import "./styles/bootstrap.custom.css";
 import "./styles/index.css";
 import "./styles/cards.css";
-import "./styles/addnew.css";
+// import "./styles/addnew.css";
 import "./styles/admin.css";
 import "./styles/cart.css";
 import "./styles/edit.css";
@@ -46,7 +46,7 @@ function App() {
             <Route path="/admin" element={<AdminScreen />} />
             <Route path="/products/new" element={<AddNew />} />
             <Route path="/checkout/:id" element={<CheckoutAddress />} />
-            <Route path="/products/edit" element={<EditProduct />} />
+            <Route path="/products/edit/:id" element={<EditProduct />} />
             <Route path="*" element={<ErrorScreen />}></Route>
             <Route path="/payment" element={<CreditCard />} />
             <Route path="/invoice" element={<InvoiceScreen />} />

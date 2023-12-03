@@ -6,7 +6,7 @@ import { Image, Button, Container } from "react-bootstrap";
 import { BASE_URL } from "../App";
 function EditProduct() {
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { id: productId } = useParams();
 
   const [product, setProduct] = useState({
     name: "",
@@ -17,18 +17,20 @@ function EditProduct() {
   });
 
   useEffect(() => {
+  
     const fetchData = async () => {
-      const response = await fetch(`${BASE_URL}/products/${id}`);
+      const response = await fetch(`${BASE_URL}/api/products/${productId}`);
       const resData = await response.json();
       setProduct(resData);
     };
-    fetchData();
-  }, [id]);
+    fetchData()
+    console.log(`product is ${product}`);
+  }, [productId]);
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    await fetch(`${BASE_URL}/products/${id}`, {
+    await fetch(`${BASE_URL}/api/products/${productId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +38,7 @@ function EditProduct() {
       body: JSON.stringify(product),
     });
 
-    navigate(`/edit/${id}`);
+    navigate(`/products/${productId}`);
   }
   return (
     <main>
@@ -44,10 +46,11 @@ function EditProduct() {
       <form onSubmit={handleSubmit}>
         <div>
           <Container>
-            <Image
+            <Image variant="img-thumbnail"
               className="product-image"
-              src={product.image}
-              alt={product.name}
+              height='200px'
+              width="200px"             src={product?.image}
+              alt={product?.name}
             ></Image>
           </Container>
         </div>
@@ -56,7 +59,7 @@ function EditProduct() {
             <label htmlFor="name">Product Name</label>
             <input
               required
-              value={product.name}
+              value={product?.name}
               onChange={(e) => setProduct({ ...product, name: e.target.value })}
               className="form-control"
               id="name"
@@ -67,9 +70,9 @@ function EditProduct() {
           <div className="edit-form">
             <label htmlFor="prod-category">Product Category</label>
             <input
-              value={product.category}
+              value={product?.category}
               onChange={(e) =>
-                setProduct({ ...product, moreInfo: e.target.value })
+                setProduct({ ...product, category: e.target.value })
               }
               className="form-control"
               id="category"
@@ -80,7 +83,7 @@ function EditProduct() {
           <div className="edit-form">
             <label htmlFor="prod-decription"> Product Description</label>
             <input
-              value={product.description}
+              value={product?.description}
               onChange={(e) =>
                 setProduct({ ...product, description: e.target.value })
               }
@@ -93,8 +96,8 @@ function EditProduct() {
           <div className="edit-form">
             <label htmlFor="total-cost">Price</label>
             <input
-              value={product.price}
-              onChange={(e) => setProduct({ ...product, food: e.target.value })}
+              value={product?.price}
+              onChange={(e) => setProduct({ ...product, price: e.target.value })}
               className="form-control"
               id="price"
               name="price"
@@ -103,13 +106,15 @@ function EditProduct() {
           </div>
         </div>
         <div>
+
           <Container>
             <Link to="/products" method="POST">
               <Button variant="link" className="submit-button">
+
                 Submit
               </Button>
-            </Link>
           </Container>
+         
         </div>
       </form>
     </main>
