@@ -207,12 +207,12 @@ export default function InvoiceScreen() {
             <MDBCol xl="2">
               {/* <Link to= "/payment"> */}
               <Link to= {`/payment/${currentUserId}`}>
-              <MDBBtn
+              {/* <MDBBtn
                 className="text-capitalize"
                 style={{ backgroundColor: "#60bdf3" }}
               >
                 Pay Now
-              </MDBBtn> 
+              </MDBBtn>  */}
               </Link>
             </MDBCol>
           </MDBRow>
