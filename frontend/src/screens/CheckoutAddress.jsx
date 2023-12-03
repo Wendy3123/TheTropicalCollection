@@ -54,7 +54,7 @@ function CheckoutAddress() {
 
 
     // create confirmation page
-    navigate(`/invoice`);
+    navigate(`/payment`);
   }
   return (
     // <div className="login-top-container">
@@ -154,9 +154,7 @@ function CheckoutAddress() {
             onChange={(e) => setAddress({ ...address, name: e.target.value })}
           />
         </MDBCol>
-        {/* <MDBCol>
-          <MDBInput id='form6Example2' label='Last name' />
-        </MDBCol> */}
+      
       </MDBRow>
       <label htmlFor="address">Address</label>
       <MDBInput
@@ -211,14 +209,7 @@ function CheckoutAddress() {
         </MDBCol>
       </MDBRow>
 
-      {/* <MDBInput wrapperClass="mb-4" id="form6Example4"
-       label="Address" />
-      <MDBInput
-        wrapperClass="mb-4"
-        type="email"
-        id="form6Example5"
-        label="Email"
-      /> */}
+
         <label htmlFor="phone">Phone</label>
       <MDBInput
         wrapperClass="mb-4"
