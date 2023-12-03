@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Image } from "react-bootstrap";
 import { CurrentUser } from "../contexts/CurrentUser.js";
+import { BASE_URL } from "../App.js";
 
 function EachProductScreen() {
   const [product, setProduct] = useState({});
@@ -14,9 +15,7 @@ function EachProductScreen() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(
-        `http://localhost:5001/api/products/${productId}`
-      );
+      const res = await fetch(`${BASE_URL}/api/products/${productId}`);
       const resData = await res.json();
       setProduct(resData);
     };
@@ -43,17 +42,14 @@ function EachProductScreen() {
       quantity: parseInt(prev.quantity),
     }));
     console.log(cartItem);
-    await fetch(
-      `http://localhost:5001/api/users/${currentUserId}/cart/${productId}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+    await fetch(`${BASE_URL}/api/users/${currentUserId}/cart/${productId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
 
-        body: JSON.stringify(cartItem),
-      }
-    );
+      body: JSON.stringify(cartItem),
+    });
   }
 
   return (

@@ -99,4 +99,46 @@ cartRouter.put("/edit", authorize, async (req, res) => {
   }
 });
 
+cartRouter.delete("/:id", authorize, async (req, res) => {
+  try {
+    if (req.user === undefined || req.user === null) {
+      res
+        .status(403)
+        .json({ errorInfo: "You are not authorized, please login." });
+      return;
+    }
+    await User.findByIdAndUpdate(req.user._id, {
+      //pull removes the item from cartItems that matches the id from params
+      $pull: {
+        cartItems: { _id: req.params.id },
+      },
+    });
+    res.json({ message: "Item successfully deleted" });
+  } catch (error) {
+    console.log(error.messsage);
+    res.send(404).json({ errorInfo: error.message });
+  }
+});
+
+cartRouter.delete("/", authorize, async (req, res) => {
+  try {
+    if (req.user === undefined || req.user === null) {
+      res
+        .status(403)
+        .json({ errorInfo: "You are not authorized, please login." });
+      return;
+    }
+    await User.findByIdAndUpdate(req.user._id, {
+      // set cartItems should be empty
+      $set: {
+        cartItems: [],
+      },
+    });
+    res.json({ message: "Cart is empty" });
+  } catch (error) {
+    console.log(error.messsage);
+    res.send(404).json({ errorInfo: error.message });
+  }
+});
+
 export default cartRouter;

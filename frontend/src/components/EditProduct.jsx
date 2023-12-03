@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { Image, Button, Container } from "react-bootstrap";
-
+import { BASE_URL } from "../App";
 function EditProduct() {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -18,7 +18,7 @@ function EditProduct() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:5001/products/${id}`);
+      const response = await fetch(`${BASE_URL}/products/${id}`);
       const resData = await response.json();
       setProduct(resData);
     };
@@ -28,7 +28,7 @@ function EditProduct() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    await fetch(`http://localhost:5001/products/${id}`, {
+    await fetch(`${BASE_URL}/products/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -40,19 +40,18 @@ function EditProduct() {
   }
   return (
     <main>
-      
       <h1>Edit Product</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <Container>
             <Image
-              className="each-product-image"
+              className="product-image"
               src={product.image}
               alt={product.name}
             ></Image>
           </Container>
         </div>
-        <div className="form-container">
+        <div className="main-form-container">
           <div className="form">
             <label htmlFor="name">Product Name</label>
             <input
@@ -105,8 +104,10 @@ function EditProduct() {
         </div>
         <div>
           <Container>
-            <Link to="/products_id" method= "POST">
-              <Button variant="link">Submit</Button>
+            <Link to="/products" method="POST">
+              <Button variant="link" className="submit">
+                Submit
+              </Button>
             </Link>
           </Container>
         </div>

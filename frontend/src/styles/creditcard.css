@@ -1,11 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
 
-.card-container {
-  background-color: #925e0b;
+main {
+  max-height: fit-content;
+  max-width:fit-content;
+}
+
+
+form {
+  color: #6b6a6a;
+  box-shadow: 5px 10px 5px #6b6a6a;
   padding: 20px 40px;
   margin: 100px;
-  border-radius: 15px;
+  border-radius: 20px;
 }
 
 .first-last {
   display: flex;
-} 
+}

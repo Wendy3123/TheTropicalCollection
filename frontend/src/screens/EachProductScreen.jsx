@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Image, Container, Button } from "react-bootstrap";
 import { CurrentUser } from "../contexts/CurrentUser.js";
+import { BASE_URL } from "../App.js";
 
 function EachProductScreen() {
   const navigate = useNavigate();
@@ -17,9 +18,7 @@ function EachProductScreen() {
   //make a fetch request to users collection and then grab products from cart property
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(
-        `http://localhost:5001/api/products/${productId}`
-      );
+      const res = await fetch(`${BASE_URL}/api/products/${productId}`);
       const resData = await res.json();
       setProduct(resData);
     };
@@ -29,7 +28,7 @@ function EachProductScreen() {
   async function handleAddToCart(e) {
     e.preventDefault();
     const token = localStorage.getItem("token");
-    await fetch(`http://localhost:5001/api/cart`, {
+    await fetch(`${BASE_URL}/api/cart`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -95,7 +94,7 @@ function EachProductScreen() {
           {currentUser && currentUser.isAdmin && (
             <div className="admin-buttons">
               <Container>
-                <Link to="/">
+                <Link to="/products/edit">
                   <Button variant="link" className="adminButtonleft">
                     Edit Product
                   </Button>

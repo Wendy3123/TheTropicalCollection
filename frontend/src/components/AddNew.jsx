@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Image, Container } from "react-bootstrap";
+import { BASE_URL } from "../App";
 function AddNew() {
   const navigate = useNavigate();
 
@@ -16,7 +17,7 @@ function AddNew() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    await fetch(`http://localhost:5001/products`, {
+    await fetch(`${BASE_URL}/products`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

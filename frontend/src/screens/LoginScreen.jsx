@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import { CurrentUser } from "../contexts/CurrentUser.js";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../App.js";
 import "../styles/login.css";
 
 function LoginScreen() {
@@ -20,16 +21,13 @@ function LoginScreen() {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        `http://localhost:5001/api/authentication/`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(credentials),
-        }
-      );
+      const response = await fetch(`${BASE_URL}/api/authentication/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+      });
 
       const data = await response.json();
       console.log("Login", data);

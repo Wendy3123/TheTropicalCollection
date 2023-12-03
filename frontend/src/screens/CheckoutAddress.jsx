@@ -11,6 +11,7 @@ import {
   MDBContainer
 } from "mdb-react-ui-kit";
 import { CurrentUser } from "../contexts/CurrentUser.js";
+import { BASE_URL } from "../App.js";
 function CheckoutAddress() {
   const navigate = useNavigate();
 
@@ -28,9 +29,10 @@ function CheckoutAddress() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        `${process.env.REACT_APP_SERVER_URL}users/${currentUser?._id}`
-      );
+
+
+      const response = await fetch(`${BASE_URL}/api/users/${currentUser?._id}`);
+
       const resData = await response.json();
       setAddress(resData);
     };
@@ -40,16 +42,16 @@ function CheckoutAddress() {
   async function handleSubmit(e) {
     e.preventDefault();
     setAddress({ ...address, cartItems: currentUser.cartItems });
-    await fetch(
-      `${process.env.REACT_APP_SERVER_URL}users/${currentUser?._id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(address),
-      }
-    );
+
+
+    await fetch(`${BASE_URL}/api/users/${currentUser?._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(address),
+    });
+
 
     // create confirmation page
     navigate(`/invoice`);
@@ -228,21 +230,10 @@ function CheckoutAddress() {
         onChange={(e) => setAddress({ ...address, phone: e.target.value })}
         name="phone"
       />
-      {/* <MDBInput
-        wrapperClass="mb-4"
-        textarea
-        id="form6Example7"
-        rows={4}
-        label="Additional information"
-      /> */}
-      {/* <MDBCheckbox
-        wrapperClass="d-flex justify-content-center mb-4"
-        id="form6Example8"
-        label="Create an account?"
-        defaultChecked
-      /> */}
+ 
       <button type="submit" className="login-button">
      Continue
+
           </button>
     </form>
     </div>

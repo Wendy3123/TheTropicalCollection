@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import Product from "../components/Product";
 import { CurrentUser } from "../contexts/CurrentUser.js";
+import { BASE_URL } from "../App.js";
 
 function ProductScreen() {
   const [products, setProducts] = useState([]);
@@ -10,7 +11,7 @@ function ProductScreen() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`http://localhost:5001/api/products/`);
+      const res = await fetch(`${BASE_URL}/api/products/`);
       const resData = await res.json();
       setProducts(resData);
     };
@@ -24,7 +25,7 @@ function ProductScreen() {
       return;
     }
 
-    fetch("http://localhost:5001/api/cart", {
+    fetch(`${BASE_URL}/api/cart`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",

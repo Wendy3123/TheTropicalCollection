@@ -24,19 +24,18 @@ userRouter.post("/", async (req, res) => {
   });
   res.json(user);
 });
-//get user 
+//get user
 userRouter.get("/:id", (req, res) => {
   User.findById(req.params.id)
-  .populate({
-    path: 'cartItems.product',
-    model: 'Product',
-  })
-  .populate({
-    path: 'orderItems.product',
-    model: 'Product',
-  })
+    .populate({
+      path: "cartItems.product",
+      model: "Product",
+    })
+    .populate({
+      path: "orderItems.product",
+      model: "Product",
+    })
     .then((user) => {
-    ;
       res.json(user);
     })
     .catch((err) => {
@@ -48,11 +47,11 @@ userRouter.get("/:id", (req, res) => {
 // add to cart- update quantity
 userRouter.post("/:id/cart/:productId", async (req, res) => {
   try {
-    const user = await User.findById(req.params.id).populate("cartItems")
+    const user = await User.findById(req.params.id).populate("cartItems");
     const product = await Product.findById(req.params.productId);
-    
-    const updatedQuantity=req.body.quantity
-       
+
+    const updatedQuantity = req.body.quantity;
+
     const existingCartItem = user.cartItems.find(
       (item) => item.product.toString() === product._id.toString()
     );
@@ -60,15 +59,14 @@ userRouter.post("/:id/cart/:productId", async (req, res) => {
     if (existingCartItem) {
       existingCartItem.quantity = updatedQuantity;
     } else {
-    
-       user.cartItems.push({
+      user.cartItems.push({
         product: req.params.productId,
         quantity: updatedQuantity,
       });
     }
- 
+
     await user.save();
-  
+
     res.json(user.cartItems);
   } catch (err) {
     console.log("err", err);
@@ -78,8 +76,10 @@ userRouter.post("/:id/cart/:productId", async (req, res) => {
 //checkout
 userRouter.put("/:id", async (req, res) => {
   try {
-   //address
-    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    //address
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
 
     let updateObject = {};
 
@@ -87,7 +87,7 @@ userRouter.put("/:id", async (req, res) => {
     if (updatedUser.orderItems.length > 0) {
       updateObject = {
         $push: { oldOrders: { $each: updatedUser.orderItems } },
-        $set: { orderItems: [] }, 
+        $set: { orderItems: [] },
       };
 
       const updatedUserWithOldOrders = await User.findByIdAndUpdate(
@@ -95,18 +95,17 @@ userRouter.put("/:id", async (req, res) => {
         updateObject,
         { new: true }
       );
-
     }
 
-   // empty  cart to orders
-    const cartItems = updatedUser.cartItems.map(item => ({
+    // empty  cart to orders
+    const cartItems = updatedUser.cartItems.map((item) => ({
       product: item.product,
       quantity: item.quantity,
     }));
 
     updateObject = {
       $push: { orderItems: { $each: cartItems } },
-      $set: { cartItems: [] }, 
+      $set: { cartItems: [] },
     };
 
     const updatedUserWithOrders = await User.findByIdAndUpdate(
@@ -127,7 +126,5 @@ userRouter.put("/:id", async (req, res) => {
 // create an ednpoint that grabs the users cart using the userID (you will getback the product ID and
 //  and quantity from their you will use the product ID to get the specific product from the product collectioni
 //  **alternatively you can do this all at once with the use of mongoose schema references/relationships)
-
-
 
 export default userRouter;
