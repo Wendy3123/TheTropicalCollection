@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
 main {
+
 
   min-height: 80vh;
 }
@@ -15,6 +19,25 @@ main {
 
 .footer {
   text-align: center;
+}
+
+.checkout{
+  background-color: #925e0b;
+  color:white;
+  font-family: 'Muli', sans-serif;
+  
+}
+.checkout-button{
+  cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    background: #e2af5c;
+    padding: 15px;
+    font-family: inherit;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+    
 }
 
 .backgroundimage {
