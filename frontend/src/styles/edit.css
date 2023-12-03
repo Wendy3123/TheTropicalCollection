@@ -18,12 +18,13 @@ form-main-container {
 h1 {
   padding: 50px;
 }
-.form {
+.edit-form {
+  color: white;
   background-color: #925e0b;
   padding: 10px 20px;
   border-radius: 5px;
 }
-.submit {
+.submit-button {
   color: inherit;
   font-family: inherit;
 

@@ -41,13 +41,13 @@ function CreditCard() {
   return (
     <div className="card-container">
       {!isSubmitted ? (
-        <main>
+        <main className= 'main'>
           <h1>Payment Information</h1>
           <form onSubmit={handleSubmit}>
             <div className="row">
-              <div className="first-last">
+              <div className="first-name">
                 <div className="input-group">
-                  <label htmlFor="firstName" className="form-label">
+                  <label htmlFor="firstName" className="first-label">
                     first Name
                   </label>
                   <input
@@ -60,8 +60,8 @@ function CreditCard() {
                     required
                   />
                 </div>
-                <div className="input-group">
-                  <label htmlFor="lastName" className="form-label">
+                <div className="last-name">
+                  <label htmlFor="lastName" className="last-label">
                     Last Name
                   </label>
                   <input
@@ -146,7 +146,7 @@ function CreditCard() {
                   />
                 </div>
               </div>
-              <div className="">
+              <div className="card-form">
                 <div className="">
                   <label htmlFor="zip" className="">
                     Zip Code
@@ -160,7 +160,7 @@ function CreditCard() {
                 </div>
               </div>
             </div>
-            <div className="submit-container">
+            <div className="card-form">
               <Container>
                 <Button type="submit" className="submit-button" to="/">
                   Submit Payment

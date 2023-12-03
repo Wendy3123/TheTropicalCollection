@@ -52,7 +52,7 @@ function EditProduct() {
           </Container>
         </div>
         <div className="main-form-container">
-          <div className="form">
+          <div className="edit-form">
             <label htmlFor="name">Product Name</label>
             <input
               required
@@ -64,7 +64,7 @@ function EditProduct() {
             />
           </div>
 
-          <div className="form">
+          <div className="edit-form">
             <label htmlFor="prod-category">Product Category</label>
             <input
               value={product.category}
@@ -77,7 +77,7 @@ function EditProduct() {
             />
           </div>
 
-          <div className="form">
+          <div className="edit-form">
             <label htmlFor="prod-decription"> Product Description</label>
             <input
               value={product.description}
@@ -90,7 +90,7 @@ function EditProduct() {
               placeholder=""
             />
           </div>
-          <div className="form">
+          <div className="edit-form">
             <label htmlFor="total-cost">Price</label>
             <input
               value={product.price}
@@ -105,7 +105,7 @@ function EditProduct() {
         <div>
           <Container>
             <Link to="/products" method="POST">
-              <Button variant="link" className="submit">
+              <Button variant="link" className="submit-button">
                 Submit
               </Button>
             </Link>

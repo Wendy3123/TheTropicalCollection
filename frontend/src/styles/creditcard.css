@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
 
-main {
+.main {
   max-height: fit-content;
   max-width:fit-content;
 }
 
 
-form {
+card-form {
   color: #6b6a6a;
   box-shadow: 5px 10px 5px #6b6a6a;
   padding: 20px 40px;

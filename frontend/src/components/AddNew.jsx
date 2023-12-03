@@ -27,11 +27,11 @@ function AddNew() {
     navigate("/products");
   }
   return (
-    <main className="form-main-container">
-      <div className="form-container">
+    <main className="add-form-container">
+      <div className="add-prod-container">
         <h1>Add New Product</h1>
         <form onSubmit={handleSubmit}>
-          <div className="add-product">
+          <div className="add-form">
             <label htmlFor="name">Product Name</label>
             <input
               required
@@ -41,7 +41,7 @@ function AddNew() {
               id="name"
               name="name"
             />
-            <div className="form">
+            <div className="add-form">
               <label htmlFor="product-category">Choose Product Category</label>
               <select
                 required
@@ -66,7 +66,7 @@ function AddNew() {
                 onChange={(e) =>
                   setProduct({ ...product, description: e.target.value })
                 }
-                className="form"
+                className="add"
                 id="description"
                 name="description"
               />
@@ -81,9 +81,9 @@ function AddNew() {
                 id="price"
                 name="price"
               />
-              <div>
+              <div className="add-form">
                 <Container>
-                  <Button ClassName="submit"> Submit</Button>
+                  <Button ClassName="submit-button"> Submit</Button>
                 </Container>
               </div>
             </div>
